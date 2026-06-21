@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Eshaan Dua — Brand Strategist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FDF9F4;--white:#fff;--ink:#1A1208;--border:#EDE8DF;--muted:#8A8070;--orange:#FF6B35}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:Inter,sans-serif;overflow-x:hidden;cursor:none}
+#cur{position:fixed;z-index:9999;pointer-events:none;width:10px;height:10px;background:var(--ink);border-radius:50%;transform:translate(-50%,-50%);transition:opacity .2s}
+#curR{position:fixed;z-index:9998;pointer-events:none;width:38px;height:38px;border:1.5px solid rgba(26,18,8,.2);border-radius:50%;transform:translate(-50%,-50%);transition:all .22s ease}
+body.ch #cur{opacity:.3}
+body.ch #curR{transform:translate(-50%,-50%) scale(2.2);opacity:.12}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;border-bottom:1px solid transparent;transition:all .35s;background:transparent}
+nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bottom-color:var(--border)}
+.nlogo{font-family:Syne,sans-serif;font-weight:800;font-size:1rem;letter-spacing:-.02em;cursor:pointer;display:flex;align-items:center;gap:6px}
+.ndot{width:8px;height:8px;border-radius:50%;background:var(--orange);display:inline-block}
+.nlinks{display:flex;gap:28px;list-style:none}
+.nlinks a{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .2s;cursor:pointer;text-decoration:none}
+.nlinks a:hover{color:var(--ink)}
+.pg{display:none}.pg.on{display:block}
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;align-items:center;padding:80px 52px 60px;position:relative;overflow:hidden;background:linear-gradient(145deg,#FFF8F0 0%,#FFE8D6 40%,#FDF9F4 100%)}
+.hero-grain{position:absolute;inset:0;opacity:.035;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-left{position:relative;z-index:2;padding-right:40px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(26,18,8,.5);margin-bottom:24px}
+.hpulse{width:7px;height:7px;background:var(--orange);border-radius:50%;animation:pulse 2s infinite;display:inline-block;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero-name{font-family:Fraunces,serif;font-size:clamp(64px,9.5vw,130px);font-weight:900;line-height:.88;letter-spacing:-.04em;color:var(--ink);margin-bottom:24px}
+.hero-name em{font-style:italic;color:var(--orange)}
+.hero-tag{font-size:1.05rem;color:rgba(26,18,8,.58);line-height:1.78;max-width:460px;font-weight:300;margin-bottom:40px;font-style:italic}
+.hero-tag strong{color:var(--ink);font-weight:600;font-style:normal}
+.hero-acts{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.btn-fill{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;background:var(--ink);color:#fff;font-family:Syne,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border:none;cursor:pointer;transition:transform .2s,opacity .2s}
+.btn-fill:hover{transform:translateY(-3px);opacity:.86}
+.btn-line{display:inline-flex;align-items:center;gap:9px;padding:13px 28px;border:1.5px solid rgba(26,18,8,.22);background:transparent;color:var(--ink);font-family:Syne,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:border-color .2s}
+.btn-line:hover{border-color:var(--ink)}
+.hero-stats{display:flex;gap:32px}
+.hst-val{font-family:Fraunces,serif;font-size:2rem;font-weight:900;letter-spacing:-.04em;color:var(--ink)}
+.hst-val em{font-style:italic;color:var(--orange)}
+.hst-lbl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+/* HERO RIGHT — abstract identity board */
+.hero-right{position:relative;z-index:2;height:560px}
+.hboard{position:relative;width:100%;height:100%}
+.hb-ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.hb-r1{width:380px;height:380px;border:1px solid rgba(255,107,53,.12)}
+.hb-r2{width:268px;height:268px;border:1px solid rgba(255,107,53,.22)}
+.hb-r3{width:156px;height:156px;border:1px solid rgba(255,107,53,.38);background:rgba(255,107,53,.05)}
+.hb-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;width:200px}
+.hb-initials{font-family:Fraunces,serif;font-size:4.5rem;font-weight:900;font-style:italic;color:var(--ink);line-height:1}
+.hb-role{font-family:Syne,sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.hb-tag{position:absolute;font-family:Syne,sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 13px;background:#fff;border:1px solid var(--border);color:var(--muted);box-shadow:0 4px 16px rgba(26,18,8,.07);white-space:nowrap}
+.hb-dot{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.hero-scroll{position:absolute;bottom:32px;left:52px;display:flex;align-items:center;gap:12px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(26,18,8,.35)}
+.scroll-dash{width:40px;height:1px;background:rgba(26,18,8,.2)}
+/* TICKER */
+.tband{background:var(--ink);padding:13px 0;overflow:hidden}
+.ttrack{display:flex;width:max-content;animation:tk 28s linear infinite}
+@keyframes tk{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.titem{display:flex;align-items:center;gap:36px;padding:0 36px;font-family:Syne,sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(253,249,244,.3);white-space:nowrap}
+.tdot{width:4px;height:4px;border-radius:50%;background:var(--orange);flex-shrink:0}
+/* SECTIONS */
+.sec{padding:88px 52px;border-top:1px solid var(--border)}
+.ey{font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.ey::before{content:"";width:18px;height:1px;background:currentColor}
+.sh{font-family:Fraunces,serif;font-size:clamp(32px,4.5vw,58px);font-weight:900;letter-spacing:-.04em;line-height:.95;color:var(--ink);margin-bottom:14px}
+.sh em{font-style:italic;color:var(--orange)}
+/* APPROACH — D.U.A. Framework */
+#ap-sec{background:#fff}
+.dua-intro{max-width:620px;font-size:.95rem;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:52px}
+.dua-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--border)}
+.dua-card{padding:36px 26px;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background .25s;cursor:default}
+.dua-card:last-child{border-right:none}
+.dua-card:hover{background:#FAFAF8}
+.dua-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .38s}
+.dua-card:hover::after{transform:scaleX(1)}
+.dua-letter{font-family:Fraunces,serif;font-size:5rem;font-style:italic;font-weight:900;color:rgba(255,107,53,.12);line-height:1;margin-bottom:4px}
+.dua-word{font-family:Syne,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.dua-t{font-family:Syne,sans-serif;font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.dua-b{font-size:.82rem;color:var(--muted);line-height:1.72;font-weight:300}
+/* BRANDS */
+#br-sec{background:var(--cream)}
+.br-hdr{padding:72px 0 48px}
+.br-tagline{font-size:1.05rem;color:var(--muted);max-width:600px;line-height:1.8;font-weight:300;margin-top:14px;font-style:italic}
+.btabs{display:flex;width:fit-content;border:1.5px solid var(--border);margin-bottom:44px}
+.btab{padding:10px 22px;font-family:Syne,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:transparent;border:none;border-right:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s}
+.btab:last-child{border-right:none}
+.btab.on{background:var(--ink);color:#fff}
+.btab:not(.on):hover{color:var(--ink)}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--border)}
+.bc{border-right:1px solid var(--border);border-bottom:1px solid var(--border);cursor:pointer;overflow:hidden;position:relative;transition:transform .3s,box-shadow .3s;display:none}
+.bc.show{display:block}
+.bc:hover{transform:translateY(-4px);z-index:2;box-shadow:0 16px 44px rgba(26,18,8,.12)}
+.bc-vis{height:216px;position:relative;overflow:hidden}
+.bc-vis svg{position:absolute;inset:0;width:100%;height:100%}
+.bc-ov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);opacity:0;transition:opacity .3s;font-family:Syne,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.bc:hover .bc-ov{opacity:1}
+.bc-body{padding:20px 20px 16px}
+.bc-co{font-family:Syne,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.bc-title{font-family:Syne,sans-serif;font-size:.9rem;font-weight:800;line-height:1.22;letter-spacing:-.02em;color:var(--ink);margin-bottom:6px}
+.bc-hook{font-size:.78rem;color:var(--muted);line-height:1.6;font-weight:300}
+.bc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+.bc-type{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.bc-arr{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.8rem;border:1px solid var(--border);transition:all .2s}
+/* HOME ABOUT + CONTACT */
+#h-about{padding:96px 52px;background:var(--ink);color:#fff;border-top:none}
+#h-contact{padding:96px 52px;background:var(--orange);border-top:none}
+.sfooter{background:var(--ink);padding:22px 52px;display:flex;justify-content:space-between;align-items:center;font-size:.65rem;letter-spacing:.06em;color:rgba(253,249,244,.28);font-family:Syne,sans-serif}
+/* BRAND PAGE */
+#brand-pg{display:none}
+.bp-hero{min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 56px 56px;position:relative;overflow:hidden}
+.bp-back{position:absolute;top:74px;left:56px;z-index:10;display:inline-flex;align-items:center;gap:8px;font-family:Syne,sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:none;background:rgba(0,0,0,.3);color:rgba(255,255,255,.65);padding:8px 16px;cursor:pointer;backdrop-filter:blur(8px);transition:all .2s}
+.bp-back:hover{background:rgba(0,0,0,.65);color:#fff}
+.bp-badge{display:inline-flex;align-items:center;font-family:Syne,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);margin-bottom:16px;width:fit-content}
+.bp-name{font-family:Fraunces,serif;font-size:clamp(56px,10vw,140px);font-weight:900;letter-spacing:-.04em;line-height:.88;color:#fff;margin-bottom:18px}
+.bp-sub{font-size:clamp(14px,1.6vw,19px);color:rgba(255,255,255,.6);max-width:640px;line-height:1.72;font-weight:300;margin-bottom:36px}
+.bp-metas{display:flex;gap:32px;flex-wrap:wrap}
+.bp-meta{border-left:2px solid rgba(255,255,255,.22);padding-left:16px}
+.bp-ml{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:3px}
+.bp-mv{font-family:Syne,sans-serif;font-size:.86rem;font-weight:700;color:rgba(255,255,255,.82)}
+.bp-strip{position:sticky;top:62px;z-index:100;background:rgba(253,249,244,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;overflow-x:auto}
+.bpn{padding:16px 22px;font-family:Syne,sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-right:1px solid var(--border);white-space:nowrap;cursor:pointer;background:none;border-top:none;border-left:none;border-bottom:3px solid transparent;transition:color .2s,border-color .2s}
+.bpn:hover{color:var(--ink)}
+.bps{padding:80px 56px;border-bottom:1px solid var(--border)}
+.bps-ey{font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.bps-ey::before{content:"";width:18px;height:1px;background:currentColor}
+.bps-t{font-family:Fraunces,serif;font-size:clamp(28px,4vw,52px);font-weight:900;letter-spacing:-.04em;line-height:.95;color:var(--ink);margin-bottom:12px}
+.bps-t em{font-style:italic}
+.bps-sub{font-size:.9rem;color:var(--muted);max-width:620px;line-height:1.8;font-weight:300;margin-bottom:48px}
+.bps-body{font-size:.9rem;color:rgba(26,18,8,.6);line-height:1.85;font-weight:300;max-width:720px}
+.cpwall{}
+.cprow{display:flex;align-items:flex-start;gap:20px;padding:22px 0;border-bottom:1px solid var(--border)}
+.cptag{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;flex-shrink:0;width:100px;margin-top:5px}
+.cptext{font-family:Fraunces,serif;font-size:clamp(15px,2vw,22px);font-weight:700;letter-spacing:-.02em;line-height:1.25;color:var(--ink)}
+.cpnote{font-size:.78rem;color:var(--muted);margin-top:6px;font-weight:300;line-height:1.6}
+.stgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.stcard{border-left:3px solid;padding:24px;background:#fff}
+.stcard-t{font-family:Syne,sans-serif;font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.stcard-b{font-size:.83rem;color:var(--muted);line-height:1.78;font-weight:300}
+.stcard.full{grid-column:span 2}
+.mwrap{margin-bottom:28px}
+.mlbl{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.mframe{border:1.5px solid var(--border);overflow:hidden}
+.mframe svg{display:block;width:100%;height:auto}
+.mcap{padding:10px 14px;border-top:1px solid var(--border);font-size:.72rem;color:var(--muted);line-height:1.5}
+.chgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.chitem{background:var(--cream);padding:24px 22px}
+.chico{font-size:1.4rem;margin-bottom:10px}
+.chname{font-family:Syne,sans-serif;font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.chdesc{font-size:.78rem;color:var(--muted);line-height:1.65;font-weight:300}
+/* ABOUT PAGE */
+#about-pg{display:none}
+.ab-hero{min-height:100vh;background:linear-gradient(135deg,#1A1208 0%,#2E1D0A 50%,#1A1208 100%);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:80px 52px 52px;gap:64px;position:relative;overflow:hidden}
+.ab-deco{position:absolute;right:-30px;top:50%;transform:translateY(-50%) rotate(90deg);font-family:Fraunces,serif;font-size:clamp(80px,14vw,200px);font-weight:900;color:rgba(255,255,255,.025);pointer-events:none;white-space:nowrap}
+.ab-ey{font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(253,249,244,.38);margin-bottom:16px}
+.ab-name{font-family:Fraunces,serif;font-size:clamp(48px,8vw,104px);font-weight:900;letter-spacing:-.04em;line-height:.9;color:#FDF9F4;margin-bottom:22px}
+.ab-name em{font-style:italic;color:var(--orange)}
+.ab-desc{font-size:1rem;color:rgba(253,249,244,.52);line-height:1.8;max-width:440px;font-weight:300;margin-bottom:36px}
+/* abstract art panel right */
+.ab-art{width:100%;max-width:440px;margin-left:auto;position:relative;height:480px}
+.aba-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,107,53,.07) 0%,rgba(255,107,53,.02) 100%);border:1px solid rgba(255,107,53,.14)}
+.aba-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,107,53,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,107,53,.055) 1px,transparent 1px);background-size:40px 40px}
+.aba-ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.aba-r1{width:280px;height:280px;border:1px solid rgba(255,107,53,.18)}
+.aba-r2{width:180px;height:180px;border:1px solid rgba(255,107,53,.32)}
+.aba-r3{width:80px;height:80px;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.5)}
+.aba-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.aba-init{font-family:Fraunces,serif;font-size:4rem;font-weight:900;font-style:italic;color:var(--orange);line-height:1}
+.aba-sub{font-family:Syne,sans-serif;font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:8px}
+.aba-ft{position:absolute;font-family:Syne,sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.2);color:rgba(255,107,53,.7)}
+.aba-ft.f1{top:10%;left:5%}.aba-ft.f2{top:14%;right:5%}.aba-ft.f3{bottom:18%;left:5%}.aba-ft.f4{bottom:12%;right:8%}
+.ab-skills{padding:88px 52px;background:var(--cream);border-top:1px solid var(--border)}
+.ab-two{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.abb{font-size:.9rem;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:16px}
+.abb strong{color:var(--ink);font-weight:600}
+.avpill{display:inline-flex;align-items:center;gap:8px;background:#ECFDF5;border:1px solid #6EE7B7;color:#065F46;padding:10px 18px;border-radius:100px;font-size:.72rem;font-weight:600;letter-spacing:.04em;margin-top:16px}
+.skrow{margin-bottom:16px}
+.sktop{display:flex;justify-content:space-between;margin-bottom:7px}
+.skname{font-family:Syne,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.sktrack{height:3px;background:var(--border)}
+.skfill{height:100%;background:var(--ink);transition:width 1.3s ease}
+.crboxes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:36px}
+.crbox{background:var(--cream);padding:26px 20px}
+.crval{font-family:Fraunces,serif;font-size:2.4rem;font-weight:900;letter-spacing:-.04em;color:var(--ink)}
+.crval em{font-style:italic;color:var(--orange)}
+.crdesc{font-size:.7rem;color:var(--muted);margin-top:4px;line-height:1.55;font-weight:300}
+/* CONTACT PAGE */
+#contact-pg{display:none}
+.ct-hero{min-height:100vh;height:auto;background:linear-gradient(135deg,var(--orange) 0%,#FF9A5C 45%,#FFF5EC 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:80px 52px 64px;position:relative}
+.ct-deco{position:absolute;top:60px;right:52px;font-family:Fraunces,serif;font-size:clamp(80px,16vw,220px);font-weight:900;font-style:italic;color:rgba(255,255,255,.12);line-height:1;pointer-events:none}
+.ct-big{font-family:Fraunces,serif;font-size:clamp(52px,9.5vw,132px);font-weight:900;letter-spacing:-.05em;line-height:.9;color:var(--ink);margin-bottom:32px;max-width:800px}
+.ct-big em{font-style:italic;color:#fff;-webkit-text-stroke:2px var(--ink)}
+.ct-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
+.ct-sub{font-size:1rem;color:rgba(26,18,8,.58);line-height:1.8;font-weight:300;max-width:420px}
+.ct-loc{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:.72rem;color:rgba(26,18,8,.45);font-weight:500}
+.clinks{display:flex;flex-direction:column;gap:10px}
+.clink{display:flex;align-items:center;gap:14px;padding:18px 20px;background:rgba(255,255,255,.65);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.8);color:var(--ink);transition:background .2s,transform .2s;cursor:pointer;text-decoration:none}
+.clink:hover{background:rgba(255,255,255,.95);transform:translateX(5px)}
+.clico{font-size:1.1rem;flex-shrink:0}
+.cllbl{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.clval{font-family:Syne,sans-serif;font-size:.86rem;font-weight:700}
+.clarr{margin-left:auto;color:var(--muted);transition:transform .2s,color .2s}
+.clink:hover .clarr{transform:translateX(4px);color:var(--ink)}
+.sr{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.sr.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+@media(max-width:900px){
+  nav{padding:0 20px}.nlinks{display:none}
+  #hero{grid-template-columns:1fr;padding:100px 20px 48px;gap:40px}
+  .hero-right{height:300px}
+  .sec{padding:64px 20px}
+  #h-about,#h-contact{padding-left:20px;padding-right:20px}
+  .dua-grid{grid-template-columns:1fr 1fr}
+  .bgrid{grid-template-columns:1fr}
+  .ab-hero{grid-template-columns:1fr;padding:100px 20px 48px;gap:36px}
+  .ab-two{grid-template-columns:1fr;gap:36px}
+  .ct-row{grid-template-columns:1fr}
+  .ct-hero{padding:100px 20px 48px}
+  .bp-hero{padding:80px 20px 40px}
+  .bps{padding:64px 20px}
+  .stgrid{grid-template-columns:1fr}
+  .stcard.full{grid-column:span 1}
+  .chgrid{grid-template-columns:1fr 1fr}
+  .sfooter{flex-direction:column;gap:6px;text-align:center;padding:16px 20px}
+}
+/* ══════════ LAB INTRO ══════════ */
+#lab-sec{background:var(--ink);padding:96px 52px 0;border-top:none}
+.lab-intro{max-width:680px;margin-bottom:64px}
+.lab-intro .ey{color:rgba(253,249,244,.4)}
+.lab-intro .sh{color:#FDF9F4}
+.lab-intro .sh em{color:var(--orange)}
+.lab-sub{font-size:1rem;color:rgba(253,249,244,.5);line-height:1.8;font-weight:300;font-style:italic;margin-top:6px}
+.lab-nav{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:0}
+.lab-tab{flex:1;padding:20px 16px;background:none;border:none;border-right:1px solid rgba(255,255,255,.1);font-family:Syne,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(253,249,244,.4);cursor:pointer;transition:all .25s;text-align:center}
+.lab-tab:last-child{border-right:none}
+.lab-tab.on{color:var(--orange);background:rgba(255,107,53,.06)}
+.lab-tab:not(.on):hover{color:rgba(253,249,244,.7)}
+.lab-panel{display:none;padding:64px 0 96px}
+.lab-panel.on{display:block}
+
+/* ══════════ IDEA WALL ══════════ */
+.iw-stats{display:flex;gap:40px;margin-bottom:48px;flex-wrap:wrap}
+.iw-stat-n{font-family:Fraunces,serif;font-size:2.2rem;font-weight:900;color:var(--orange);font-style:italic;line-height:1}
+.iw-stat-l{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(253,249,244,.35);margin-top:4px}
+.iw-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.iw-tab{padding:8px 18px;font-family:Syne,sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:rgba(253,249,244,.55);cursor:pointer;transition:all .2s;border-radius:100px}
+.iw-tab.on{background:var(--orange);border-color:var(--orange);color:#fff}
+.iw-tab:not(.on):hover{border-color:rgba(255,107,53,.4);color:#fff}
+.iw-wrap{position:relative;height:560px;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 5%,#000 95%,transparent)}
+.iw-col{position:absolute;top:0;width:calc(33.333% - 12px);display:flex;flex-direction:column;gap:14px}
+.iw-col1{left:0;animation:iwUp 50s linear infinite}
+.iw-col2{left:calc(33.333% + 6px);animation:iwDown 58s linear infinite}
+.iw-col3{left:calc(66.666% + 12px);animation:iwUp 44s linear infinite}
+@keyframes iwUp{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+@keyframes iwDown{0%{transform:translateY(-50%)}100%{transform:translateY(0)}}
+.iw-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:6px;padding:18px 20px;transition:all .25s;cursor:default}
+.iw-card:hover{background:rgba(255,107,53,.08);border-color:rgba(255,107,53,.35);transform:scale(1.02)}
+.iw-card-brand{font-family:Syne,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.iw-card-idea{font-family:Fraunces,serif;font-size:1rem;font-weight:700;color:#FDF9F4;line-height:1.3;margin-bottom:6px}
+.iw-card-hook{font-size:.74rem;color:rgba(253,249,244,.42);line-height:1.55;font-weight:300}
+.iw-foot-note{text-align:center;margin-top:32px;font-size:.78rem;color:rgba(253,249,244,.32);font-style:italic}
+
+/* ══════════ STEAL THIS IDEA ══════════ */
+.sti-intro-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+.sti-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;padding-bottom:96px}
+.sti-card{background:#fff;border-radius:4px;overflow:hidden;position:relative;transition:transform .3s,box-shadow .3s}
+.sti-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.sti-stamp{position:absolute;top:18px;right:18px;font-family:Syne,sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);border:2px solid rgba(255,255,255,.6);padding:5px 12px;border-radius:100px;transform:rotate(8deg);z-index:2}
+.sti-head{padding:26px 26px 20px;color:#fff;position:relative;overflow:hidden}
+.sti-num{font-family:Fraunces,serif;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.7;margin-bottom:10px}
+.sti-company{font-family:Fraunces,serif;font-size:1.8rem;font-weight:900;letter-spacing:-.02em;line-height:1}
+.sti-body{padding:24px 26px 28px;background:#fff}
+.sti-lbl{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;margin-top:18px}
+.sti-lbl:first-child{margin-top:0}
+.sti-insight{font-family:Fraunces,serif;font-size:1.02rem;font-style:italic;color:var(--ink);line-height:1.4}
+.sti-idea-name{font-family:Syne,sans-serif;font-size:1.15rem;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.sti-choices{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.sti-chip{padding:6px 14px;background:var(--cream);border:1px solid var(--border);border-radius:100px;font-size:.74rem;font-weight:500;color:var(--ink)}
+.sti-result{font-size:.84rem;color:var(--muted);line-height:1.6;font-weight:300;font-style:italic;margin-top:6px}
+
+/* ══════════ WHAT IF LAB ══════════ */
+.wif-intro-row{margin-bottom:48px}
+.wif-stack{display:flex;flex-direction:column;gap:64px;padding-bottom:96px}
+.wif-card{border-radius:8px;overflow:hidden}
+.wif-hero{padding:56px 48px;position:relative;overflow:hidden}
+.wif-q{font-family:Fraunces,serif;font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-.03em;line-height:1.1;color:#fff;max-width:780px;position:relative;z-index:2}
+.wif-q em{font-style:italic}
+.wif-deco{position:absolute;font-family:Fraunces,serif;font-weight:900;font-style:italic;opacity:.08;pointer-events:none;line-height:1;white-space:nowrap}
+.wif-body{background:#fff;padding:40px 48px 48px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.wif-pitch{font-size:.92rem;color:rgba(26,18,8,.65);line-height:1.8;font-weight:300;margin-bottom:24px}
+.wif-pitch strong{color:var(--ink);font-weight:600}
+.wif-proofs{display:flex;flex-direction:column;gap:14px}
+.wif-proof{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--border)}
+.wif-proof:last-child{border-bottom:none}
+.wif-proof-ico{font-size:1.3rem;flex-shrink:0;width:36px;text-align:center}
+.wif-proof-t{font-family:Syne,sans-serif;font-size:.84rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.wif-proof-b{font-size:.8rem;color:var(--muted);line-height:1.6;font-weight:300}
+.wif-vis{display:flex;align-items:center;justify-content:center}
+.wif-vis svg{width:100%;height:auto;border-radius:6px;overflow:hidden}
+@media(max-width:900px){
+  #lab-sec{padding:64px 20px 0}
+  .lab-tab{font-size:.6rem;padding:14px 8px}
+  .iw-wrap{height:480px}
+  .iw-col{width:calc(50% - 7px)}
+  .iw-col3{display:none}
+  .sti-grid{grid-template-columns:1fr}
+  .wif-body{grid-template-columns:1fr}
+  .wif-hero,.wif-body{padding:32px 22px}
+}
+
+</style></head><body>
+<div id="cur"></div><div id="curR"></div>
+<nav id="mainNav">
+  <div class="nlogo" onclick="gH()">Eshaan<span class="ndot"></span></div>
+  <ul class="nlinks">
+    <li><a onclick="sH('ap-sec')">Framework</a></li>
+    <li><a onclick="sH('br-sec')">Work</a></li>
+    <li><a onclick="sH('lab-sec')">The Lab</a></li>
+    <li><a onclick="sP('about-pg')">About</a></li>
+    <li><a onclick="sP('contact-pg')">Contact</a></li>
+  </ul>
+</nav>
+
+<div id="home-pg" class="pg on">
+<section id="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span class="hpulse"></span>Brand Strategist &amp; Marketing Thinker</div>
+    <h1 class="hero-name">Eshaan<br><em>Dua.</em></h1>
+    <p class="hero-tag">I don&rsquo;t sell ideas. <strong>I find the one move every brand is too comfortable to make</strong> &mdash; and then I build it, word by word, campaign by campaign.</p>
+    <div class="hero-acts">
+      <button class="btn-fill" onclick="sH('br-sec')">See My Work &darr;</button>
+      <button class="btn-line" onclick="sP('about-pg')">About Me &rarr;</button>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hst-val">12<em>+</em></div><div class="hst-lbl">Brands Strategised</div></div>
+      <div><div class="hst-val">4<em>&times;</em></div><div class="hst-lbl">Bronze Awards</div></div>
+      <div><div class="hst-val">2<em>+</em></div><div class="hst-lbl">Yrs in Analytics</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hboard">
+      <div class="hb-ring hb-r1"></div>
+      <div class="hb-ring hb-r2"></div>
+      <div class="hb-ring hb-r3"></div>
+      <div class="hb-center">
+        <div class="hb-initials">E.D.</div>
+        <div class="hb-role">Brand &amp; Strategy</div>
+      </div>
+      <div class="hb-tag" style="top:12%;left:4%">OOH Concepts</div>
+      <div class="hb-tag" style="top:22%;right:2%">Brand Positioning</div>
+      <div class="hb-tag" style="bottom:28%;left:0">Consumer Insight</div>
+      <div class="hb-tag" style="bottom:16%;right:4%">Campaign Writing</div>
+      <div class="hb-tag" style="top:50%;right:-1%">D2C Strategy</div>
+      <div class="hb-dot" style="top:36%;left:18%"></div>
+      <div class="hb-dot" style="bottom:40%;right:16%"></div>
+      <div class="hb-dot" style="top:66%;left:10%"></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-dash"></div>Scroll to explore</div>
+</section>
+
+<div class="tband"><div class="ttrack" id="ticker"></div></div>
+
+<section id="ap-sec" class="sec">
+  <div class="ey">How I Think</div>
+  <h2 class="sh">The <em>D.U.A.</em> Framework</h2>
+  <p class="dua-intro">Every brief I write &mdash; for every brand on this page &mdash; runs through the same four-step thinking process I named after something that&rsquo;s been there all along.</p>
+  <div class="dua-grid">
+    <div class="dua-card sr">
+      <div class="dua-letter">D</div>
+      <div class="dua-word">Diagnose</div>
+      <div class="dua-t">Find the gap nobody named</div>
+      <p class="dua-b">I map what the brand says, what the consumer hears, and what competitors ignore. Strategy lives in that triangle &mdash; and no one is looking for it.</p>
+    </div>
+    <div class="dua-card sr d1">
+      <div class="dua-letter">U</div>
+      <div class="dua-word">Uncover</div>
+      <div class="dua-t">The one insight that changes everything</div>
+      <p class="dua-b">A strategy with 10 priorities has zero. I hunt the single consumer truth that makes the whole brief collapse into one obvious, unconfortable, brilliant move.</p>
+    </div>
+    <div class="dua-card sr d2">
+      <div class="dua-letter">A</div>
+      <div class="dua-word">Articulate</div>
+      <div class="dua-t">Write it so it can&rsquo;t be ignored</div>
+      <p class="dua-b">Data is my brief. Copy is my output. I write the headline, the tagline, the push notification, the billboard &mdash; until the idea has a voice the brand can&rsquo;t unhear.</p>
+    </div>
+    <div class="dua-card sr d3">
+      <div class="dua-letter">.</div>
+      <div class="dua-word">Activate</div>
+      <div class="dua-t">Strategy that ships on Monday</div>
+      <p class="dua-b">Slides that sit in decks are decoration. Every idea here comes with a channel plan, a campaign visual, and a brief that&rsquo;s ready to hand to a team &mdash; not a consultant.</p>
+    </div>
+  </div>
+</section>
+
+<section id="br-sec" class="sec">
+  <div class="br-hdr">
+    <div class="ey">Spec Work</div>
+    <h2 class="sh">Twelve brands.<br><em>One question each.</em></h2>
+    <p class="br-tagline">What is the one move this brand has never dared to make? &mdash; Click any brand to find my answer.</p>
+  </div>
+  <div class="btabs">
+    <button class="btab on" onclick="fB('all',this)">All</button>
+    <button class="btab" onclick="fB('giant',this)">Giants</button>
+    <button class="btab" onclick="fB('mid',this)">Mid-Size</button>
+    <button class="btab" onclick="fB('startup',this)">Startups</button>
+  </div>
+  <div class="bgrid" id="bgrid"></div>
+</section>
+
+<section id="lab-sec">
+  <div class="lab-intro">
+    <div class="ey">Where Strategy Gets Weird</div>
+    <h2 class="sh">The <em>Lab.</em></h2>
+    <p class="lab-sub">Not every idea needs a 6-page brief. Some just need to exist. This is where I keep the ones that don&rsquo;t fit anywhere else &mdash; the volume, the steals, and the questions I can&rsquo;t stop asking.</p>
+  </div>
+  <div class="lab-nav">
+    <button class="lab-tab on" onclick="lT('idea-wall',this)">01 &middot; Idea Wall</button>
+    <button class="lab-tab" onclick="lT('steal-idea',this)">02 &middot; Steal This Idea</button>
+    <button class="lab-tab" onclick="lT('what-if',this)">03 &middot; The What If Lab</button>
+  </div>
+
+  <div id="idea-wall" class="lab-panel on">
+    <div class="iw-stats">
+      <div><div class="iw-stat-n">100<em style="font-style:italic">+</em></div><div class="iw-stat-l">Ideas Logged</div></div>
+      <div><div class="iw-stat-n">40<em style="font-style:italic">+</em></div><div class="iw-stat-l">Brands Touched</div></div>
+      <div><div class="iw-stat-n">0<em style="font-style:italic">₹</em></div><div class="iw-stat-l">Spent Validating Them</div></div>
+    </div>
+    <p style="color:rgba(253,249,244,.5);font-size:.92rem;max-width:640px;margin-bottom:8px;font-weight:300;line-height:1.7">A running list of "what should this brand build next" &mdash; the ones too small for a full strategy deck, too good to forget. New ones added whenever I can&rsquo;t sleep.</p>
+    <div class="iw-tabs" id="iwTabs"></div>
+    <div class="iw-wrap">
+      <div class="iw-col iw-col1" id="iwCol1"></div>
+      <div class="iw-col iw-col2" id="iwCol2"></div>
+      <div class="iw-col iw-col3" id="iwCol3"></div>
+    </div>
+    <p class="iw-foot-note">Hover any card to pause and read &mdash; the wall keeps scrolling, ideas don&rsquo;t stop coming.</p>
+  </div>
+
+  <div id="steal-idea" class="lab-panel">
+    <div class="sti-intro-row">
+      <div>
+        <h3 style="font-family:Fraunces,serif;font-size:1.6rem;font-weight:900;color:#FDF9F4;letter-spacing:-.02em">Eight ideas. Free of charge.<br><em style="font-style:italic;color:var(--orange)">No NDA required.</em></h3>
+      </div>
+      <p style="max-width:380px;color:rgba(253,249,244,.45);font-size:.86rem;line-height:1.7;font-weight:300">Every great strategy starts with an insight nobody acted on. These are mine. Go build them &mdash; or hire the guy who already did the thinking.</p>
+    </div>
+    <div class="sti-grid" id="stiGrid"></div>
+  </div>
+
+  <div id="what-if" class="lab-panel">
+    <div class="wif-intro-row">
+      <h3 style="font-family:Fraunces,serif;font-size:1.6rem;font-weight:900;color:#FDF9F4;letter-spacing:-.02em;margin-bottom:10px">What if brands swapped industries<br>for a day? <em style="font-style:italic;color:var(--orange)">I went deeper than a day.</em></h3>
+      <p style="max-width:600px;color:rgba(253,249,244,.45);font-size:.9rem;line-height:1.75;font-weight:300">Six brands. Six businesses they were never supposed to be in. Built out properly &mdash; menus, features, pricing, the whole imagined company &mdash; because half-finished what-ifs are just tweets.</p>
+    </div>
+    <div class="wif-stack" id="wifStack"></div>
+  </div>
+</section>
+
+<section id="h-about">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+    <div>
+      <div class="ey" style="color:rgba(253,249,244,.35)">About Me</div>
+      <h2 style="font-family:Fraunces,serif;font-size:clamp(32px,4.5vw,60px);font-weight:900;letter-spacing:-.04em;line-height:1;color:#FDF9F4;margin-bottom:22px">I think like a <em style="font-style:italic;color:var(--orange)">Strategist</em>.<br>I work like an Analyst.</h2>
+      <p style="font-size:.92rem;color:rgba(253,249,244,.5);line-height:1.82;font-weight:300;margin-bottom:32px">At Genpact, I spent 2+ years turning raw operational data into decisions that moved teams. Somewhere in that process I realised I was finding the story inside numbers &mdash; and that&rsquo;s exactly what brand strategy is.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07)">
+      <div style="background:var(--ink);padding:30px 22px;border:1px solid rgba(255,255,255,.05)"><div style="font-family:Fraunces,serif;font-size:2.4rem;font-weight:900;color:#FDF9F4">2<em style="font-style:italic;color:var(--orange)">+</em></div><div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,249,244,.3);margin-top:4px">Years in Analytics</div></div>
+      <div style="background:var(--ink);padding:30px 22px;border:1px solid rgba(255,255,255,.05)"><div style="font-family:Fraunces,serif;font-size:2.4rem;font-weight:900;color:#FDF9F4">16<em style="font-style:italic;color:var(--orange)">%</em></div><div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,249,244,.3);margin-top:4px">SLA Improvement</div></div>
+      <div style="background:var(--ink);padding:30px 22px;border:1px solid rgba(255,255,255,.05)"><div style="font-family:Fraunces,serif;font-size:2.4rem;font-weight:900;color:#FDF9F4">4<em style="font-style:italic;color:var(--orange)">&times;</em></div><div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,249,244,.3);margin-top:4px">Bronze Awards</div></div>
+      <div style="background:var(--ink);padding:30px 22px;border:1px solid rgba(255,255,255,.05)"><div style="font-family:Fraunces,serif;font-size:2.4rem;font-weight:900;color:#FDF9F4">12<em style="font-style:italic;color:var(--orange)">+</em></div><div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,249,244,.3);margin-top:4px">Brand Briefs Built</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="h-contact" style="background:var(--orange)">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px">
+    <div>
+      <div class="ey" style="color:rgba(255,255,255,.55)">Ready to talk?</div>
+      <h2 style="font-family:Fraunces,serif;font-size:clamp(44px,7.5vw,100px);font-weight:900;letter-spacing:-.05em;line-height:.9;color:var(--ink)">Let&rsquo;s build<br>something <em style="font-style:italic">bold.</em></h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;min-width:280px">
+      <a href="mailto:eshaandua10@gmail.com" class="clink" style="background:rgba(255,255,255,.22);backdrop-filter:none;border:none">
+        <span class="clico">&#x2709;</span><div><div class="cllbl">Email</div><div class="clval">eshaandua10@gmail.com</div></div><span class="clarr">&rarr;</span>
+      </a>
+      <a href="https://linkedin.com/in/eshaan-dua-835852202/" target="_blank" class="clink" style="background:rgba(255,255,255,.22);backdrop-filter:none;border:none">
+        <span class="clico">&#x1F517;</span><div><div class="cllbl">LinkedIn</div><div class="clval">linkedin.com/in/eshaan-dua</div></div><span class="clarr">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="sfooter">
+  <span>&copy; 2026 Eshaan Dua &mdash; Brand &amp; Marketing Strategist</span>
+  <span>Spec work. Real thinking. Original ideas.</span>
+  <a href="mailto:eshaandua10@gmail.com" style="color:rgba(253,249,244,.28);text-decoration:none">eshaandua10@gmail.com</a>
+</footer>
+</div>
+
+<div id="brand-pg"></div>
+
+<div id="about-pg" class="pg">
+<section class="ab-hero">
+  <div class="ab-deco">Strategy</div>
+  <div>
+    <div class="ab-ey">Brand &amp; Marketing Strategist &middot; Delhi NCR</div>
+    <h1 class="ab-name">Eshaan<br><em>Dua.</em></h1>
+    <p class="ab-desc">I find campaigns brands are too comfortable to run. I read the data no one else opens. I build the brief, the copy, and the case &mdash; then defend it in the room.</p>
+    <button class="btn-fill" onclick="document.getElementById('ab-skills').scrollIntoView({behavior:'smooth',block:'start'})" style="display:inline-flex">Skills &amp; Story &darr;</button>
+  </div>
+  <div>
+    <div class="ab-art">
+      <div class="aba-bg"></div>
+      <div class="aba-grid"></div>
+      <div class="aba-ring aba-r1"></div>
+      <div class="aba-ring aba-r2"></div>
+      <div class="aba-ring aba-r3"></div>
+      <div class="aba-center">
+        <div class="aba-init">E.D.</div>
+        <div class="aba-sub">Brand Strategist</div>
+      </div>
+      <div class="aba-ft f1">OOH Concepts</div>
+      <div class="aba-ft f2">Brand Positioning</div>
+      <div class="aba-ft f3">Consumer Insight</div>
+      <div class="aba-ft f4">Campaign Writing</div>
+    </div>
+  </div>
+</section>
+<section id="ab-skills" class="ab-skills">
+  <div class="ab-two">
+    <div>
+      <div class="ey" style="margin-bottom:28px">The Story</div>
+      <h2 style="font-family:Fraunces,serif;font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--ink);margin-bottom:28px">Analyst who fell in love with <em style="font-style:italic;color:var(--orange)">why</em> people buy things.</h2>
+      <p class="abb">At Genpact, I spent 2+ years turning raw operational data into decisions that moved teams &mdash; <strong>improved SLA performance by 16%</strong> through workflow redesign, built dashboards managers actually opened, and won <strong>4 Bronze Awards</strong> for exceeding productivity in a 25+ member team.</p>
+      <p class="abb">Somewhere in that process, I realised what I was really doing: finding the story inside the numbers. And that&rsquo;s exactly what brand strategy is. Read the data nobody else is reading. Spot the gap nobody&rsquo;s named. Build the campaign that fills it.</p>
+      <p class="abb">This website isn&rsquo;t a portfolio of past jobs. It&rsquo;s a portfolio of how I think &mdash; original campaign ideas, copywriting lines, and visual concepts for brands I believe in. No borrowed briefs. No agency templates. Everything here was built from scratch.</p>
+      <div class="avpill"><span style="width:7px;height:7px;background:#22C55E;border-radius:50%;display:inline-block;animation:pulse 2s infinite"></span>Open &mdash; Brand Strategy &middot; Growth &middot; Founder&rsquo;s Office</div>
+    </div>
+    <div>
+      <div class="ey" style="margin-bottom:28px">Skills</div>
+      <div class="skrow sr"><div class="sktop"><span class="skname">Strategic Thinking</span><span style="font-size:.7rem;color:var(--muted)">Sharp</span></div><div class="sktrack"><div class="skfill" style="width:90%"></div></div></div>
+      <div class="skrow sr d1"><div class="sktop"><span class="skname">Brand Positioning</span><span style="font-size:.7rem;color:var(--muted)">Strong</span></div><div class="sktrack"><div class="skfill" style="width:85%"></div></div></div>
+      <div class="skrow sr d2"><div class="sktop"><span class="skname">Campaign Concept Writing</span><span style="font-size:.7rem;color:var(--muted)">Sharp</span></div><div class="sktrack"><div class="skfill" style="width:82%"></div></div></div>
+      <div class="skrow sr d3"><div class="sktop"><span class="skname">Data Analysis &amp; Excel</span><span style="font-size:.7rem;color:var(--muted)">Expert</span></div><div class="sktrack"><div class="skfill" style="width:94%"></div></div></div>
+      <div class="skrow sr d4"><div class="sktop"><span class="skname">Consumer Insight</span><span style="font-size:.7rem;color:var(--muted)">Strong</span></div><div class="sktrack"><div class="skfill" style="width:80%"></div></div></div>
+      <div class="crboxes sr">
+        <div class="crbox"><div class="crval">2<em>+</em></div><div class="crdesc">Years in operations analytics at Genpact</div></div>
+        <div class="crbox"><div class="crval">4<em>&times;</em></div><div class="crdesc">Bronze Awards for exceeding productivity in 25+ member team</div></div>
+        <div class="crbox"><div class="crval">16<em>%</em></div><div class="crdesc">SLA improvement through data-backed workflow redesign</div></div>
+        <div class="crbox"><div class="crval">12<em>+</em></div><div class="crdesc">Original brand strategy briefs built from scratch</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="sfooter">
+  <span>&copy; 2026 Eshaan Dua</span>
+  <button onclick="gH()" style="background:none;border:none;color:rgba(253,249,244,.28);font-family:Syne,sans-serif;font-size:.65rem;letter-spacing:.06em;cursor:pointer">&larr; Back to Work</button>
+  <a href="mailto:eshaandua10@gmail.com" style="color:rgba(253,249,244,.28);text-decoration:none">eshaandua10@gmail.com</a>
+</footer>
+</div>
+
+<div id="contact-pg" class="pg">
+<section class="ct-hero">
+  <div class="ct-deco">Bold.</div>
+  <div style="font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(26,18,8,.4);margin-bottom:18px;display:flex;align-items:center;gap:10px">Fair Warning<span style="width:18px;height:1px;background:currentColor"></span></div>
+  <h2 class="ct-big">This is not a<br>call to action.<br>It\u2019s a <em>call.</em></h2>
+  <div class="ct-row">
+    <div>
+      <p class="ct-sub">I spent this entire website convincing brands to take risks they\u2019re scared of. The least I can do is make my own contact page less boring than a "Get In Touch" form. <strong style="color:var(--ink);font-weight:600">No forms here. Just me, mildly over-caffeinated, waiting for your email.</strong></p>
+      <div class="ct-loc">&#x1F4CD; Delhi NCR &middot; Open to relocation &mdash; my insights travel better than my luggage</div>
+      <div style="margin-top:28px;padding:18px 22px;background:rgba(255,255,255,.4);border:1px dashed rgba(26,18,8,.25);max-width:420px">
+        <div style="font-family:Syne,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:6px">A Brief Brief on Briefs</div>
+        <p style="font-size:.82rem;color:rgba(26,18,8,.6);line-height:1.7;font-weight:300">If you send me a job description, I will read every line of it. If you send me a brand problem, I will probably reply with a campaign idea before I reply with "hello." Choose your opening message wisely.</p>
+      </div>
+    </div>
+    <div>
+      <div class="clinks">
+        <a href="mailto:eshaandua10@gmail.com" class="clink"><span class="clico">&#x2709;</span><div><div class="cllbl">Email &mdash; Fastest Reply Channel</div><div class="clval">eshaandua10@gmail.com</div></div><span class="clarr">&rarr;</span></a>
+        <a href="https://linkedin.com/in/eshaan-dua-835852202/" target="_blank" class="clink"><span class="clico">&#x1F517;</span><div><div class="cllbl">LinkedIn &mdash; For the Professionally Curious</div><div class="clval">linkedin.com/in/eshaan-dua</div></div><span class="clarr">&rarr;</span></a>
+        <a href="tel:+919729413172" class="clink"><span class="clico">&#x1F4DE;</span><div><div class="cllbl">Phone &mdash; If It\u2019s Genuinely Urgent</div><div class="clval">+91 97294 13172</div></div><span class="clarr">&rarr;</span></a>
+      </div>
+      <div style="margin-top:18px;display:flex;align-items:center;gap:10px;font-size:.74rem;color:rgba(26,18,8,.4);font-weight:500">
+        <span style="width:7px;height:7px;background:#22C55E;border-radius:50%;display:inline-block;animation:pulse 2s infinite"></span>
+        Currently accepting briefs. Reply time: faster than most Q-commerce apps.
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(26,18,8,.12);display:flex;gap:32px;flex-wrap:wrap">
+    <div style="font-size:.78rem;color:rgba(26,18,8,.45);font-style:italic">P.S. &mdash; I promise my actual replies have fewer puns than this page. Maybe.</div>
+  </div>
+</section>
+<footer class="sfooter">
+  <span>&copy; 2026 Eshaan Dua</span>
+  <button onclick="gH()" style="background:none;border:none;color:rgba(253,249,244,.28);font-family:Syne,sans-serif;font-size:.65rem;letter-spacing:.06em;cursor:pointer">&larr; Back to Work</button>
+  <a href="mailto:eshaandua10@gmail.com" style="color:rgba(253,249,244,.28);text-decoration:none">eshaandua10@gmail.com</a>
+</footer>
+</div>
+<script>
+const CE=document.getElementById('cur'),CR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function loop(){CE.style.left=mx+'px';CE.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;CR.style.left=rx+'px';CR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.addEventListener('mouseover',e=>{if(e.target.closest('a,button,.bc,.dua-card'))document.body.classList.add('ch');else document.body.classList.remove('ch')});
+window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('stuck',scrollY>50));
+const TW=['Campaign Strategy','Brand Positioning','Consumer Insight','Moment Marketing','OOH Concepts','Copywriting','D2C India','Cultural Strategy','Brand Architecture','Trend Spotting'];
+document.getElementById('ticker').innerHTML=[...TW,...TW,...TW].map(w=>`<span class="titem">${w}<span class="tdot"></span></span>`).join('');
+function sP(id){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');document.getElementById('brand-pg').style.display='none';window.scrollTo(0,0);iR();}
+function gH(){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));document.getElementById('home-pg').classList.add('on');document.getElementById('brand-pg').style.display='none';window.scrollTo(0,0);}
+function sH(id){gH();setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},120);}
+function iR(){setTimeout(()=>{const o=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.05});document.querySelectorAll('.sr').forEach(el=>{el.classList.remove('in');o.observe(el);const r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)el.classList.add('in');})},80);}
+function fB(cat,btn){document.querySelectorAll('.btab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('.bc').forEach(c=>{if(cat==='all'||c.dataset.cat===cat)c.classList.add('show');else c.classList.remove('show')});}
+const BRANDS=[
+{id:'zomato',cat:'giant',color:'#E23744',bg:'#1A0308',
+name:'Zomato',title:'The Campaign That Turns Zomato\'s Biggest Flex Into Its Deepest Feeling',
+hook:"Zomato doesn't have a content problem. It has a loyalty problem. And the fix isn't a discount — it's a confession.",
+type:'UGC + OOH + Product Feature',badge:'Giant · Food Delivery',
+heroSub:"Every Indian has a food-and-feeling story. Here's the campaign that collects them.",
+meta:[{l:'Scale',v:'Giant'},{l:'Type',v:'UGC + OOH + Product'},{l:'Market',v:'Food Delivery'},{l:'Core Gap',v:'Cultural Capital ≠ Loyalty'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#1A0308"/><defs><radialGradient id="zg" cx="30%" cy="50%"><stop offset="0%" stop-color="#E23744" stop-opacity=".18"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="340" height="220" fill="url(#zg)"/><rect x="18" y="22" width="188" height="140" rx="3" fill="#111"/><text x="112" y="56" font-family="Georgia,serif" font-size="10" fill="rgba(255,255,255,.35)" text-anchor="middle" font-style="italic">Mumbai · 3AM</text><text x="112" y="80" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">"I ordered butter chicken</text><text x="112" y="100" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">the night he left.</text><text x="112" y="126" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">It helped."</text><text x="255" y="72" font-family="Georgia,serif" font-size="26" fill="rgba(226,55,68,.4)" font-style="italic" text-anchor="middle">What</text><text x="255" y="100" font-family="Georgia,serif" font-size="26" fill="rgba(226,55,68,.4)" font-style="italic" text-anchor="middle">were</text><text x="255" y="128" font-family="Georgia,serif" font-size="26" fill="#E23744" font-style="italic" text-anchor="middle">you...</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:'The Brand Everyone Loves But Nobody Stays Loyal To',sub:"Zomato has cultural capital. The challenge isn't awareness — it's emotional ownership at checkout.",body:"Zomato's social media is a cultural institution. The challenge isn't awareness — it's loyalty. Users switch for ₹20 off. The brand has massive cultural affinity but weak emotional ownership at the moment of ordering. Beloved on X. Invisible at checkout."},
+{type:'insight',ey:'The Insight',title:"Every Indian Has a Food-and-Feeling Story That's Never Been Collected.",sub:'The biryani after the breakup. The pizza during the all-nighter.',body:"Zomato's brand voice is warm but one-directional. What if it gave the audience a stage instead of a scroll? Every order in Zomato's data is timestamped, location-tagged, and linked to a human moment. That's a story archive that has never been opened."},
+{type:'copy',ey:'Campaign Copywriting',title:'The Lines That Run This Campaign',copies:[
+{tag:'Campaign Spine',text:'"What were you going through when you ordered this?"',note:"One question as the entire campaign hook. Works across OOH, social, push notifications, and in-app."},
+{tag:'OOH Billboard 1',text:'"I ordered butter chicken the night he left. It helped."',note:"Real, anonymised user submission. No product shot. No Zomato logo for 5 seconds. Then: logo, small. The story IS the ad."},
+{tag:'OOH Billboard 2',text:'"We ordered pizza to celebrate her remission. Best pizza ever."',note:"Delhi edition. Emotional specificity is the creative strategy."},
+{tag:'Push Notification',text:'"That dal makhani you ordered on your last bad day? 12 minutes away."',note:"Tone-consistent push copy. Emotional intelligence over discount prompts."},
+{tag:'Memory Orders',text:'"Tag this moment. We\'ll remind you in a year."',note:"In-app feature copy. Converts orders into emotional bookmarks."},
+{tag:'Social Caption',text:'"The restaurant closed. The memory didn\'t. Submit yours → Zomato Confessions."',note:"Instagram caption driving UGC. No hard CTA. Just invitation."},
+]},
+{type:'strategy',ey:'The Strategy',title:'Four Moves That Build Emotional Ownership',strategies:[
+{t:'1 — Zomato Confessions: The 8-City OOH Campaign',b:"Real-story billboards. User-submitted emotional food memories. No product shot. No Zomato branding for 5 seconds. Then: logo, small. People photograph the billboard. The billboard becomes the ad.",full:false},
+{t:'2 — Memory Orders: The Product Feature',b:"In-app toggle: tag any order with a memory label. A year later, Zomato sends: 'A year ago tonight you needed dal makhani. How's 2026 going?' Converts data into emotion — without a single rupee of discount.",full:false},
+{t:'3 — Push Notification Voice Redesign',b:"'Your favourite restaurant is nearby!' → 'The biryani that got you through November? Still 14 minutes away.' The brand voice that works on X should work in the app. Tone consistency is a retention strategy.",full:false},
+{t:'4 — The Meal Behind the Meal: Restaurant Content Series',b:"Partner with top 500 Zomato restaurant partners to surface the story of their most-ordered dish. The widow who started cooking during lockdown. The Irani café with the same bun maska for 40 years. Content that makes the ecosystem — not just the app — the brand.",full:true},
+]},
+{type:'mockups',ey:'Campaign Visual Concepts',title:'What This Looks Like In The World',mockups:[
+{lbl:'OOH Confessions Billboard Series — 8 Cities',
+svg:`<svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="320" fill="#1A0308"/><defs><radialGradient id="zrg" cx="50%" cy="50%"><stop offset="0%" stop-color="#E23744" stop-opacity=".1"/><stop offset="100%" stop-color="#000" stop-opacity=".9"/></radialGradient></defs><rect width="760" height="320" fill="url(#zrg)"/><rect x="20" y="28" width="220" height="148" rx="3" fill="#0D0D0D" stroke="rgba(226,55,68,.25)" stroke-width="1"/><text x="130" y="60" font-family="Georgia,serif" font-size="9" fill="rgba(255,255,255,.32)" text-anchor="middle" font-style="italic">Mumbai · 3:12 AM</text><text x="130" y="84" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">"I ordered butter chicken</text><text x="130" y="104" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">the night he left.</text><text x="130" y="130" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">It helped."</text><text x="130" y="162" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.22)" text-anchor="middle">— @priya_m · Zomato Confessions</text><rect x="265" y="28" width="220" height="148" rx="3" fill="#0D0D0D" stroke="rgba(226,55,68,.25)" stroke-width="1"/><text x="375" y="60" font-family="Georgia,serif" font-size="9" fill="rgba(255,255,255,.32)" text-anchor="middle" font-style="italic">Delhi · 11:55 PM</text><text x="375" y="84" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">"We ordered pizza to celebrate</text><text x="375" y="104" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">her remission.</text><text x="375" y="130" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">Best pizza ever."</text><text x="375" y="162" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.22)" text-anchor="middle">— @rohan_k · Zomato Confessions</text><rect x="510" y="28" width="220" height="148" rx="3" fill="#0D0D0D" stroke="rgba(226,55,68,.25)" stroke-width="1"/><text x="620" y="60" font-family="Georgia,serif" font-size="9" fill="rgba(255,255,255,.32)" text-anchor="middle" font-style="italic">Bengaluru · 1:30 AM</text><text x="620" y="84" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">"First salary.</text><text x="620" y="104" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">Biryani for the whole office.</text><text x="620" y="130" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">Worth every rupee."</text><text x="620" y="162" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.22)" text-anchor="middle">— @anand_s · Zomato Confessions</text><text x="380" y="234" font-family="Georgia,serif" font-size="28" fill="white" text-anchor="middle" font-style="italic">What were you going through</text><text x="380" y="268" font-family="Georgia,serif" font-size="28" fill="#E23744" text-anchor="middle" font-style="italic">when you ordered this?</text><text x="380" y="302" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.2)" text-anchor="middle" letter-spacing="3">ZOMATO CONFESSIONS · 8-CITY OOH CAMPAIGN · ESHAAN DUA</text></svg>`,
+cap:'3-city billboard rollout. Real user confessions. No models. No food photography. Just human truth.'},
+]},
+{type:'channels',ey:'Distribution Plan',title:'Where the Campaign Lives',channels:[
+{ico:'🏙️',name:'OOH Billboards',desc:'8 cities. Real user confessions. No brand copy for 5 seconds. PR generates 10× media value.'},
+{ico:'📱',name:'Instagram UGC',desc:'"Submit your confession" mechanic. Stories, Reels, pinned campaign post growing with submissions.'},
+{ico:'🔔',name:'Push Notifications',desc:'Voice redesign matching X brand personality. Emotional intelligence over discount prompts.'},
+{ico:'📦',name:'Memory Orders',desc:'In-app product feature converting emotional connection into a repeat-order engine.'},
+{ico:'🍽️',name:'Restaurant Partners',desc:'"Meal Behind the Meal" series makes the restaurant ecosystem a brand character.'},
+{ico:'📰',name:'Earned Media',desc:'Confession billboard concept alone generates press before campaign even launches.'},
+]},
+]},
+{id:'blinkit',cat:'startup',color:'#F8C200',bg:'#0D0C00',
+name:'Blinkit',title:'Nobody Has Owned 3AM Yet. Blinkit Should.',
+hook:"Every brand advertises 9am–10pm. The midnight window is completely unclaimed real estate. Blinkit was built for this.",
+type:'Daypart Ownership Campaign',badge:'Startup · Quick Commerce',
+heroSub:"The city goes quiet. The brand that doesn't sleep should say so.",
+meta:[{l:'Scale',v:'Startup'},{l:'Type',v:'OOH + Social + Product'},{l:'Daypart',v:'11PM–4AM'},{l:'Gap',v:'Unclaimed Territory'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#0D0C00"/><rect x="0" y="0" width="170" height="220" fill="rgba(0,0,0,.7)"/><circle cx="140" cy="38" r="1.5" fill="white" opacity=".7"/><circle cx="158" cy="20" r="12" fill="rgba(255,230,100,.85)"/><circle cx="167" cy="13" r="9" fill="rgba(0,0,0,.7)"/><text x="85" y="116" font-family="monospace" font-size="26" fill="white" text-anchor="middle" font-weight="bold">3:00</text><text x="85" y="138" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.5)" text-anchor="middle">AM</text><text x="252" y="88" font-family="Georgia,serif" font-size="26" fill="#F8C200" font-weight="bold" text-anchor="middle">Nobody</text><text x="252" y="120" font-family="Georgia,serif" font-size="26" fill="#F8C200" font-weight="bold" text-anchor="middle">Owns</text><text x="252" y="152" font-family="Georgia,serif" font-size="26" fill="rgba(255,255,255,.3)" font-weight="bold" text-anchor="middle">3AM.</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:'Speed Is a Feature War. Blinkit Needs to Own a Feeling.',sub:"When every player claims 10 minutes, speed becomes table stakes — not a brand.",body:"Blinkit, Zepto, and Swiggy Instamart all promise the same delivery window. Speed is now a parity claim. Blinkit needs to own something emotional and temporal — a context where they are the only answer. That context already exists in their order data. It's happening after midnight."},
+{type:'insight',ey:'The Insight',title:"India's Most Underserved Advertising Window Is 12AM–5AM.",sub:"Students. New parents. Late-night workers. Awake, unseen, one brand away from unforgettable.",body:"A significant portion of Blinkit orders happen after midnight. The parent buying medicine at 2AM. The coder ordering Red Bull at midnight. No brand is talking to them while they're awake. This is Blinkit's territory — and nobody has claimed it."},
+{type:'copy',ey:'Campaign Copywriting',title:'Headlines That Own the Night',copies:[
+{tag:'Campaign Spine',text:'"Everyone\'s asleep. We\'re not."',note:"Four words. The entire campaign. Works on OOH, social, app, and notification."},
+{tag:'OOH Series 1',text:'"2AM. Extension cord. We\'re 8 minutes away."',note:"Hyper-specific. The specificity is the creativity."},
+{tag:'OOH Series 2',text:'"The city went quiet. Your craving didn\'t."',note:"Works for midnight snacks and genuine emergencies equally well."},
+{tag:'OOH Series 3',text:'"For every parent who needed Calpol at 3AM. We were there."',note:"Most emotional execution. Enormous earned media potential."},
+{tag:'X (Twitter)',text:'"It\'s 2:47AM. You\'re awake. We\'re already moving."',note:"From @Blinkit3AM — secondary account active only between 12am and 4am."},
+{tag:'App Copy',text:'"Midnight Mode: activated. Everything you need, 8 minutes away."',note:"In-app late-night mode. Turns usage behaviour into a branded ritual."},
+]},
+{type:'strategy',ey:'The Strategy',title:'Own the Night Before Someone Else Claims It.',strategies:[
+{t:'Night-Only Media Buys',b:"Run all ads exclusively 11pm–4am. OTT pre-rolls, Instagram, YouTube. Medium is the message — Blinkit advertising at 3AM proves they are awake at 3AM.",full:false},
+{t:'The Billboard That Only Lights Up at Night',b:"In 5 cities: billboards completely dark during the day. After 10pm, they illuminate: 'Still here. Are you still awake?' PR story: 'Blinkit's billboard that disappears in daylight' generates earned media worth 10× the installation cost.",full:false},
+{t:'@Blinkit3AM — The Account That Never Sleeps',b:"Secondary X account posting only 12am–4am. Witty, empathetic, zero promotions. Builds a cult following that earns mainstream press.",full:false},
+{t:'Midnight Mode — Product Feature',b:"In-app experience activating after 11pm: darker UI, curated night-need collections (medicines, noodles, chargers, snacks), and late-night delivery time promises. Every midnight order deepens the brand association permanently.",full:true},
+]},
+{type:'mockups',ey:'Visual Concepts',title:'The Night Campaign, Visualised',mockups:[
+{lbl:'Night Billboard — Lights Up At 10PM',
+svg:`<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="300" fill="#0D0C00"/><rect x="0" y="0" width="380" height="300" fill="rgba(0,0,0,.75)"/><circle cx="230" cy="46" r="1.5" fill="white" opacity=".7"/><circle cx="335" cy="40" r="18" fill="rgba(255,230,100,.88)"/><circle cx="348" cy="30" r="14" fill="rgba(0,0,0,.75)"/><text x="190" y="148" font-family="monospace" font-size="34" fill="white" text-anchor="middle" font-weight="bold">3:00</text><text x="190" y="174" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,.5)" text-anchor="middle">AM</text><text x="190" y="204" font-family="sans-serif" font-size="8.5" fill="rgba(255,255,255,.28)" text-anchor="middle" letter-spacing="3">BLINKIT IS AWAKE.</text><rect x="408" y="28" width="322" height="202" rx="4" fill="#F8C200"/><text x="569" y="82" font-family="sans-serif" font-size="8" fill="rgba(0,0,0,.4)" text-anchor="middle" letter-spacing="3" font-weight="700">BILLBOARD · LIGHTS UP AT 10PM</text><text x="569" y="128" font-family="Georgia,serif" font-size="38" fill="#1a1a1a" text-anchor="middle" font-weight="bold">Everyone's</text><text x="569" y="170" font-family="Georgia,serif" font-size="38" fill="#1a1a1a" text-anchor="middle" font-weight="bold">asleep.</text><text x="569" y="212" font-family="Georgia,serif" font-size="38" fill="rgba(0,0,0,.28)" text-anchor="middle" font-weight="bold">We're not.</text><text x="380" y="272" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.22)" text-anchor="middle" letter-spacing="2">BLINKIT DAYPART CAMPAIGN · ESHAAN DUA</text></svg>`,
+cap:"Left: The night sky Blinkit owns. Right: Billboard activating at 10PM only."},
+]},
+{type:'channels',ey:'Channel Strategy',title:'How the Night Campaign Runs',channels:[
+{ico:'🌙',name:'Night-Only OOH',desc:'Billboards activating at 10PM. Visible only to the audience Blinkit serves most.'},
+{ico:'📺',name:'OTT Pre-Roll',desc:'Ads run only 11PM–4AM on Netflix, Prime, Hotstar.'},
+{ico:'🐦',name:'@Blinkit3AM',desc:'Brand account posting exclusively midnight–4am. Zero promotions. 100% personality.'},
+{ico:'📱',name:'Midnight Mode',desc:'In-app feature activating post 11PM. Branded ritual every time someone orders late.'},
+{ico:'🔔',name:'Night Push Copy',desc:'Empathetic, specific push copy timed for genuine late-night need moments.'},
+{ico:'📰',name:'PR Moment',desc:'"The billboard that disappears in daylight." Media covers it before it even runs.'},
+]},
+]},
+{id:'cred',cat:'giant',color:'#6C63FF',bg:'#0E0C1F',
+name:'CRED',title:'How to Stay Exclusive When You Have 35 Million Members',
+hook:"CRED's equity rests on one feeling: being selected. Every new member slightly erodes that. Here's the fix.",
+type:'Brand Positioning + Copywriting',badge:'Giant · Fintech',
+heroSub:"The brand built on trust. The strategy to keep it as they scale.",
+meta:[{l:'Scale',v:'Giant'},{l:'Type',v:'Positioning + Product + Copy'},{l:'Market',v:'Indian Fintech'},{l:'Moat',v:'Identity Signal'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#0E0C1F"/><circle cx="280" cy="40" r="100" fill="rgba(108,99,255,.08)"/><rect x="18" y="28" width="172" height="112" rx="10" fill="#1E1A3A" stroke="rgba(108,99,255,.35)" stroke-width="1"/><circle cx="42" cy="60" r="10" fill="rgba(255,215,0,.7)"/><circle cx="56" cy="60" r="10" fill="rgba(255,165,0,.5)"/><text x="226" y="78" font-family="Georgia,serif" font-size="30" fill="#6C63FF" font-weight="bold" text-anchor="middle">Trusted.</text><text x="226" y="106" font-family="sans-serif" font-size="8.5" fill="rgba(255,255,255,.28)" text-anchor="middle">Score: 780+</text><text x="226" y="142" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.16)" text-anchor="middle">CRED Members only</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:'Growing Without Diluting the One Thing That Makes CRED Work.',sub:"At 35M+ members, 'being on CRED' risks losing the exclusivity signal that built the brand.",body:"CRED built its moat on making creditworthy Indians feel seen and trusted. But growth math forces dilution. Every new member admitted slightly weakens the status signal. The brand must scale while making membership feel more meaningful — or the core brand promise collapses."},
+{type:'insight',ey:'The Insight',title:"CRED's Moat Was Never the CIBIL Score. It Was the Identity Claim.",sub:"When someone says 'I'm on CRED,' they're not describing an app. They're making a character statement.",body:"The first CRED approval hits differently than every subsequent financial product because it's the first time a financial brand treated someone like a responsible adult. Behaviour exclusivity is infinite and more scalable than score exclusivity."},
+{type:'copy',ey:'Brand Copywriting',title:'New Copy Direction — From Score to Character',copies:[
+{tag:'New Positioning',text:'"Not for everyone. For the version of you that decided to actually care."',note:"Repositions from score-gated to behaviour-gated. Scalable, identity-rich, defensible."},
+{tag:'Welcome Message',text:'"CRED didn\'t choose your score. It chose how you live with money. Welcome."',note:"New member onboarding. First app open feels like a ceremony, not a checkout."},
+{tag:'Notification Copy',text:'"The kind of people on CRED don\'t let value slip. You have 2,400 coins."',note:"Same information. Different identity reinforcement. Every notification is a brand touchpoint."},
+{tag:'CRED Black Launch',text:'"CRED Black. By invitation. Because some things should still mean something."',note:"Launch headline for a hyper-exclusive top-1% tier."},
+{tag:'Social Campaign',text:'"Your credit score got you here. Your character kept you."',note:"Campaign headline. Identity-first brand language."},
+{tag:'New Tagline',text:'"Some apps reward you. CRED recognises you."',note:"New positioning line replacing transactional framing with identity-first signal."},
+]},
+{type:'strategy',ey:'The Strategy',title:'Four Moves to Scale Without Diluting.',strategies:[
+{t:'Behaviour Exclusivity — Beyond the CIBIL Score',b:"Evolve admission from pure score to score + financial behaviour. 'You earned this by how you live with money' is more powerful and scalable than a three-digit number.",full:false},
+{t:'CRED Black — Inner Sanctum at Scale',b:"Hyper-exclusive tier for top 1% of members by behaviour score. Access: private dining, airport lounge time, early product features, a physically different card.",full:false},
+{t:'CRED Stories — LinkedIn for Money Decisions',b:"Editorial series featuring real CRED members' financial decisions — not their net worth, their choices. Turns the platform into a community. Community creates retention that rewards cannot.",full:false},
+{t:'Notification Voice Overhaul',b:"Current: 'Your 2,400 CRED coins expire in 3 days.' New: 'People like you don't let value slip. 2,400 coins.' Same information. Different soul. Zero additional cost. Maximum brand impact.",full:true},
+]},
+{type:'mockups',ey:'Visual Concepts',title:'What the New CRED Looks Like',mockups:[
+{lbl:'Welcome Screen Redesign + CRED Black Launch Creative',
+svg:`<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="300" fill="#0E0C1F"/><circle cx="600" cy="80" r="160" fill="rgba(108,99,255,.06)"/><rect x="28" y="28" width="202" height="244" rx="12" fill="#1A1730" stroke="rgba(108,99,255,.28)" stroke-width="1"/><text x="129" y="70" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.28)" text-anchor="middle" letter-spacing="3" font-weight="700">WELCOME TO CRED</text><circle cx="129" cy="118" r="28" fill="rgba(108,99,255,.15)" stroke="rgba(108,99,255,.4)" stroke-width="1.5"/><text x="129" y="124" font-family="sans-serif" font-size="14" fill="#6C63FF" text-anchor="middle">✓</text><text x="129" y="158" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">You earned this.</text><text x="129" y="178" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.35)" text-anchor="middle">Not just your score.</text><text x="129" y="196" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.35)" text-anchor="middle">How you live with money.</text><rect x="268" y="28" width="464" height="244" rx="4" fill="#100D20"/><text x="500" y="80" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.2)" text-anchor="middle" letter-spacing="3" font-weight="700">CRED BLACK · LAUNCH CAMPAIGN</text><text x="500" y="132" font-family="Georgia,serif" font-size="44" fill="white" text-anchor="middle" font-style="italic">The Chosen</text><text x="500" y="180" font-family="Georgia,serif" font-size="44" fill="#6C63FF" text-anchor="middle" font-style="italic">Few.</text><text x="500" y="218" font-family="sans-serif" font-size="9.5" fill="rgba(255,255,255,.22)" text-anchor="middle">Top 1% of CRED Members · By invitation only.</text></svg>`,
+cap:"Left: Redesigned welcome screen — identity-first, not utility-first. Right: CRED Black launch visual."},
+]},
+{type:'channels',ey:'Channel Strategy',title:'Where This Runs',channels:[
+{ico:'📱',name:'App Onboarding',desc:"New welcome screen reinforcing identity from login 1. Ceremony, not checkout."},
+{ico:'🔔',name:'Push Notifications',desc:"Voice overhaul — identity-first copy makes every notification a brand touchpoint."},
+{ico:'🎴',name:'CRED Black',desc:"Exclusive tier launch. Private events, different physical card. Recreates founding feeling."},
+{ico:'📝',name:'CRED Stories',desc:"Real members, real financial decisions. Community over rewards architecture."},
+{ico:'📸',name:'LinkedIn/Instagram',desc:"Identity-coded, aspirational content targeting financially aware professionals."},
+{ico:'📰',name:'PR Story',desc:'"CRED stops gatekeeping on score alone." Financial media covers this for free.'},
+]},
+]},
+{id:'boat',cat:'mid',color:'#E31E24',bg:'#0A0A0A',
+name:'boAt',title:'80M Customers. Zero of Them Know Each Other.',
+hook:"boAt calls users 'Boatheads' — but there's zero infrastructure for that tribe to exist. Here's the community playbook.",
+type:'Community Brand Strategy',badge:'Mid-Size · D2C Audio',
+heroSub:"Harley-Davidson built brotherhood. boAt has the same opportunity — and has never taken it.",
+meta:[{l:'Scale',v:'Mid-Size'},{l:'Type',v:'Community + Events + Product'},{l:'Market',v:'Indian Audio D2C'},{l:'Unlock',v:'Tribe Infrastructure'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#0A0A0A"/><g opacity=".62"><rect x="18" y="96" width="7" height="28" rx="3.5" fill="#E31E24"/><rect x="31" y="78" width="7" height="64" rx="3.5" fill="#E31E24"/><rect x="44" y="58" width="7" height="104" rx="3.5" fill="#E31E24"/><rect x="57" y="48" width="7" height="124" rx="3.5" fill="#E31E24"/><rect x="70" y="64" width="7" height="92" rx="3.5" fill="#E31E24"/><rect x="83" y="82" width="7" height="56" rx="3.5" fill="#E31E24"/><rect x="96" y="98" width="7" height="24" rx="3.5" fill="#E31E24"/></g><text x="216" y="82" font-family="Georgia,serif" font-size="26" fill="white" font-weight="bold" text-anchor="middle">80 million</text><text x="216" y="114" font-family="Georgia,serif" font-size="26" fill="white" font-weight="bold" text-anchor="middle">of us.</text><text x="216" y="148" font-family="Georgia,serif" font-size="26" fill="#E31E24" font-weight="bold" text-anchor="middle">Never met.</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:"boAt Has 80M Customers. 'Boathead' Is Just a Word on the Packaging.",sub:"A community with no infrastructure is a marketing claim, not a brand asset.",body:"Harley-Davidson built H.O.G. and turned customers into a brotherhood. boAt calls users 'Boatheads' — but a Boathead in Jaipur has never met one in Hyderabad. The community is a label with no product behind it."},
+{type:'insight',ey:'The Insight',title:'Gen Z Buys Identity Before Product. Give Them Something to Belong To.',sub:"If boAt gave Boatheads a way to find each other and create together — they'd become the marketing department.",body:"The move isn't another influencer campaign. It's community infrastructure. A way for the tribe to actually exist — offline, online, in every city. When Boatheads start organising their own meetups, boAt stops being a brand and starts being a belonging."},
+{type:'copy',ey:'Campaign Copywriting',title:'Words That Build a Tribe, Not a Customer Base',copies:[
+{tag:'Campaign Launch',text:'"80 million of us. And we\'ve never met."',note:"The launch headline. Simple, true, surprising. Creates curiosity and invitation simultaneously."},
+{tag:'Event Invite',text:'"Find Your Boathead. Coming to 10 cities."',note:"'Find' positions community as discovery, not marketing."},
+{tag:'Membership Copy',text:'"Your serial number is your membership key."',note:"Transforms product purchase into community entry moment."},
+{tag:'Content Feature',text:'"The playlist you don\'t share with just anyone."',note:"Community content feature copy. Exclusive cultural access."},
+{tag:'Merch Drop',text:'"Made by Boatheads. Worn by Boatheads. Not for everyone."',note:"Scarcity + identity = streetwear dynamic in audio."},
+{tag:'Brand Voice',text:'"We gave you the earphones. The tribe was always yours."',note:"Positions boAt as enabler, not community owner."},
+]},
+{type:'strategy',ey:'The Strategy',title:"Three Moves to Build What 80M People Don't Know They're Missing.",strategies:[
+{t:'"Find Your Boathead" — City Activation Campaign',b:"Map Boatheads in 10 cities. Weekend event: part underground gig, part product experience, part community gathering. Free for registered members. Their UGC does the marketing at zero media spend.",full:false},
+{t:'Boathead App — Community Infrastructure',b:"Not a loyalty points dashboard — an actual community space. Music drops, challenge participation, city chapter listings, early product access. Entry: your product serial number is your membership key.",full:false},
+{t:'Boathead Studios — Artist Programme',b:"Partner with 100 emerging musicians across India. Give them boAt gear and 2-week exclusivity before their music goes anywhere else. Boatheads get first listen access. Cultural currency that audio competitors cannot buy.",full:false},
+{t:'Community Merch Drops',b:"Quarterly limited-run merch drops designed by Boathead community artists. Drop announcement IS the marketing. Scarcity + community design + identity signal creates streetwear dynamic in audio. No precedent in India.",full:true},
+]},
+{type:'mockups',ey:'Visual Concepts',title:'The Tribe, Visualised',mockups:[
+{lbl:'Campaign Launch Visual',
+svg:`<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="300" fill="#0A0A0A"/><defs><radialGradient id="brg" cx="50%" cy="50%"><stop offset="0%" stop-color="#E31E24" stop-opacity=".14"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="760" height="300" fill="url(#brg)"/><circle cx="200" cy="150" r="80" fill="none" stroke="rgba(227,30,36,.15)" stroke-width="2"/><circle cx="200" cy="150" r="50" fill="none" stroke="rgba(227,30,36,.24)" stroke-width="2.5"/><circle cx="200" cy="150" r="20" fill="rgba(227,30,36,.24)"/><text x="200" y="156" font-family="sans-serif" font-size="12" fill="white" text-anchor="middle">♪</text><text x="400" y="78" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.22)" letter-spacing="3" font-weight="700">CAMPAIGN HEADLINE</text><text x="400" y="128" font-family="Georgia,serif" font-size="40" fill="white" font-weight="bold">80 million</text><text x="400" y="172" font-family="Georgia,serif" font-size="40" fill="white" font-weight="bold">of us.</text><text x="400" y="216" font-family="Georgia,serif" font-size="40" fill="#E31E24" font-weight="bold">Never met.</text><text x="400" y="256" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.36)">Find Your Boathead. 10 cities. Coming soon.</text><text x="400" y="278" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.16)" letter-spacing="2">boAt COMMUNITY CAMPAIGN · ESHAAN DUA</text></svg>`,
+cap:"Campaign launch visual. Sound wave rings: community forming around shared music identity."},
+]},
+{type:'channels',ey:'The Ecosystem',title:'How the Tribe Comes to Life',channels:[
+{ico:'🎪',name:'City Events',desc:'"Find Your Boathead" — 10-city weekend activations. Community gig meets product experience.'},
+{ico:'📱',name:'Boathead App',desc:"Membership platform: first-listen exclusives, city chapters, early launches."},
+{ico:'🎵',name:'Boathead Studios',desc:"100 emerging artists get gear + 2-week app exclusivity. Authentic cultural currency."},
+{ico:'👕',name:'Merch Drops',desc:"Community-designed quarterly drops. Scarcity + identity = streetwear energy in audio."},
+{ico:'🎬',name:'UGC Machine',desc:"Every event and drop generates community content. Members become the marketing team."},
+{ico:'📊',name:'Data Layer',desc:"Purchase serial numbers as membership IDs. Transactional data becomes community infrastructure."},
+]},
+]},
+{id:'zepto',cat:'startup',color:'#8025FB',bg:'#0A0010',
+name:'Zepto',title:'The Brand Story Zepto Has Never Told',
+hook:"Founded by 19-year-old IIT Bombay dropouts during COVID. The most compelling startup origin in Indian business history. Zero consumers know it.",
+type:'Brand Origin Campaign',badge:'Startup · Quick Commerce',
+heroSub:"They were nineteen. They believed India could move faster. They were right.",
+meta:[{l:'Scale',v:'Startup'},{l:'Type',v:'Brand Film + OOH + Campus'},{l:'Story',v:'The 19-Year-Old Founders'},{l:'Gap',v:'Zero Brand Identity'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#0A0010"/><circle cx="300" cy="20" r="100" fill="rgba(128,37,251,.08)"/><text x="20" y="56" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.28)" font-weight="700" letter-spacing="3">BRAND FILM</text><text x="20" y="104" font-family="Georgia,serif" font-size="40" fill="white" font-weight="bold">We Were</text><text x="20" y="148" font-family="Georgia,serif" font-size="40" fill="#8025FB" font-weight="bold">Nineteen.</text><line x1="20" y1="164" x2="216" y2="164" stroke="rgba(128,37,251,.3)" stroke-width="1"/><text x="20" y="184" font-family="sans-serif" font-size="8.5" fill="rgba(255,255,255,.42)">IIT Bombay. 2021. COVID.</text><text x="20" y="202" font-family="sans-serif" font-size="8.5" fill="rgba(255,255,255,.42)">A city that needed to move faster.</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:'Zepto Is Invisible as a Brand — Even While Growing as a Business.',sub:"Feature war on speed and price. All three Q-commerce players look identical to the consumer.",body:"Zepto is fighting on speed and price against Blinkit and Swiggy Instamart. All three brands look identical to a consumer scrolling their phone. Zepto has an extraordinary founding story — that almost no consumer has ever heard."},
+{type:'insight',ey:'The Insight',title:"India's Most Resonant Brands Are Built on Founder Stories.",sub:"'We were 19 years old. We believed it was possible.' That's not an anecdote. That's a campaign.",body:"Dhirubhai's grit. Flipkart's hostel room. Byju's classroom. Indian consumers respond to founder mythology. Zepto's founders are IIT Bombay dropouts who started a company at 19 during COVID lockdown. That is not a LinkedIn footnote. That is the entire brand."},
+{type:'copy',ey:'Campaign Copywriting',title:'The Words That Tell the Origin Story',copies:[
+{tag:'Film Title',text:'"We Were Nineteen."',note:"The brand film name and campaign spine. Three words. The entire story in the title."},
+{tag:'Brand Tagline',text:'"We didn\'t wait for permission."',note:"New brand voice line. Works across every touchpoint. Impatient optimism as brand character."},
+{tag:'OOH Headline',text:'"Founded at 19. Delivered to 400 cities."',note:"Just two numbers. The juxtaposition IS the brand statement — youth + scale + defiance."},
+{tag:'Film Opening',text:'"In 2021, two 19-year-olds looked at a locked-down city and saw a logistics problem."',note:"Brand film opening card. Unscripted, direct."},
+{tag:'Campus Copy',text:'"This campus is Chapter #14 of the 19. Welcome to the Zepto founding story."',note:"Campus activation. Each of 19 campuses becomes a chapter in the origin mythology."},
+{tag:'App Loading',text:'"You placed the order. We\'re already moving."',note:"In-app micro-copy reflecting founding energy in every product interaction."},
+]},
+{type:'strategy',ey:'The Strategy',title:'Turn the Founding Story Into the Campaign.',strategies:[
+{t:'"We Were Nineteen" — The Brand Film',b:"90-second documentary-style film narrated by the founders. Unscripted. No teleprompter. Just what they saw during COVID, what they decided, why they believed. No product demo.",full:false},
+{t:'OOH — The Two Numbers Campaign',b:"Billboards: 'Founded at 19. Delivered to 400 cities.' No product shot. The juxtaposition does the brand work — youth, scale, defiance. White on Zepto purple. In 5 cities.",full:false},
+{t:'"We Didn\'t Wait for Permission" — Brand Voice Rollout',b:"New copy direction across every touchpoint. Packaging: 'Made by people who didn't wait.' Delivery bags: 'You ordered. We were already moving.' The founding energy becomes the product energy.",full:false},
+{t:'Zepto × 19 Universities — Campus Activation',b:"Simultaneous launch on exactly 19 campuses. Free delivery for first week. 'Founding Chapter' plaque in each campus canteen: 'This campus is Chapter #X of the 19.' Distribution strategy that becomes brand ceremony.",full:true},
+]},
+{type:'mockups',ey:'Campaign Visual Concepts',title:'The Origin Story, Made Visible',mockups:[
+{lbl:'Brand Film Frame + OOH Billboard Concept',
+svg:`<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="300" fill="#0A0010"/><defs><radialGradient id="zerg" cx="30%" cy="50%"><stop offset="0%" stop-color="#8025FB" stop-opacity=".18"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="760" height="300" fill="url(#zerg)"/><rect x="28" y="28" width="324" height="244" rx="4" fill="rgba(0,0,0,.55)"/><text x="190" y="66" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.22)" text-anchor="middle" letter-spacing="3" font-weight="700">BRAND FILM — OPENING FRAME</text><text x="190" y="112" font-family="Georgia,serif" font-size="34" fill="white" text-anchor="middle" font-style="italic">We Were</text><text x="190" y="156" font-family="Georgia,serif" font-size="34" fill="#8025FB" text-anchor="middle" font-style="italic">Nineteen.</text><line x1="58" y1="174" x2="322" y2="174" stroke="rgba(255,255,255,.1)" stroke-width="1"/><text x="190" y="196" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.38)" text-anchor="middle">IIT Bombay. 2021. COVID lockdown.</text><text x="190" y="216" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.38)" text-anchor="middle">A city that needed to move faster.</text><rect x="390" y="48" width="342" height="202" rx="4" fill="#1A0035"/><text x="561" y="96" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.22)" text-anchor="middle" letter-spacing="3" font-weight="700">OOH · 5 CITIES</text><text x="561" y="152" font-family="Georgia,serif" font-size="52" fill="white" text-anchor="middle" font-weight="bold">19</text><line x1="418" y1="168" x2="704" y2="168" stroke="rgba(128,37,251,.38)" stroke-width="1"/><text x="561" y="192" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.52)" text-anchor="middle">Founded at 19. Delivered to 400 cities.</text><text x="561" y="228" font-family="sans-serif" font-size="8" fill="rgba(128,37,251,.68)" text-anchor="middle" font-weight="700">ZEPTO</text><text x="380" y="278" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.16)" text-anchor="middle" letter-spacing="2">ZEPTO BRAND ORIGIN CAMPAIGN · ESHAAN DUA</text></svg>`,
+cap:"Left: Brand film opening. Right: The two-number OOH. The juxtaposition is everything."},
+]},
+{type:'channels',ey:'Channel Plan',title:'Where the Origin Story Lives',channels:[
+{ico:'🎬',name:'Brand Film',desc:'"We Were Nineteen" — 90-second documentary. YouTube full length, Instagram 30s cut.'},
+{ico:'🏙️',name:'OOH Billboard',desc:'"Founded at 19. Delivered to 400 cities." 5 cities. White on purple. No product shot.'},
+{ico:'📦',name:'Packaging + App',desc:'"We didn\'t wait for permission." Micro-copy across every product touchpoint.'},
+{ico:'🎓',name:'Campus Launch',desc:'19 universities simultaneously. Founding Chapter plaques. Students become part of origin story.'},
+{ico:'🎯',name:'Creator Brief',desc:'"What would you build at 19?" 30 college creators. Zero scripting. Zepto sponsors the ambition.'},
+{ico:'📰',name:'PR Story',desc:'"IIT Bombay dropouts who changed Indian delivery." Media already wants to write this.'},
+]},
+]},
+{id:'mamaearth',cat:'mid',color:'#4A9B6F',bg:'#0A1208',
+name:'Mamaearth',title:'When "Natural" Stops Being a Differentiator',
+hook:"Every brand went natural in 2022. Mamaearth's moat got commoditised. The next value: radical ingredient transparency.",
+type:'Brand Repositioning Strategy',badge:'Mid-Size · D2C Beauty',
+heroSub:"The brand that invented the natural category needs to invent what comes next.",
+meta:[{l:'Scale',v:'Mid-Size'},{l:'Type',v:'Repositioning + OOH + Product'},{l:'Market',v:'D2C Beauty'},{l:'Next Moat',v:'Radical Transparency'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#F5F0E8"/><rect x="16" y="14" width="130" height="192" rx="4" fill="white" stroke="#E0D8C8" stroke-width="1"/><rect x="16" y="14" width="130" height="44" rx="4" fill="#4A9B6F"/><text x="81" y="40" font-family="sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">MAMAEARTH</text><text x="26" y="80" font-family="sans-serif" font-size="6" fill="#666" font-weight="700">FULL SOURCE:</text><text x="26" y="96" font-family="sans-serif" font-size="7" fill="#444">- Aloe Vera — Rajkot, GJ</text><text x="26" y="114" font-family="sans-serif" font-size="7" fill="#444">- Turmeric — Sangli, MH</text><text x="26" y="132" font-family="sans-serif" font-size="7" fill="#444">- Coconut Oil — Palakkad</text><text x="184" y="68" font-family="Georgia,serif" font-size="22" fill="#2D2D2D">We'll show</text><text x="184" y="96" font-family="Georgia,serif" font-size="22" fill="#2D2D2D">you</text><text x="184" y="124" font-family="Georgia,serif" font-size="22" fill="#4A9B6F">every-</text><text x="184" y="152" font-family="Georgia,serif" font-size="22" fill="#4A9B6F">thing.</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:'Mamaearth Invented "Natural Beauty." Then Everyone Joined the Category.',sub:"In 2019: the only natural brand. In 2025: one of 200 competitors.",body:"Minimalist, WOW, Pilgrim, The Derma Co., and every legacy FMCG brand now has a natural line. Mamaearth is the founder of a category with 200 competitors. The positioning that won the market cannot hold it."},
+{type:'insight',ey:'The Insight',title:'The Next Consumer Value Is Not "Natural." It\'s "Provably Honest."',sub:"Post-IPO, post-misinformation consumers want the receipts, not the claims.",body:"India's beauty consumers want to know where the aloe vera was grown, whether the turmeric was independently tested. The brand that says 'we will show you everything' — not just claim it — owns the next decade."},
+{type:'copy',ey:'Campaign Copywriting',title:'"We\'ll Show You Everything" — The Honest Beauty Campaign',copies:[
+{tag:'Campaign Spine',text:'"We\'ll show you everything."',note:"Four words. The entire campaign. Owns transparency as a brand value before any competitor can."},
+{tag:'OOH Label Series',text:'"This aloe vera grew in Rajkot. We drove there."',note:"Billboard featuring the actual ingredient label. Specificity IS the creativity."},
+{tag:'OOH Testing',text:'"Third-party tested. We\'ll show you the certificate."',note:"Turns compliance into a brand statement."},
+{tag:'OOH Honesty',text:'"We know what\'s in it. We\'ll prove it."',note:"Invites consumers to check. The invitation is the confidence."},
+{tag:'Scanner Copy',text:'"Scan any product. See the truth."',note:"In-app ingredient scanner. Positions Mamaearth as category educator."},
+{tag:'Annual Report',text:'"The Honest Beauty Report. Because your face deserves the receipts."',note:"Turns a corporate document into a brand event."},
+]},
+{type:'strategy',ey:'The Strategy',title:'Own Transparency Before Anyone Else Dares To.',strategies:[
+{t:'"We\'ll Show You Everything" — The Radical Label',b:"Publish full ingredient sourcing chain for top 10 SKUs: supplier name, geography, lab certificate, QR on every pack. The first to do it owns 'honest beauty' permanently. Campaign visual: just the label. No model. No filter. The label IS the ad.",full:false},
+{t:'"Read the Label" OOH Series',b:"Billboards featuring giant close-ups of actual Mamaearth product labels — every ingredient listed in full. Headline: 'You deserve to know what you're putting on your face.' Legibility becomes the creative act.",full:false},
+{t:'In-App Ingredient Scanner',b:"Users photograph any competitor's label and see a side-by-side Mamaearth comparison — positioned as consumer education. Creates massive earned media. Positions Mamaearth as the category educator.",full:false},
+{t:'Annual Honest Beauty Report',b:"A publicly released document tracking ingredient sourcing, testing results, consumer feedback, and wastage data. A PR event every year. Transparency becomes a brand ritual.",full:true},
+]},
+{type:'mockups',ey:'Visual Concepts',title:'Transparency, Made Visible',mockups:[
+{lbl:'Read the Label OOH + Ingredient Scanner UI',
+svg:`<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="300" fill="#F5F0E8"/><rect x="28" y="28" width="222" height="244" rx="4" fill="white" stroke="#E0D8C8" stroke-width="1.5"/><rect x="28" y="28" width="222" height="54" rx="4" fill="#4A9B6F"/><text x="139" y="60" font-family="sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="700">MAMAEARTH</text><text x="48" y="108" font-family="sans-serif" font-size="6.5" fill="#555" font-weight="700" letter-spacing="1">FULL INGREDIENT SOURCE</text><text x="48" y="134" font-family="sans-serif" font-size="7.5" fill="#333">• Aloe Vera — Rajkot, Gujarat. Cert #AG2211</text><text x="48" y="152" font-family="sans-serif" font-size="7.5" fill="#333">• Turmeric — Sangli, Maharashtra. Fair trade.</text><text x="48" y="170" font-family="sans-serif" font-size="7.5" fill="#333">• Coconut Oil — Palakkad, Kerala. Cold pressed.</text><text x="48" y="188" font-family="sans-serif" font-size="7" fill="#aaa">Lab: SGS India · Cert #SGS-MA-2411</text><rect x="48" y="216" width="82" height="18" rx="2" fill="#4A9B6F" opacity=".15"/><text x="89" y="229" font-family="sans-serif" font-size="6.5" fill="#4A9B6F" text-anchor="middle" font-weight="700">SCAN TO VERIFY</text><rect x="286" y="28" width="210" height="244" rx="8" fill="#1A1208"/><rect x="298" y="44" width="186" height="214" rx="6" fill="#111"/><text x="391" y="76" font-family="sans-serif" font-size="7.5" fill="#4A9B6F" text-anchor="middle" font-weight="700" letter-spacing="2">SCANNER</text><text x="391" y="96" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.32)" text-anchor="middle">Point camera at any label</text><rect x="314" y="106" width="154" height="88" rx="4" fill="rgba(255,255,255,.04)" stroke="rgba(74,155,111,.28)" stroke-width="1.5"/><text x="391" y="158" font-family="sans-serif" font-size="8" fill="#4A9B6F" text-anchor="middle">SLS detected – Not in Mamaearth</text><rect x="536" y="28" width="196" height="244" rx="4" fill="#E8F5EE"/><text x="634" y="68" font-family="sans-serif" font-size="7" fill="#4A9B6F" text-anchor="middle" font-weight="700" letter-spacing="2">OOH HEADLINE</text><text x="634" y="116" font-family="Georgia,serif" font-size="26" fill="#1A1208" text-anchor="middle">We'll show</text><text x="634" y="148" font-family="Georgia,serif" font-size="26" fill="#1A1208" text-anchor="middle">you</text><text x="634" y="180" font-family="Georgia,serif" font-size="26" fill="#4A9B6F" text-anchor="middle">everything.</text><text x="634" y="218" font-family="sans-serif" font-size="7.5" fill="#888" text-anchor="middle">Your face deserves the receipts.</text></svg>`,
+cap:"Left: Ingredient label as the OOH ad. Centre: Scanner UI. Right: Campaign tagline."},
+]},
+{type:'channels',ey:'Distribution',title:'Where Transparency Lives',channels:[
+{ico:'🏷️',name:'Product Label',desc:"QR on every pack linking to full sourcing data. The product itself is the campaign."},
+{ico:'🏙️',name:'OOH Billboards',desc:'"Read the Label" series — giant ingredient close-ups. Legibility as creativity.'},
+{ico:'📱',name:'Ingredient Scanner',desc:"In-app tool positioning Mamaearth as the beauty industry truth arbiter."},
+{ico:'📊',name:'Annual Report',desc:"Honest Beauty Report — PR event generating earned media every year."},
+{ico:'📹',name:'Creator Partnerships',desc:"Skincare creators doing full ingredient breakdowns. Education = trust."},
+{ico:'🔬',name:'Lab Partnership',desc:"SGS India as visible brand partner. Third party validates the claim publicly."},
+]},
+]},
+{id:'nike',cat:'giant',color:'#111111',bg:'#050505',
+name:'Nike India',title:'"Just Do It" Doesn\'t Land If They Can\'t See Themselves Doing It',
+hook:"200M Indians want to move. Nike's campaigns were made for consumers who already feel like athletes.",
+type:'Localisation Strategy + Copywriting',badge:'Giant · Global Sport',
+heroSub:"The most powerful brand on Earth has never fully shown up for India's real athletes.",
+meta:[{l:'Scale',v:'Giant'},{l:'Type',v:'Campaign + Product + Grassroots'},{l:'Audience',v:'200M Unrepresented'},{l:'Gap',v:'Representation'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#0D0D0D"/><path d="M 18 180 Q 100 80 240 122 Q 288 138 278 154 Q 258 174 156 146 Q 68 124 18 180 Z" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="2"/><text x="22" y="62" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.22)" font-weight="700" letter-spacing="3">CAMPAIGN COPY</text><text x="22" y="90" font-family="Georgia,serif" font-size="18" fill="white">They don't have</text><text x="22" y="116" font-family="Georgia,serif" font-size="18" fill="white">the stadium.</text><text x="22" y="152" font-family="Georgia,serif" font-size="18" fill="white">They have the</text><text x="22" y="178" font-family="Georgia,serif" font-size="18" fill="rgba(255,255,255,.38)">street.</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:"Nike India Runs Global Campaigns With Indian Dubbing. That's Not Localisation.",sub:"The visuals: sculpted athletes in world-class facilities. Reality: India exercises on broken pavements.",body:"Nike India's campaigns were made for consumers who already feel like athletes. But India's fitness boom is happening in gym dens in Patna, park walks in Bhopal, cricket fields in Raipur. The aspiration gap is not a price problem. It is a representation problem."},
+{type:'insight',ey:'The Insight',title:"India's Most Real Athletes Have Never Been on a Nike Ad.",sub:"The female kabaddi player in Haryana. The blind marathon runner in Pune.",body:"The Indian consumer who can't afford Air Max can still feel like Nike made something for them — if Nike tells stories that look like theirs. India's athletic culture is deeply local, unglamorous, and deeply real."},
+{type:'copy',ey:'Campaign Copywriting',title:'"Real Field" — The Copy Series',copies:[
+{tag:'Campaign Spine',text:'"This is where Indian sport actually happens."',note:"The single line running the entire campaign. Truth-first."},
+{tag:'Headline 1',text:'"They don\'t have the stadium. They have the street. Just Do It."',note:"The contrast between what Nike usually shows and what India actually has. That gap IS the creative."},
+{tag:'Headline 2',text:'"The field has no lights. They play anyway. Just Do It."',note:"Every Indian who has played evening cricket in fading light can feel this instantly."},
+{tag:'Headline 3',text:'"The gym has no AC. He goes every day. Just Do It."',note:"Local gym version — speaks directly to Tier-2 and Tier-3 fitness culture."},
+{tag:'Creator Brief',text:'"Film your sport. Exactly where you play it. We\'ll take it from there."',note:"Brief for 200 non-celebrity athletes. Their footage. Their voice. Their edit."},
+{tag:'India Edit',text:'"Made for how India actually moves."',note:"Sub-collection positioning. No apology for price point. Full Nike energy."},
+]},
+{type:'strategy',ey:'The Strategy',title:"Show Up for India's Real Athletes.",strategies:[
+{t:'"Real Field" — Shot Entirely in Unsponsored India',b:"Campaign filmed exclusively in non-glamorous Indian athletic spaces. No celebrity athletes. No colour grading. Voiceover: 'This is where Indian sport happens. We're just here to help you do it better.'",full:false},
+{t:'Nike India Edit — The Sub-Collection',b:"Locally manufactured sub-collection priced ₹1,200–2,800 with colourways and sizes specific to India. Not branded as 'budget.' Positioned as 'made for how India actually moves.' Full Nike energy. Indian price.",full:false},
+{t:'200 Invisible Athletes — Creator Network',b:"Identify 200 non-celebrity Indian athletes. Give them gear and a camera. Their footage, their voice, their edit. Nike's only ask: tag us. The content library cannot be manufactured by any agency at any budget.",full:false},
+{t:'Khelo India Grassroots Partnership',b:"Equip 500 Khelo India registered sports programmes in Tier-2 and Tier-3 cities. Not logo placement — genuine equipment supply. Nike earns trust by showing up, not advertising.",full:true},
+]},
+{type:'mockups',ey:'Campaign Visual Concepts',title:'"Real Field" — What It Looks Like',mockups:[
+{lbl:'"Real Field" Billboard Series — Unfiltered India',
+svg:`<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="300" fill="#050505"/><rect x="18" y="28" width="226" height="200" rx="2" fill="#0D0D0D"/><text x="131" y="70" font-family="sans-serif" font-size="6.5" fill="rgba(255,255,255,.2)" text-anchor="middle" letter-spacing="3" font-weight="700">SERIES 1</text><text x="131" y="106" font-family="Georgia,serif" font-size="17.5" fill="white" text-anchor="middle">They don't have</text><text x="131" y="130" font-family="Georgia,serif" font-size="17.5" fill="white" text-anchor="middle">the stadium.</text><text x="131" y="164" font-family="Georgia,serif" font-size="17.5" fill="white" text-anchor="middle">They have the street.</text><text x="131" y="216" font-family="sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="700" letter-spacing="5">JUST DO IT.</text><rect x="266" y="28" width="226" height="200" rx="2" fill="#0A0A0A"/><text x="379" y="70" font-family="sans-serif" font-size="6.5" fill="rgba(255,255,255,.2)" text-anchor="middle" letter-spacing="3" font-weight="700">SERIES 2</text><text x="379" y="106" font-family="Georgia,serif" font-size="17.5" fill="white" text-anchor="middle">The field has no lights.</text><text x="379" y="130" font-family="Georgia,serif" font-size="17.5" fill="white" text-anchor="middle">They play anyway.</text><text x="379" y="216" font-family="sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="700" letter-spacing="5">JUST DO IT.</text><rect x="516" y="28" width="226" height="200" rx="2" fill="#080808"/><text x="629" y="70" font-family="sans-serif" font-size="6.5" fill="rgba(255,255,255,.2)" text-anchor="middle" letter-spacing="3" font-weight="700">SERIES 3</text><text x="629" y="106" font-family="Georgia,serif" font-size="17.5" fill="white" text-anchor="middle">The gym has no AC.</text><text x="629" y="130" font-family="Georgia,serif" font-size="17.5" fill="white" text-anchor="middle">He goes every day.</text><text x="629" y="216" font-family="sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="700" letter-spacing="5">JUST DO IT.</text><text x="380" y="278" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.16)" text-anchor="middle" letter-spacing="2">NIKE INDIA REAL FIELD CAMPAIGN · ESHAAN DUA</text></svg>`,
+cap:"3-billboard 'Real Field' series. No studio. No athlete photography. Just the copy and the truth of Indian sport."},
+]},
+{type:'channels',ey:'Channel Strategy',title:"Where Real India Finds Nike",channels:[
+{ico:'🏙️',name:'"Real Field" OOH',desc:"3-part billboard series. Unfiltered Indian sport in copy form."},
+{ico:'🎬',name:'Documentary Campaign',desc:"Short films in 5 cities — actual athletes, actual spaces. No casting."},
+{ico:'👟',name:'Nike India Edit',desc:"Local sub-collection. ₹1,200–2,800. Made for Indian movement."},
+{ico:'🤝',name:'Khelo India',desc:"Equip 500 grassroots sports programmes. Presence through showing up, not advertising."},
+{ico:'📱',name:'200 Athletes Network',desc:"Non-celebrity creator programme. Authentic content agencies cannot manufacture."},
+{ico:'🏫',name:'School Sport',desc:"Nike India Edit sponsorship for school sports teams in Tier-2 cities."},
+]},
+]},
+{id:'cocacola',cat:'giant',color:'#F40009',bg:'#1A0001',
+name:'Coca-Cola India',title:'"Open Happiness" Is a Boomer Tagline. Gen Z Wants to Make Their Own.',
+hook:"Coca-Cola's language was built for broadcast. Gen Z co-creates everything. Here's the campaign that gives them ownership.",
+type:'Gen Z Re-engagement + Co-creation',badge:'Giant · FMCG',
+heroSub:"The world's most recognised brand needs to stop broadcasting happiness and start enabling it.",
+meta:[{l:'Scale',v:'Giant'},{l:'Type',v:'Campaign + Co-creation + Product'},{l:'Target',v:'Gen Z India'},{l:'Shift',v:'Broadcast → Enable'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#1A0001"/><rect x="14" y="14" width="172" height="192" rx="4" fill="rgba(255,255,255,.07)"/><path d="M 86 40 L 72 58 L 66 78 L 66 172 L 106 172 L 106 78 L 100 58 Z" fill="none" stroke="rgba(244,0,9,.45)" stroke-width="2.5"/><path d="M 74 34 L 98 34 L 98 44 L 74 44 Z" fill="none" stroke="rgba(244,0,9,.45)" stroke-width="2"/><text x="202" y="70" font-family="Georgia,serif" font-size="22" fill="rgba(255,255,255,.18)" font-style="italic" text-anchor="middle">Open Happiness</text><text x="202" y="100" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.1)" text-anchor="middle">↓</text><text x="202" y="154" font-family="Georgia,serif" font-size="26" fill="white" font-style="italic" text-anchor="middle">Open Your</text><text x="202" y="186" font-family="Georgia,serif" font-size="26" fill="#F40009" font-style="italic" text-anchor="middle">Own.</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:"Gen Z India Knows Coca-Cola. They Don't Feel It.",sub:"Awareness without emotional ownership is a distribution problem, not a brand position.",body:"Gen Z India's relationship with Coca-Cola is passive nostalgia. They know 'Thanda Matlab Coca-Cola' but don't actively choose it. Meanwhile craft beverages and health drinks are positioning around values Gen Z actively claims as their own."},
+{type:'insight',ey:'The Insight',title:"Gen Z Doesn't Receive Happiness. They Manufacture It.",sub:"A generation raised on co-creation doesn't respond to brands that hand them joy.",body:"Gen Z remixes music, responds to content, turns brands into memes and identities. A brand that gives Gen Z something to make with it becomes part of their self-expression. Coca-Cola has the cultural ubiquity to be the canvas. They just need to stop being the painting."},
+{type:'copy',ey:'Campaign Copywriting',title:'From "Open Happiness" to "Open Your Own"',copies:[
+{tag:'New Tagline',text:'"Open Your Own."',note:"Two words added to the most famous tagline in the world. Changes the entire brand relationship."},
+{tag:'Campaign Spine',text:'"We made the canvas. You make it yours."',note:"Brand as enabler. Audience as creator. Radical for a 130-year-old company."},
+{tag:'Blank Billboard',text:'"This is a Coke bottle. Everything else is you."',note:"OOH: shows only the bottle outline. Invites the audience to complete the image."},
+{tag:'Remix Project',text:'"The Coke jingle, in stems. Remix it. Release it. Co-writing credit included."',note:"Campaign launch line. Makes the brand co-authored by Gen Z."},
+{tag:'Artist Collab',text:'"[Artist] imagined a Coke. We made it."',note:"Template for limited-edition artist flavour collaborations."},
+{tag:'Community Series',text:'"Coke spotted something good. It didn\'t write the ad. It just showed up."',note:"Gratitude curation series copy. Brand as audience for humanity."},
+]},
+{type:'strategy',ey:'The Strategy',title:'Give Gen Z the Brand. Watch Them Love It.',strategies:[
+{t:'"Open Your Own" — Tagline Evolution',b:"Add two words to the most famous tagline in the world. Launch as a creative brief to India — open call for what 'your happiness' looks like. Run UGC submissions on Instagram. The brand becomes a platform.",full:false},
+{t:'The Coke Remix Project',b:"Partner with 6 Indian independent musicians to release the Coke jingle as open audio stems. Public invites to remix. Top 50 remixes on Spotify with co-writing credits. Gen Z doesn't consume this campaign. They make it.",full:false},
+{t:'The Blank Billboard — Street Art Activation',b:"In 8 cities: white billboards with only a Coke bottle outline. Open brief to local street artists — no guidelines, no brand approval. Six weeks of art, then a city exhibition. Best one becomes the city's Coke campaign visual for that year.",full:false},
+{t:'Coke Studio Drops — Artist-Led Limited Flavours',b:"4 Indian independent artists per year co-create a limited-edition Coke flavour inspired by their music. Named, designed, and storytold by the artist. Scarcity + authentic collaboration = the Gen Z formula.",full:true},
+]},
+{type:'mockups',ey:'Visual Concepts',title:'The Co-creation, Visualised',mockups:[
+{lbl:'Tagline Evolution + Blank Billboard Concept',
+svg:`<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="300" fill="#1A0001"/><defs><radialGradient id="ccrg" cx="50%" cy="50%"><stop offset="0%" stop-color="#F40009" stop-opacity=".14"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="760" height="300" fill="url(#ccrg)"/><rect x="28" y="28" width="282" height="244" rx="4" fill="rgba(255,255,255,.055)"/><text x="169" y="72" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.18)" text-anchor="middle" letter-spacing="3" font-weight="700">TAGLINE EVOLUTION</text><text x="169" y="114" font-family="Georgia,serif" font-size="22" fill="rgba(255,255,255,.18)" text-anchor="middle" font-style="italic">Open Happiness</text><text x="169" y="178" font-family="Georgia,serif" font-size="38" fill="white" text-anchor="middle" font-style="italic">Open Your</text><text x="169" y="220" font-family="Georgia,serif" font-size="38" fill="#F40009" text-anchor="middle" font-style="italic">Own.</text><rect x="348" y="28" width="384" height="244" rx="4" fill="#fff"/><path d="M 488 70 L 472 90 L 466 112 L 466 214 L 518 214 L 518 112 L 512 90 Z" fill="none" stroke="rgba(244,0,9,.32)" stroke-width="2.5"/><path d="M 476 64 L 508 64 L 508 74 L 476 74 Z" fill="none" stroke="rgba(244,0,9,.32)" stroke-width="2"/><text x="600" y="86" font-family="sans-serif" font-size="7.5" fill="#888" text-anchor="middle" letter-spacing="2" font-weight="700">BLANK BILLBOARD · 8 CITIES</text><text x="600" y="140" font-family="Georgia,serif" font-size="24" fill="#1A1208" text-anchor="middle">Fill this.</text><text x="600" y="170" font-family="Georgia,serif" font-size="24" fill="#1A1208" text-anchor="middle">Make it yours.</text><text x="600" y="248" font-family="sans-serif" font-size="7" fill="#aaa" text-anchor="middle">Open brief to street artists · No approval needed</text><text x="380" y="284" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.14)" text-anchor="middle" letter-spacing="2">COCA-COLA INDIA GEN Z STRATEGY · ESHAAN DUA</text></svg>`,
+cap:"Left: 'Open Happiness' → 'Open Your Own' — two-word tagline evolution. Right: Blank billboard for street artists."},
+]},
+{type:'channels',ey:'Activation Plan',title:'Where Gen Z Takes Ownership',channels:[
+{ico:'🎵',name:'Remix Project',desc:"Jingle stems open to public. Top 50 remixes on Spotify with co-writing credits."},
+{ico:'🎨',name:'Blank Billboard',desc:"8-city open brief to street artists. Art becomes the city's campaign visual."},
+{ico:'🥤',name:'Studio Drops',desc:"Artist-designed limited-edition flavours. Scarcity + co-creation = Gen Z formula."},
+{ico:'📱',name:'UGC Platform',desc:'"Open Your Own" — what does your happiness look like? Brand becomes a platform.'},
+{ico:'🙌',name:'Coke Gratitude',desc:"500 community moments curated by Coke. Brand as audience for humanity."},
+{ico:'🎬',name:'Creator Seeding',desc:"Studio Drop samples to 200 Gen Z creators before launch. Organic review cycle."},
+]},
+]},
+{id:'nykaa',cat:'mid',color:'#FC2779',bg:'#1A0010',
+name:'Nykaa',title:'₹18,000 Cr Men\'s Grooming Market. No Brand Owner.',
+hook:"Nykaa Man exists as a product tab. Here's the strategy to make it a category-defining brand before Amazon Private Labels arrives.",
+type:'Category Expansion Strategy',badge:'Mid-Size · Beauty Retail',
+heroSub:"Nykaa made beauty aspirational for women. The same moment is happening for men right now.",
+meta:[{l:'Scale',v:'Mid-Size'},{l:'Type',v:'Brand Strategy + Campaign'},{l:'Market',v:"Men's Grooming"},{l:'Size',v:'₹18,000 Cr + growing'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#1A0010"/><defs><radialGradient id="nyrg" cx="60%" cy="40%"><stop offset="0%" stop-color="#FC2779" stop-opacity=".18"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="340" height="220" fill="url(#nyrg)"/><rect x="16" y="26" width="138" height="148" rx="6" fill="rgba(0,0,0,.35)"/><text x="85" y="68" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.55)" text-anchor="middle" font-weight="700" letter-spacing="2">NYKAA MAN</text><text x="85" y="96" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle">"No shame</text><text x="85" y="118" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle">in caring."</text><text x="242" y="116" font-family="Georgia,serif" font-size="38" fill="white" font-weight="bold" text-anchor="middle">₹18K</text><text x="242" y="140" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.45)" text-anchor="middle">Crore.</text><text x="242" y="164" font-family="sans-serif" font-size="8.5" fill="#FC2779" text-anchor="middle">No brand owner.</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:"Nykaa Man Has Been Running for 4 Years. Nobody Knows Its Name.",sub:"Zero brand identity. Zero community. Zero cultural presence. The category is wide open.",body:"Nykaa Man was launched in 2020 with Nykaa's technology, distribution, and supplier relationships — but no brand. The men's grooming market is ₹18,000 Cr growing at 12% annually. No dominant brand-first platform exists."},
+{type:'insight',ey:'The Insight',title:"Men's Grooming Is at the Same Inflection Point Women's Beauty Was in 2015.",sub:"Gen Z men openly invest in skincare. The search behaviour is there. The brand isn't.",body:"In 2015, Nykaa made women's beauty aspirational and accessible in one move. The same cultural shift is happening for men. No brand has made men's grooming both culturally cool and accessible simultaneously. That move is still available."},
+{type:'copy',ey:'Campaign Copywriting',title:'"No Shame in Caring" — Opening the Category',copies:[
+{tag:'Campaign Spine',text:'"No shame in caring."',note:"Three words. Destigmatises men's skincare without the overcompensating masculine framing every other brand uses."},
+{tag:'Brand Voice',text:'"Moisturiser. It\'s not complicated. Start."',note:"Direct, adult, honest. Treats men as people who simply haven't been spoken to correctly yet."},
+{tag:'OOH 1',text:'"Your face gets weather. So does everyone else\'s."',note:"Universal truth. Removes the this-is-special-for-men awkwardness by making it simply factual."},
+{tag:'OOH 2',text:'"Sunscreen isn\'t a women\'s product. It\'s an outdoor product."',note:"Category reframing. The insight IS the copy."},
+{tag:'Creator Brief',text:'"Tell us what you actually use. Honest. Unfiltered. Your routine, your words."',note:"Brief for male creator network. Zero scripting."},
+{tag:'Brand Tagline',text:'"Your face, finally."',note:"Positions Nykaa Man as the moment men's skincare gets taken seriously."},
+]},
+{type:'strategy',ey:'The Strategy',title:'Build the Brand Before Amazon Does.',strategies:[
+{t:'Nykaa Man as a Standalone Brand Identity',b:"Give Nykaa Man its own visual system — same parent, different energy. The GQ to Nykaa's Vogue. Stripped-back, expert aesthetic. Dark background, direct copy.",full:false},
+{t:'"No Shame in Caring" — The Campaign',b:"Real men — an IPL player, a chef, a startup founder, a student — talking about their skincare routine as plainly as they'd discuss a gym plan. No flexing. The first Indian beauty campaign for men that doesn't feel like one.",full:false},
+{t:'Real Guys, Real Routines — Creator Network',b:"50 male skincare creators creating 'what I actually use' content exclusively with Nykaa Man products for 6 months. Zero scripting. The content library cannot be manufactured by any studio at any budget.",full:false},
+{t:'In-Mall Consultation Kiosks',b:"Nykaa Man in-mall counters staffed by male beauty advisors — first of their kind in India. First-visit skin consultations, sample kits, subscription box sign-ups. The retail touchpoint is the campaign.",full:true},
+]},
+{type:'mockups',ey:'Visual Concepts',title:'What Nykaa Man Looks Like With a Brand',mockups:[
+{lbl:'"No Shame in Caring" + OOH Copy Series',
+svg:`<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="300" fill="#1A0010"/><defs><radialGradient id="nyrg2" cx="60%" cy="40%"><stop offset="0%" stop-color="#FC2779" stop-opacity=".16"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="760" height="300" fill="url(#nyrg2)"/><rect x="28" y="28" width="230" height="244" rx="4" fill="rgba(252,39,121,.07)" stroke="rgba(252,39,121,.18)" stroke-width="1"/><rect x="28" y="28" width="230" height="54" rx="4" fill="#FC2779"/><text x="143" y="60" font-family="sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="700" letter-spacing="1">NYKAA MAN</text><text x="143" y="102" font-family="Georgia,serif" font-size="18" fill="white" text-anchor="middle" font-style="italic">"No shame</text><text x="143" y="128" font-family="Georgia,serif" font-size="18" fill="white" text-anchor="middle" font-style="italic">in caring."</text><text x="143" y="248" font-family="sans-serif" font-size="6.5" fill="rgba(252,39,121,.5)" text-anchor="middle" letter-spacing="2">NYKAA MAN · 2026</text><rect x="296" y="28" width="436" height="244" rx="4" fill="#0D0008"/><text x="514" y="72" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.18)" text-anchor="middle" letter-spacing="3" font-weight="700">OOH CAMPAIGN SERIES</text><text x="514" y="120" font-family="Georgia,serif" font-size="36" fill="white" text-anchor="middle">"Moisturiser.</text><text x="514" y="160" font-family="Georgia,serif" font-size="36" fill="white" text-anchor="middle">It's not</text><text x="514" y="200" font-family="Georgia,serif" font-size="36" fill="#FC2779" text-anchor="middle">complicated."</text><text x="514" y="240" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.28)" text-anchor="middle">Nykaa Man · Your face, finally.</text></svg>`,
+cap:"Left: Nykaa Man campaign identity concept. Right: OOH copy series."},
+]},
+{type:'channels',ey:'Channel Strategy',title:"Where Nykaa Man Finds Its Audience",channels:[
+{ico:'🎨',name:'Brand Identity',desc:"Standalone visual system. Expert, stripped-back aesthetic. A brand destination, not a tab."},
+{ico:'📺',name:'"No Shame" Campaign',desc:"Real men, real routines, no flexing. First Indian beauty campaign for men that doesn't feel like one."},
+{ico:'🎥',name:'Creator Network',desc:"50 male skincare creators. Honest content. Zero scripting. 6-month authentic partnership."},
+{ico:'🏬',name:'In-Mall Kiosks',desc:"Male beauty advisors. Consultation-first model. Removes the anxiety of the category."},
+{ico:'📱',name:'App UX Overhaul',desc:"Dedicated Nykaa Man experience with its own UI language."},
+{ico:'📊',name:'Content + SEO',desc:"Men's skincare for India — owned editorial layer. Nykaa Man as the category's voice."},
+]},
+]},
+{id:'meesho',cat:'startup',color:'#9C27B0',bg:'#0D0014',
+name:'Meesho',title:'10 Crore Women. A Brand Story Nobody Has Told.',
+hook:"Meesho's real product isn't cheap shopping — it's economic independence. There's a movement hiding inside a marketplace.",
+type:'Brand Purpose Campaign',badge:'Startup · Social Commerce',
+heroSub:"The brand that gave crores of women their first business has never said so.",
+meta:[{l:'Scale',v:'Startup'},{l:'Type',v:'Brand Purpose + Campaign'},{l:'Market',v:'Social Commerce'},{l:'Truth',v:'Economic Independence'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#0D0014"/><circle cx="300" cy="20" r="80" fill="rgba(156,39,176,.07)"/><rect x="14" y="16" width="120" height="188" rx="10" fill="#1A0025" stroke="rgba(156,39,176,.28)" stroke-width="1"/><text x="74" y="58" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.45)" text-anchor="middle" font-weight="700">MERI DUKAAN</text><text x="74" y="82" font-family="Georgia,serif" font-size="12" fill="white" text-anchor="middle">First Sale!</text><text x="74" y="106" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.42)" text-anchor="middle">Sunita ji, Meerut</text><text x="74" y="134" font-family="sans-serif" font-size="16" fill="#FFD700" text-anchor="middle" font-weight="700">₹840</text><text x="220" y="80" font-family="Georgia,serif" font-size="27" fill="white" text-anchor="middle">10 Crore</text><text x="220" y="114" font-family="Georgia,serif" font-size="27" fill="#9C27B0" text-anchor="middle">Women.</text><text x="220" y="150" font-family="Georgia,serif" font-size="20" fill="rgba(255,255,255,.35)" text-anchor="middle">One story.</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:'Meesho Competes on Price Against Amazon. That Is a Losing Strategy.',sub:"A race-to-the-bottom brand against the world's most resourced company.",body:"Meesho markets itself as India's cheapest shopping app. Amazon and Flipkart have unlimited discounting capability. Meesho's actual superpower is its reseller network: millions of women across Tier-2 and Tier-3 India who run genuine small businesses through the platform. This is not a distribution feature. It is the brand story."},
+{type:'insight',ey:'The Insight',title:"Meesho Gave Crores of Women Their First Business Income. Nobody Knows.",sub:"In Indian culture, the woman who earns for herself carries a social weight that no discount code can touch.",body:"Meesho's reseller ecosystem is not a distribution hack — it is a movement. The brand that claims 'we gave crores of women their first business' owns positioning that Reliance and Amazon literally cannot buy or copy."},
+{type:'copy',ey:'Campaign Copywriting',title:'"Meri Dukaan" — The Campaign That Tells the Real Story',copies:[
+{tag:'Campaign Title',text:'"Meri Dukaan."',note:"My Shop. Two words. The entire brand story. Works in every Indian language. Infinitely human."},
+{tag:'Tagline',text:'"Apna business. Apni terms."',note:"Your business. Your terms. Replaces 'sabse sasta' with dignity-first positioning."},
+{tag:'Film Card',text:'"A thousand women started their first business last Tuesday. Nobody ran a story."',note:"Film opening card. Makes Meesho's scale feel revolutionary, not transactional."},
+{tag:'Scale Line',text:'"10 crore dukaans. Zero storefront. Just a phone and a plan."',note:"Reframes Meesho from shopping app to economic infrastructure."},
+{tag:'Portrait Copy',text:'"Sunita ji, Meerut. First sale: ₹840. First day: changed everything."',note:"Portrait series. The specificity of ₹840 is more powerful than any statistic."},
+{tag:'Event',text:'"Meesho Entrepreneur Day: We celebrate 10 crore reasons."',note:"Annual event headline. Turns a reseller metric into a national celebration."},
+]},
+{type:'strategy',ey:'The Strategy',title:'Stop Being a Shopping App. Start Being a Movement.',strategies:[
+{t:'"Meri Dukaan" — The National Brand Film',b:"Documentary told entirely through real resellers — not actors. The first WhatsApp order. The first profit. The first time they said 'main business chalati hoon.' Filmed in Hindi, Tamil, Telugu, Bengali, Marathi.",full:false},
+{t:'Meesho Entrepreneur Day — Annual National Event',b:"National celebration of Meesho's top resellers. Felicitated at city-level events, covered by regional media. Top 10 resellers per state in a national campaign.",full:false},
+{t:'Positioning Pivot — "Apna Business, Apni Terms"',b:"Retire 'Sabse Sasta.' Shift narrative from demand side (shoppers) to supply side (resellers). The reseller is the brand hero. Price follows dignity, not the other way around.",full:false},
+{t:'"Dukaan Stories" — Weekly Portrait Series',b:"Every week: one new reseller, one new city, 90-second story. Low production, high emotion. Zero brand copy — just the person and their story. 52 stories per year = 52 earned media moments.",full:true},
+]},
+{type:'mockups',ey:'Visual Concepts',title:'The Movement, Made Visible',mockups:[
+{lbl:'"Meri Dukaan" Campaign + Dukaan Stories Format',
+svg:`<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="300" fill="#0D0014"/><defs><radialGradient id="mrg" cx="40%" cy="50%"><stop offset="0%" stop-color="#9C27B0" stop-opacity=".16"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="760" height="300" fill="url(#mrg)"/><rect x="28" y="18" width="160" height="264" rx="12" fill="#1A0025" stroke="rgba(156,39,176,.28)" stroke-width="1"/><rect x="40" y="34" width="136" height="234" rx="8" fill="#120018"/><text x="108" y="64" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.38)" text-anchor="middle" font-weight="700">MERI DUKAAN</text><text x="108" y="88" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle">First Sale!</text><text x="108" y="112" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.45)" text-anchor="middle">Sunita ji, Meerut</text><text x="108" y="140" font-family="sans-serif" font-size="17" fill="#FFD700" text-anchor="middle" font-weight="700">₹840</text><rect x="218" y="18" width="220" height="264" rx="4" fill="rgba(156,39,176,.06)" stroke="rgba(156,39,176,.14)" stroke-width="1"/><text x="328" y="106" font-family="Georgia,serif" font-size="30" fill="white" text-anchor="middle">10 Crore</text><text x="328" y="150" font-family="Georgia,serif" font-size="30" fill="#9C27B0" text-anchor="middle">Women.</text><text x="328" y="190" font-family="Georgia,serif" font-size="22" fill="rgba(255,255,255,.45)" text-anchor="middle">One brand story.</text><text x="328" y="234" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.28)" text-anchor="middle">Apna business. Apni terms.</text><rect x="468" y="18" width="264" height="264" rx="4" fill="#0D0014"/><text x="600" y="56" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.18)" text-anchor="middle" letter-spacing="3" font-weight="700">DUKAAN STORIES · EP. 12</text><text x="600" y="96" font-family="Georgia,serif" font-size="18" fill="white" text-anchor="middle">Priya Sharma.</text><text x="600" y="120" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.45)" text-anchor="middle">Jabalpur, Madhya Pradesh.</text><text x="600" y="158" font-family="sans-serif" font-size="14" fill="#FFD700" text-anchor="middle" font-weight="700">Month 6: ₹23,400</text><text x="600" y="186" font-family="sans-serif" font-size="8" fill="#9C27B0" text-anchor="middle">400 customers. Still growing.</text></svg>`,
+cap:"Left: 'Meri Dukaan' in-app first sale notification. Centre: Campaign headline. Right: Weekly Dukaan Stories format."},
+]},
+{type:'channels',ey:'Where the Movement Runs',title:'Channel Plan',channels:[
+{ico:'🎬',name:'Brand Film',desc:'"Meri Dukaan" multi-language documentary. Real resellers. No actors. YouTube + OTT.'},
+{ico:'📱',name:'Weekly Series',desc:'"Dukaan Stories" — 90-second reseller portraits. 52 earned media moments/year.'},
+{ico:'🎉',name:'Annual Event',desc:'Meesho Entrepreneur Day — national reseller felicitation. Regional media + city events.'},
+{ico:'📢',name:'Brand Voice',desc:'"Apna Business, Apni Terms" replacing "Sabse Sasta" across all touchpoints.'},
+{ico:'🏙️',name:'OOH Campaign',desc:'"Made in Meerut. Delivered to India." Reseller portraits in their home cities.'},
+{ico:'📰',name:'PR Story',desc:'"Meesho: India\'s largest employer of self-employed women." Story journalists want to write.'},
+]},
+]},
+{id:'spotify',cat:'giant',color:'#1DB954',bg:'#040F08',
+name:'Spotify India',title:'Stop Fighting for Bollywood. Own the Discovery Layer.',
+hook:"JioSaavn has 30 years of Bollywood IP. Spotify can't win that fight. But nobody owns 'you heard them first.'",
+type:'Market Positioning Strategy',badge:'Giant · Music Streaming',
+heroSub:"The platform that discovers what comes after Bollywood wins India.",
+meta:[{l:'Scale',v:'Giant'},{l:'Type',v:'Positioning + Campaign + Product'},{l:'Market',v:'India Audio'},{l:'Claim',v:'Discovery Platform'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#040F08"/><g opacity=".4"><rect x="18" y="152" width="8" height="38" rx="4" fill="#1DB954"/><rect x="32" y="130" width="8" height="60" rx="4" fill="#1DB954"/><rect x="46" y="108" width="8" height="82" rx="4" fill="#1DB954"/><rect x="60" y="88" width="8" height="102" rx="4" fill="#1DB954"/><rect x="74" y="72" width="8" height="118" rx="4" fill="#1DB954"/><rect x="88" y="88" width="8" height="102" rx="4" fill="#1DB954"/><rect x="102" y="110" width="8" height="80" rx="4" fill="#1DB954"/></g><text x="198" y="78" font-family="Georgia,serif" font-size="30" fill="white" text-anchor="middle">You heard</text><text x="198" y="116" font-family="Georgia,serif" font-size="30" fill="white" text-anchor="middle">them</text><text x="198" y="154" font-family="Georgia,serif" font-size="30" fill="#1DB954" text-anchor="middle">first.</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:"Spotify Is Fighting a War It Cannot Win on a Battlefield It Chose.",sub:"JioSaavn has structural Bollywood IP advantages. Competing head-on is a losing strategy.",body:"Spotify India's strategy is still built around Bollywood listeners — an audience JioSaavn will keep because the IP advantage is structural and permanent. Meanwhile independent Indian artists are growing faster than Bollywood on streaming. Spotify is fighting the wrong war."},
+{type:'insight',ey:'The Insight',title:'"You Heard Them First" Is a Status Signal JioSaavn Cannot Claim.',sub:"Discovery is an identity claim. Infinitely scalable. Nobody has staked it yet.",body:"Music-forward listeners carry strong identity investment in discovery — 'I was listening to this before anyone else' is a genuine status signal. If Spotify becomes the place where careers begin, it builds loyalty no catalogue can replace."},
+{type:'copy',ey:'Campaign Copywriting',title:'"You Heard Them First" — The Discovery Campaign',copies:[
+{tag:'Campaign Spine',text:'"You heard them first."',note:"Four words. The entire brand positioning."},
+{tag:'Sub-line',text:'"Before the tours. Before the billboards. Before everyone."',note:"Makes the discovery moment feel historical and personally significant."},
+{tag:'OOH Concept',text:'"June 2023. 4,200 listeners. December 2024: tour sold out in 6 minutes. You were one of the 4,200."',note:"'Before the Boards' OOH series. The before-and-after IS the product demo."},
+{tag:'Feature Copy',text:'"First Listener Badge. You heard Prateek Kuhad before 2 million people did."',note:"In-app recognition. Rewards discovery behaviour."},
+{tag:'Artist Brief',text:'"Your first Spotify track. Your story. Before the world knows your name."',note:"Campaign for indie artists. Spotify is the launchpad."},
+{tag:'Regional Voice',text:'"Bhojpuri, Haryanvi, Tamil rap, Malayalam folk. The next wave starts here."',note:"Spotify as the origin point of India's next music era."},
+]},
+{type:'strategy',ey:'The Strategy',title:"Build the Discovery Platform JioSaavn Cannot Become.",strategies:[
+{t:'"Your First Listen" — Discovery as Identity Campaign',b:"Campaign built around finding an artist before they blew up. Real users, real songs. The song is the hero. Spotify is the stage.",full:false},
+{t:'"Before the Boards" — OOH Campaign',b:"Billboards featuring Spotify artists before they were famous. Caption: 'June 2023. 4,200 listeners. December 2024: sold out in 6 minutes. You were one of the 4,200.' The before-and-after is the product demo.",full:false},
+{t:'Spotify India Originals — Regional First',b:"50 original tracks by independent Indian artists in Bhojpuri, Haryanvi, Punjabi indie, Tamil rap, and Malayalam folk — exclusively on Spotify for 30 days.",full:false},
+{t:'Spotify Mic — Regional Podcast Infrastructure',b:"Simplified podcast recording and distribution tool in 8 Indian languages. Remove the technical barrier. Become the infrastructure for India's non-English audio explosion.",full:true},
+]},
+{type:'mockups',ey:'Visual Concepts',title:'"You Heard Them First"',mockups:[
+{lbl:'"First Listener Badge" Feature + "Before the Boards" OOH',
+svg:`<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="300" fill="#040F08"/><defs><radialGradient id="sprg" cx="50%" cy="50%"><stop offset="0%" stop-color="#1DB954" stop-opacity=".1"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="760" height="300" fill="url(#sprg)"/><g opacity=".38"><rect x="28" y="162" width="8" height="30" rx="4" fill="#1DB954"/><rect x="42" y="140" width="8" height="52" rx="4" fill="#1DB954"/><rect x="56" y="120" width="8" height="72" rx="4" fill="#1DB954"/><rect x="70" y="98" width="8" height="94" rx="4" fill="#1DB954"/><rect x="84" y="80" width="8" height="112" rx="4" fill="#1DB954"/><rect x="98" y="96" width="8" height="96" rx="4" fill="#1DB954"/></g><rect x="172" y="40" width="202" height="124" rx="8" fill="rgba(29,185,84,.07)" stroke="rgba(29,185,84,.22)" stroke-width="1"/><text x="273" y="72" font-family="sans-serif" font-size="7" fill="#1DB954" text-anchor="middle" font-weight="700" letter-spacing="2">FIRST LISTENER BADGE</text><text x="273" y="100" font-family="Georgia,serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Prateek Kuhad</text><text x="273" y="120" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.32)" text-anchor="middle">You were one of 4,200 first listeners.</text><text x="273" y="140" font-family="sans-serif" font-size="7.5" fill="#1DB954" text-anchor="middle">Feb 2023 · Before the world knew.</text><rect x="408" y="28" width="324" height="244" rx="4" fill="#050E06"/><text x="570" y="68" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.18)" text-anchor="middle" letter-spacing="3" font-weight="700">BEFORE THE BOARDS · OOH</text><text x="570" y="116" font-family="Georgia,serif" font-size="36" fill="white" text-anchor="middle">You heard</text><text x="570" y="158" font-family="Georgia,serif" font-size="36" fill="white" text-anchor="middle">them</text><text x="570" y="200" font-family="Georgia,serif" font-size="36" fill="#1DB954" text-anchor="middle">first.</text><text x="570" y="236" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.2)" text-anchor="middle">Before the tours. Before the billboards.</text><text x="380" y="280" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.14)" text-anchor="middle" letter-spacing="2">SPOTIFY INDIA DISCOVERY STRATEGY · ESHAAN DUA</text></svg>`,
+cap:"Left: 'First Listener Badge' in-app feature. Right: 'You Heard Them First' OOH — the before-and-after is the product demo."},
+]},
+{type:'channels',ey:'Platform Strategy',title:'Where Discovery Lives',channels:[
+{ico:'🏅',name:'First Listener Badge',desc:"In-app feature recognising users who discover artists early."},
+{ico:'🏙️',name:'"Before the Boards" OOH',desc:"Artist origin stories in 6 cities. The before-and-after is the product demo."},
+{ico:'🎵',name:'India Originals',desc:"50 regional original tracks exclusive to Spotify for 30 days."},
+{ico:'🎙️',name:'Spotify Mic',desc:"Regional podcast creator tool. Infrastructure for India's non-English audio explosion."},
+{ico:'📱',name:'Editorial Playlists',desc:"India-specific cultural moment playlists — Navratri, board exams, IPL, monsoon."},
+{ico:'📰',name:'PR Story',desc:'"Spotify is where Indian music careers begin." Artist case studies are the editorial campaign.'},
+]},
+]},
+{id:'noise',cat:'mid',color:'#FF6B00',bg:'#100600',
+name:'Noise',title:"Noise Is boAt's Shadow. Here's the Pivot That Steps Out Permanently.",
+hook:"Noise has better health-tracking specs than boAt in several SKUs. Nobody knows because they market identically. Exit lifestyle. Own wellness.",
+type:'Brand Differentiation Strategy',badge:'Mid-Size · Wearables',
+heroSub:"Every feature war has a loser. The brand that changes the battlefield wins.",
+meta:[{l:'Scale',v:'Mid-Size'},{l:'Type',v:'Repositioning + Product + Campaign'},{l:'Market',v:'Indian Wearables'},{l:'Pivot',v:'Lifestyle → Health'}],
+cardSvg:`<svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="220" fill="#100600"/><defs><radialGradient id="norg" cx="40%" cy="50%"><stop offset="0%" stop-color="#FF6B00" stop-opacity=".16"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="340" height="220" fill="url(#norg)"/><rect x="16" y="18" width="128" height="184" rx="8" fill="rgba(0,0,0,.5)"/><circle cx="80" cy="108" r="48" fill="none" stroke="rgba(255,107,0,.14)" stroke-width="2.5"/><circle cx="80" cy="108" r="48" fill="none" stroke="#FF6B00" stroke-width="3" stroke-dasharray="301" stroke-dashoffset="75" transform="rotate(-90 80 108)"/><text x="80" y="103" font-family="monospace" font-size="20" fill="white" text-anchor="middle" font-weight="bold">78</text><text x="80" y="122" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.42)" text-anchor="middle">SLEEP SCORE</text><text x="218" y="82" font-family="Georgia,serif" font-size="26" fill="white" text-anchor="middle">Know</text><text x="218" y="116" font-family="Georgia,serif" font-size="26" fill="white" text-anchor="middle">Your</text><text x="218" y="150" font-family="Georgia,serif" font-size="26" fill="#FF6B00" text-anchor="middle">Body.</text></svg>`,
+sections:[
+{type:'problem',ey:'The Problem',title:'Noise and boAt Are on the Same Shelf. Same Price. Same Story. One Winner.',sub:"Brand parity at shelf level is a slow death for the number 2 player.",body:"Noise and boAt occupy the same shelf, same price band, and same 'cool Indian wearable brand' positioning. Noise has no differentiated reason-to-prefer. The brand's marketing is reactive, not declarative."},
+{type:'insight',ey:'The Insight',title:"India Is in a Preventive Health Revolution. Noise Has the Hardware to Own It.",sub:"Post-COVID, people want to know their SpO2, sleep score, and stress data. Noise has the sensors.",body:"The smartwatch category is growing not because people want to look cool — it's because they want health data. Noise has superior health-tracking credentials in many devices but markets them with the same lifestyle-audio language as boAt. This is the wrong war entirely."},
+{type:'copy',ey:'Campaign Copywriting',title:'"Know Your Body" — The Repositioning',copies:[
+{tag:'New Brand Line',text:'"Know Your Body."',note:"Three words. Completely exits the audio lifestyle lane. Nobody else has claimed this."},
+{tag:'Campaign Spine',text:'"Your body has been trying to tell you something. Now you can hear it."',note:"Warm, revelatory, non-clinical. Makes health data feel like insight, not statistics."},
+{tag:'OOH 1',text:'"78% sleep efficiency. Room for one earlier bedtime."',note:"Data-as-copy. The specific number IS the creativity."},
+{tag:'OOH 2',text:'"Your heart rate noticed. Did you?"',note:"Emotional health insight. Creates curiosity without medical jargon."},
+{tag:'Annual Report',text:'"India slept 6.2 hours average last night. What did you sleep?"',note:"Annual Noise India Health Report headline. Makes Noise a data brand with cultural relevance."},
+{tag:'Product Copy',text:'"The wearable your doctor would recommend."',note:"Aspirational positioning. Sets up health platform partnerships."},
+]},
+{type:'strategy',ey:'The Strategy',title:'Own the Health Lane Before Anyone Else Thinks to Enter It.',strategies:[
+{t:'"Know Your Body" — Full Brand Repositioning',b:"Complete direction shift. Noise stops competing on lifestyle audio and goes all-in on India's wellness movement. New territory: The Health Wearables Brand. Exit the boAt comparison permanently.",full:false},
+{t:'"What\'s Your Score?" — The Campaign',b:"Real, specific health metrics. Real users who discovered something about their health through a Noise wearable. Not aspirational — revelatory. 'I didn't know I was sleep-deprived until my Noise told me.'",full:false},
+{t:'Apollo / Practo / CultFit Partnership',b:"Tie up with a major health platform so Noise devices sync with a health ecosystem. When your smartwatch is recommended alongside a healthcare brand, it stops being a gadget and becomes a health tool.",full:false},
+{t:'Annual Noise India Health Report',b:"Anonymised, aggregated health data from Noise users — sleep patterns by city, heart rate during IPL finals, stress during board exams. First-of-its-kind in India. Generates press coverage no media buy can replicate.",full:true},
+]},
+{type:'mockups',ey:'Visual Concepts',title:'"Know Your Body"',mockups:[
+{lbl:'Health Dashboard UI + "Know Your Body" OOH Campaign',
+svg:`<svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="300" fill="#100600"/><defs><radialGradient id="norg2" cx="40%" cy="50%"><stop offset="0%" stop-color="#FF6B00" stop-opacity=".15"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="760" height="300" fill="url(#norg2)"/><rect x="28" y="18" width="282" height="264" rx="8" fill="#1A0A00" stroke="rgba(255,107,0,.16)" stroke-width="1"/><text x="169" y="58" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.28)" text-anchor="middle" font-weight="700" letter-spacing="2">NOISE HEALTH DASHBOARD</text><circle cx="99" cy="152" r="50" fill="none" stroke="rgba(255,107,0,.14)" stroke-width="3"/><circle cx="99" cy="152" r="50" fill="none" stroke="#FF6B00" stroke-width="3" stroke-dasharray="314" stroke-dashoffset="78" transform="rotate(-90 99 152)"/><text x="99" y="147" font-family="monospace" font-size="22" fill="white" text-anchor="middle" font-weight="bold">78</text><text x="99" y="166" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.42)" text-anchor="middle">SLEEP SCORE</text><circle cx="215" cy="152" r="38" fill="none" stroke="rgba(255,107,0,.1)" stroke-width="3"/><circle cx="215" cy="152" r="38" fill="none" stroke="#FF6B00" stroke-width="3" stroke-dasharray="238" stroke-dashoffset="47" transform="rotate(-90 215 152)" opacity=".7"/><text x="215" y="148" font-family="monospace" font-size="17" fill="white" text-anchor="middle" font-weight="bold">96</text><text x="215" y="164" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.42)" text-anchor="middle">SpO2 %</text><rect x="340" y="18" width="392" height="264" rx="4" fill="#0D0500"/><text x="536" y="64" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.18)" text-anchor="middle" letter-spacing="3" font-weight="700">OOH CAMPAIGN</text><text x="536" y="120" font-family="Georgia,serif" font-size="46" fill="white" text-anchor="middle">Know</text><text x="536" y="172" font-family="Georgia,serif" font-size="46" fill="white" text-anchor="middle">Your</text><text x="536" y="224" font-family="Georgia,serif" font-size="46" fill="#FF6B00" text-anchor="middle">Body.</text><text x="536" y="256" font-family="sans-serif" font-size="8.5" fill="rgba(255,255,255,.2)" text-anchor="middle">Not just your playlist.</text><text x="380" y="286" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.14)" text-anchor="middle" letter-spacing="2">NOISE HEALTH PIVOT STRATEGY · ESHAAN DUA</text></svg>`,
+cap:"Left: Redesigned health dashboard UI. Right: 'Know Your Body' OOH — exits the audio lifestyle lane entirely."},
+]},
+{type:'channels',ey:'Channel Strategy',title:'Where Health Ownership Lives',channels:[
+{ico:'📺',name:'"What\'s Your Score?" Campaign',desc:"Health data as emotional hero. Real users, real revelations. OOH + digital + OTT."},
+{ico:'🤝',name:'Health Platform Partnership',desc:"Apollo/Practo/CultFit integration. Wearable recommended alongside healthcare brands."},
+{ico:'📊',name:'Annual Health Report',desc:"India's first consumer health data report. PR generates its own coverage annually."},
+{ico:'📱',name:'App Redesign',desc:"Health-first UI. Data visualisation over spec sheets."},
+{ico:'🏥',name:'B2B Health Strategy',desc:"Corporate wellness programmes. Noise as the office health wearable."},
+{ico:'📰',name:'PR Angle',desc:"India's health wearable brand vs India's audio brand. Category change is the story."},
+]},
+]},
+];
+
+function renderGrid(){
+  const g=document.getElementById('bgrid');
+  if(!g)return;
+  g.innerHTML=BRANDS.map(b=>`
+  <div class="bc show" data-cat="${b.cat}" onclick="openBrand('${b.id}')">
+    <div class="bc-vis">${b.cardSvg}<div class="bc-ov">Open Strategy &#x2197;</div></div>
+    <div class="bc-body">
+      <div class="bc-co" style="color:${b.color}">${b.name} &middot; ${b.cat==='giant'?'Giant':b.cat==='mid'?'Mid-Size':'Startup'}</div>
+      <div class="bc-title">${b.title}</div>
+      <div class="bc-hook">${b.hook}</div>
+      <div class="bc-foot">
+        <span class="bc-type">${b.type}</span>
+        <div class="bc-arr" style="background:${b.color};border-color:${b.color};color:#fff">&#x2197;</div>
+      </div>
+    </div>
+  </div>`).join('');
+}
+
+function openBrand(id){
+  const b=BRANDS.find(x=>x.id===id);if(!b)return;
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  const bp=document.getElementById('brand-pg');
+  bp.style.display='block';
+  bp.innerHTML=buildBP(b);
+  window.scrollTo(0,0);
+  iR();
+}
+
+function buildBP(b){
+  const NL={problem:'Problem',insight:'Insight',copy:'Copywriting',strategy:'Strategy',mockups:'Visuals',channels:'Channel Plan'};
+  const IDS=b.sections.map((_,i)=>'bps'+i);
+  let h=`<section class="bp-hero" style="background:${b.bg}">
+    <button class="bp-back" onclick="gH()">&#x2190; All Brands</button>
+    <div class="bp-badge">${b.badge}</div>
+    <h1 class="bp-name" style="color:${b.color}">${b.name}</h1>
+    <p class="bp-sub">${b.heroSub}</p>
+    <div class="bp-metas">${b.meta.map(m=>`<div class="bp-meta"><div class="bp-ml">${m.l}</div><div class="bp-mv">${m.v}</div></div>`).join('')}</div>
+  </section>
+  <div class="bp-strip">${b.sections.map((s,i)=>`<button class="bpn" onclick="sBP('${IDS[i]}')">${NL[s.type]||s.type}</button>`).join('')}</div>`;
+
+  b.sections.forEach((s,i)=>{
+    h+='<div id="'+IDS[i]+'">';
+    if(s.type==='problem'||s.type==='insight'){
+      h+=`<section class="bps"><div class="bps-ey" style="color:${b.color}">${s.ey}</div><h2 class="bps-t">${s.title}</h2><p class="bps-sub">${s.sub}</p><p class="bps-body">${s.body}</p></section>`;
+    }else if(s.type==='copy'){
+      h+=`<section class="bps" style="background:#fff"><div class="bps-ey" style="color:${b.color}">${s.ey}</div><h2 class="bps-t">${s.title}</h2><p class="bps-sub">Every line here is a working creative asset &mdash; headline, tagline, notification copy, or film line &mdash; ready to use or adapt.</p><div class="cpwall">${s.copies.map(c=>`<div class="cprow"><div class="cptag" style="color:${b.color}">${c.tag}</div><div><div class="cptext">${c.text}</div><div class="cpnote">${c.note}</div></div></div>`).join('')}</div></section>`;
+    }else if(s.type==='strategy'){
+      h+=`<section class="bps"><div class="bps-ey" style="color:${b.color}">${s.ey}</div><h2 class="bps-t">${s.title}</h2><p class="bps-sub">Each strategy below is a complete, execution-ready brief &mdash; not a slide point.</p><div class="stgrid">${s.strategies.map(st=>`<div class="stcard${st.full?' full':''}" style="border-left-color:${b.color}"><div class="stcard-t">${st.t}</div><div class="stcard-b">${st.b}</div></div>`).join('')}</div></section>`;
+    }else if(s.type==='mockups'){
+      h+=`<section class="bps" style="background:#FAFAF8"><div class="bps-ey" style="color:${b.color}">${s.ey}</div><h2 class="bps-t">${s.title}</h2><p class="bps-sub">Visual concepts showing how each campaign would look in the real world.</p>${s.mockups.map(m=>`<div class="mwrap"><div class="mlbl">${m.lbl}</div><div class="mframe">${m.svg}<div class="mcap" style="border-top-color:${b.color}28">${m.cap}</div></div></div>`).join('')}</section>`;
+    }else if(s.type==='channels'){
+      h+=`<section class="bps" style="background:#fff"><div class="bps-ey" style="color:${b.color}">${s.ey}</div><h2 class="bps-t">${s.title}</h2><p class="bps-sub">Where and how this strategy runs in the market.</p><div class="chgrid">${s.channels.map(c=>`<div class="chitem"><div class="chico">${c.ico}</div><div class="chname">${c.name}</div><div class="chdesc">${c.desc}</div></div>`).join('')}</div></section>`;
+    }
+    h+='</div>';
+  });
+  h+=`<footer class="sfooter" style="background:var(--ink)"><span>&copy; 2026 Eshaan Dua</span><button onclick="gH()" style="background:none;border:none;color:rgba(253,249,244,.28);font-family:Syne,sans-serif;font-size:.65rem;letter-spacing:.06em;cursor:pointer">&#x2190; Back to All Brands</button><a href="mailto:eshaandua10@gmail.com" style="color:rgba(253,249,244,.28);text-decoration:none">eshaandua10@gmail.com</a></footer>`;
+  return h;
+}
+
+function sBP(id){const el=document.getElementById(id);if(el){const y=el.getBoundingClientRect().top+window.scrollY-128;window.scrollTo({top:y,behavior:'smooth'});}}
+renderGrid();
+iR();
+
+const IDEAS=[
+{cat:'commerce',brand:'Blinkit',idea:'Rainy Day Mode',hook:'App turns moody-blue when it rains. Soup, candles, and umbrellas float to the top automatically.'},
+{cat:'commerce',brand:'Zepto',idea:'The 19-Minute Confession',hook:'A countdown timer that doubles as a "what are you really craving" mood check before checkout.'},
+{cat:'commerce',brand:'Nykaa',idea:'Beauty Journey Tracker',hook:'Your skin\u2019s timeline, not your cart\u2019s. See how your routine actually changed your face over a year.'},
+{cat:'commerce',brand:'Meesho',idea:'Dukaan Anniversary Reminder',hook:'The app remembers your first sale date and throws you a tiny confetti moment every year.'},
+{cat:'commerce',brand:'Amazon India',idea:'Return Reason Poetry',hook:'Turns the most common return reasons into a darkly funny annual report nobody asked for, everybody reads.'},
+{cat:'commerce',brand:'Flipkart',idea:'Big Billion Day Time Capsule',hook:'Buy something on sale day, get a message a year later: "Still using it?"'},
+{cat:'commerce',brand:'Swiggy Instamart',idea:'The Forgot-Something Nudge',hook:'AI notices your cart is missing the one thing you always buy with milk, and asks before you forget.'},
+{cat:'commerce',brand:'BigBasket',idea:'Recipe Reverse-Engineer',hook:'Upload a photo of a dish you ate at a restaurant. It builds your grocery list to recreate it.'},
+{cat:'travel',brand:'Airbnb',idea:'Neighborhood Mentor',hook:'Every listing comes with a 2-minute video from a local: "Here\u2019s where I\u2019d actually eat, not what Google says."'},
+{cat:'travel',brand:'Uber',idea:'Loyalty Passport',hook:'A literal stamped passport (digital) for every city you\u2019ve been driven through. Frequent flyers, but for backseats.'},
+{cat:'travel',brand:'MakeMyTrip',idea:'Regret-Proof Booking',hook:'Shows you the weather, festival calendar, and crowd index for your dates \u2014 before you regret booking in monsoon.'},
+{cat:'travel',brand:'IRCTC',idea:'Waitlist Therapy',hook:'While you wait for WL34 to confirm, the app tells you jokes about Indian Railways. Healing through humor.'},
+{cat:'travel',brand:'Ola',idea:'Mood Playlist Match',hook:'Driver\u2019s radio auto-syncs to a playlist matching your last 3 ride moods. Stressed Monday gets lo-fi, not item songs.'},
+{cat:'travel',brand:'Goibibo',idea:'The Honest Hotel Filter',hook:'A filter called "What Will Actually Disappoint You" \u2014 sourced from real complaint patterns, not star ratings.'},
+{cat:'travel',brand:'RedBus',idea:'Sleeper Seat Roulette',hook:'Random seat-mate compatibility quiz before booking. Because nobody wants the talker at 2AM.'},
+{cat:'media',brand:'Netflix',idea:'Family Leaderboard',hook:'See who in your household actually finishes shows vs. who just claims they\u2019ve "seen it." Petty, public, perfect.'},
+{cat:'media',brand:'Spotify',idea:'Career Rewind for Songs',hook:'"This song was your #1 the week you got that job offer." Music as a memory timestamp, not just a playlist.'},
+{cat:'media',brand:'Disney+ Hotstar',idea:'Match Day Mood Mode',hook:'During IPL, app turns into a stadium UI \u2014 crowd noise, scoreboard skin, the works. You\u2019re not watching, you\u2019re there.'},
+{cat:'media',brand:'JioCinema',idea:'Regional Rabbit Hole',hook:'One button: "Surprise me in a language I don\u2019t speak." Curated subtitled gems from regional cinema, randomly.'},
+{cat:'media',brand:'YouTube',idea:'The Unfinished Tab',hook:'A shame-free shelf for videos you opened, paused at 0:43, and never returned to. No judgment, just a gentle nudge.'},
+{cat:'media',brand:'Audible',idea:'Commute Companion Mode',hook:'Books auto-chapter to your average commute length so you finish a "chapter" exactly as you reach your stop.'},
+{cat:'social',brand:'LinkedIn',idea:'Career Rewind',hook:'Your "Spotify Wrapped" but for your job. "You sent 340 connection requests this year. 12 said yes back."'},
+{cat:'social',brand:'Instagram',idea:'Close Friends Audit',hook:'Once a year, gently asks: "You added 12 people to Close Friends in 2023. Still close?"'},
+{cat:'social',brand:'Twitter / X',idea:'The Almost-Tweet Archive',hook:'Saves every tweet you typed and deleted before posting. Your private museum of restraint.'},
+{cat:'social',brand:'WhatsApp',idea:'Read Receipt Honesty Mode',hook:'Opt-in feature: shows "seen, thinking about how to reply" status. Brutal. Honest. Weirdly comforting.'},
+{cat:'social',brand:'Snapchat',idea:'Streak Funeral',hook:'When a streak finally breaks, the app holds a tiny, theatrical funeral animation for it. Closure, Gen Z style.'},
+{cat:'fintech',brand:'CRED',idea:'Bill Payment Confetti',hook:'Already covered \u2014 but imagine if the confetti color matched how close you cut it to the due date.'},
+{cat:'fintech',brand:'PhonePe',idea:'Split Bill Diplomacy',hook:'AI mediates group bill splits with passive-aggressive friends. "Rahul has owed you \u20b9340 for 11 months."'},
+{cat:'fintech',brand:'Paytm',idea:'QR Code Memory Lane',hook:'Scan history becomes a visual map: every chai stall, every shop, every "where even was this" QR you scanned this year.'},
+{cat:'fintech',brand:'Groww',idea:'Regret Index',hook:'Shows you, gently, what your money would be worth if you hadn\u2019t sold that one stock in panic. Educational pain.'},
+{cat:'fintech',brand:'Jupiter',idea:'Salary Day Honesty Report',hook:'On salary day, shows exactly how many days until it\u2019s "gone" based on your last 3 months of spending. No sugarcoating.'},
+{cat:'fintech',brand:'Razorpay',idea:'Small Business Pulse',hook:'A public, anonymized live ticker of "India is buying X right now" \u2014 powered by merchant transaction patterns.'},
+{cat:'fooddelivery',brand:'Zomato',idea:'Already covered in full strategy',hook:'See the dedicated brand page \u2014 the Confessions campaign lives there.'},
+{cat:'fooddelivery',brand:'Swiggy',idea:'Already covered below',hook:'See "Steal This Idea #01" \u2014 Order My Mood.'},
+{cat:'fooddelivery',brand:'EatSure',idea:'Cloud Kitchen Confession Wall',hook:'Shows you which "different" restaurant brands are secretly cooked in the same kitchen. Radical honesty as marketing.'},
+{cat:'fooddelivery',brand:'Dunzo',idea:'The Forgot List',hook:'Learns your most commonly forgotten last-minute item (charger, condom, candle) and asks if you need it again.'},
+{cat:'wellness',brand:'Cult.fit',idea:'Excuse Generator Roast',hook:'When you skip a workout, app generates an increasingly sarcastic excuse on your behalf. You can\u2019t even lie convincingly.'},
+{cat:'wellness',brand:'HealthifyMe',idea:'Cheat Day Honesty Score',hook:'Doesn\u2019t shame cheat meals \u2014 just rates your "commitment to the bit" on a 10-point scale. Oddly motivating.'},
+{cat:'wellness',brand:'Practo',idea:'Symptom Honesty Translator',hook:'Translates "I think I\u2019m dying" into what you\u2019re actually describing, before you Google yourself into a panic.'},
+{cat:'wellness',brand:'PharmEasy',idea:'Medicine Cabinet Memory',hook:'Reminds you, kindly, that the cough syrup from 2022 is judging you from the back of the shelf.'},
+{cat:'edtech',brand:'BYJU\u2019S',idea:'Parent Reality Check',hook:'A monthly honest report to parents: "Your child watched 40 mins. 38 were spent skipping intros." No spin.'},
+{cat:'edtech',brand:'Unacademy',idea:'Doubt Confidence Meter',hook:'Before asking a doubt, rate how dumb you think the question is. Spoiler: it\u2019s never as dumb as you think.'},
+{cat:'edtech',brand:'upGrad',idea:'Career Pivot Buddy Match',hook:'Matches you with a stranger making the exact same career switch, at the exact same week of the course.'},
+{cat:'edtech',brand:'Vedantu',idea:'Exam Eve Honesty Mode',hook:'Night before the exam, app stops teaching and just sends one message: "You\u2019ve done enough. Sleep."'},
+{cat:'gaming',brand:'Dream11',idea:'The Captain\u2019s Curse',hook:'Tracks how often your captaincy picks flop and publicly (privately) roasts your "gut feeling" decisions.'},
+{cat:'gaming',brand:'MPL',idea:'Skill Honesty Badge',hook:'A badge that says "Actually Good At This" vs "Just Likes Playing" \u2014 based on real performance, not ego.'},
+{cat:'gaming',brand:'WinZO',idea:'Local Legend Map',hook:'See the top players within 2km of you. Turns online gaming into a hyperlocal bragging map.'},
+{cat:'auto',brand:'Ola Electric',idea:'Range Anxiety Therapist',hook:'Calm, almost meditative UI that talks you through "you have enough charge" instead of a scary red bar.'},
+{cat:'auto',brand:'Rapido',idea:'Helmet Hair Honesty',hook:'A tiny mirror-camera feature that shows you your helmet hair before you walk into office. Self-awareness as a service.'},
+{cat:'auto',brand:'Zoomcar',idea:'Road Trip Mood Board',hook:'Before a long booking, app generates a custom road trip playlist + snack stop map based on your route.'},
+{cat:'realestate',brand:'NoBroker',idea:'Landlord Honesty Score',hook:'Anonymous, verified tenant reviews of landlords. The review system flips for once.'},
+{cat:'realestate',brand:'99acres',idea:'Neighborhood Noise Map',hook:'Crowdsourced "how loud is this area actually" data layered onto listings. Because brochures lie about "peaceful."'},
+{cat:'realestate',brand:'Magicbricks',idea:'Commute Reality Check',hook:'Shows your actual commute time during real rush hour, not Google Maps\u2019 optimistic Sunday-morning estimate.'},
+{cat:'insurance',brand:'Acko',idea:'Claim Confidence Meter',hook:'Before filing a claim, shows your real odds of approval based on similar past claims. Removes the guessing anxiety.'},
+{cat:'insurance',brand:'PolicyBazaar',idea:'Jargon Decoder Mode',hook:'Highlight any insurance term, get a one-line human translation. "Sub-limit" finally makes sense.'},
+{cat:'insurance',brand:'Digit Insurance',idea:'Honest Premium Breakdown',hook:'Shows exactly what you\u2019re paying for, visually, like a receipt \u2014 not a PDF nobody reads.'},
+{cat:'beauty',brand:'Sugar Cosmetics',idea:'Shade Match Honesty',hook:'AI tells you the shade you want vs. the shade that actually matches. Saves the return-shipping guilt.'},
+{cat:'beauty',brand:'Mamaearth',idea:'Already covered in full strategy',hook:'See the dedicated brand page \u2014 the transparency campaign lives there.'},
+{cat:'beauty',brand:'Plum',idea:'Skin Diary Weather Sync',hook:'Correlates your skin\u2019s bad days with pollution index and humidity. Turns "my skin is acting up" into actual data.'},
+{cat:'beauty',brand:'MyGlamm',idea:'Makeup Occasion Translator',hook:'Type the event, get the exact look pre-built \u2014 "cousin\u2019s sangeet, 40°C, outdoor" gets a humidity-proof routine.'},
+{cat:'sports',brand:'Decathlon',idea:'Sport Compatibility Quiz',hook:'Five questions, one honest answer: the sport your personality actually suits, not the one Instagram made look cool.'},
+{cat:'sports',brand:'JioSaavn x Cricket',idea:'Wicket Soundtrack',hook:'Every wicket gets a 3-second song stinger voted on by fans in real time. Cricket gets a soundtrack.'},
+{cat:'logistics',brand:'Delhivery',idea:'Honest ETA Mode',hook:'Replaces "arriving today" with real probability: "73% chance today, 100% chance by Thursday." Trust through honesty.'},
+{cat:'logistics',brand:'Shiprocket',idea:'Small Seller Spotlight',hook:'Random daily feature of one small seller\u2019s shipping journey \u2014 turns logistics into a founder story platform.'},
+{cat:'b2b',brand:'Freshworks',idea:'Support Ticket Empathy Score',hook:'Rates how human a support reply felt, not just how fast it was sent. Speed isn\u2019t always care.'},
+{cat:'b2b',brand:'Zoho',idea:'Tool Overload Detector',hook:'Notices when a business is paying for 4 tools that do the same thing and quietly suggests consolidation.'},
+{cat:'pets',brand:'Supertails',idea:'Pet Mood Translator',hook:'Upload a photo of your dog\u2019s face, get a (fictional, hilarious) translated thought bubble. Pure dopamine marketing.'},
+{cat:'pets',brand:'Heads Up For Tails',idea:'Vet Visit Honesty Prep',hook:'Pre-vet-visit checklist that asks the awkward questions you forget mid-appointment: "Has the limp gotten worse?"'},
+{cat:'kids',brand:'FirstCry',idea:'Growth Spurt Predictor',hook:'Predicts when your kid will outgrow current clothes based on growth charts \u2014 stops the surprise too-small day.'},
+{cat:'kids',brand:'Hamleys',idea:'Boredom Threshold Tracker',hook:'Tracks how many days a new toy survives before "I\u2019m bored" sets in. Brutally honest, weirdly useful for parents.'},
+{cat:'jobs',brand:'Naukri.com',idea:'Resume Honesty Pass',hook:'Flags every overused buzzword ("synergy," "go-getter") before you submit. A tough-love editor, built in.'},
+{cat:'jobs',brand:'Internshala',idea:'First Job Time Capsule',hook:'Locks a message you write on day 1 of your first internship, delivers it back on day 1 of your first full-time job.'},
+{cat:'banking',brand:'HDFC Bank',idea:'Spending Confession Booth',hook:'A private, judgment-free monthly summary: "You spent \u20b94,200 on late-night food. We won\u2019t tell anyone."'},
+{cat:'banking',brand:'Kotak 811',idea:'Goal Jar Visualizer',hook:'Savings goals shown as a literal filling jar animation \u2014 makes abstract numbers feel tangible and addictive.'},
+{cat:'streaming',brand:'Amazon Prime Video',idea:'Genre Mood Ring',hook:'Homepage changes color based on what genre you\u2019ve been bingeing \u2014 a visual diary of your emotional state.'},
+{cat:'streaming',brand:'SonyLIV',idea:'Cricket Widow Mode',hook:'During match season, auto-curates content for the non-cricket-watching partner in the house. Peace, restored.'},
+{cat:'retail',brand:'Reliance Trends',idea:'Wardrobe Gap Finder',hook:'Analyzes your purchase history and tells you the one category you\u2019re missing \u2014 not upselling, just honest gaps.'},
+{cat:'retail',brand:'Lenskart',idea:'Face Memory Match',hook:'Remembers which frame shape got the most compliments in your try-on photos history, suggests similar ones first.'},
+{cat:'travel',brand:'Vistara',idea:'Window Seat Storyteller',hook:'GPS-synced audio that tells you what city, river, or mountain you\u2019re flying over right now. In-flight wonder, automated.'},
+{cat:'travel',brand:'IndiGo',idea:'Delay Honesty Index',hook:'Shows real historical on-time performance for your specific route before you book \u2014 not just the airline average.'},
+{cat:'commerce',brand:'Croma',idea:'Upgrade Worthiness Score',hook:'Before you buy the new phone, an honest score: "Your current one is still fine. Save the money."'},
+{cat:'commerce',brand:'Tata CLiQ',idea:'Outfit Repeat Tracker',hook:'Quietly tracks how often you actually rewear items vs. let them sit \u2014 turns shopping into self-awareness.'},
+{cat:'media',brand:'Times of India',idea:'Mood-Filtered News',hook:'A toggle: "Show me the news that won\u2019t ruin my morning." Curated calm news days, opt-in.'},
+{cat:'media',brand:'ESPN Cricinfo',idea:'Heartbreak Replay Warning',hook:'Before replaying a match your team lost, app warns: "Are you sure? This one still hurts."'},
+{cat:'finance',brand:'Zerodha',idea:'FOMO Cooldown Timer',hook:'When you try to buy a trending stock, a 60-second mandatory cooldown with the stock\u2019s last 5 crash patterns shown.'},
+{cat:'finance',brand:'INDmoney',idea:'Net Worth Honesty Snapshot',hook:'A blunt monthly line: "You\u2019re richer than last month. Mostly because you didn\u2019t shop." No fluff, just truth.'},
+{cat:'fashion',brand:'Myntra',idea:'Trend Expiry Date',hook:'Every trending item gets an honest "this look has about 6 weeks left" countdown. Saves regret purchases.'},
+{cat:'fashion',brand:'Ajio',idea:'Closet Twin Finder',hook:'Matches you with a stranger who has near-identical taste, shows what they bought that you haven\u2019t yet.'},
+{cat:'food',brand:'Licious',idea:'Recipe Rescue Mode',hook:'Bought meat with no plan? Snap a photo of what\u2019s in your fridge, get a same-day recipe built around it.'},
+{cat:'food',brand:'Country Delight',idea:'Doorstep Diary',hook:'A quiet yearly recap: "342 mornings, one bottle of milk, zero days you forgot to cancel." Oddly poetic.'},
+{cat:'travel',brand:'Booking.com',idea:'Honest Photo Filter',hook:'A toggle that shows listing photos exactly as guests submitted them \u2014 unedited, unfiltered, real angles only.'},
+{cat:'social',brand:'BeReal (India)',idea:'Festival Real Mode',hook:'During festivals, one mandatory unfiltered photo at the actual chaotic moment \u2014 not the posed family photo.'},
+{cat:'commerce',brand:'Urban Company',idea:'Trust Streak Badge',hook:'Shows professionals a visible "12 jobs, zero cancellations" streak \u2014 turns reliability into a public flex.'},
+{cat:'commerce',brand:'Pepperfry',idea:'Room Mood Matcher',hook:'Upload a photo of your room, get furniture suggestions that match the existing light and color \u2014 not generic catalogues.'},
+{cat:'wellness',brand:'1mg',idea:'Prescription Memory Bank',hook:'Auto-builds a private timeline of every prescription you\u2019ve had, so you stop repeating your history at every new clinic.'},
+{cat:'travel',brand:'Trivago',idea:'Price Drop Apology',hook:'If the price drops after you book, app sends a small, genuine "sorry, here\u2019s a coupon" instead of staying silent.'},
+{cat:'auto',brand:'CarDekho',idea:'Resale Regret Predictor',hook:'Before you buy, shows the honest 3-year resale value curve \u2014 not just the showroom shine.'},
+{cat:'media',brand:'Gaana',idea:'Breakup Playlist Detox',hook:'Detects repeated sad-song loops over days and gently offers an opt-in "let\u2019s switch gears" playlist.'},
+{cat:'commerce',brand:'Bewakoof',idea:'Inside Joke Merch Generator',hook:'Type a phrase only your friend group understands, get an instant mockup of it on a t-shirt. Inside jokes, made wearable.'},
+{cat:'food',brand:'Faasos',idea:'Midnight Craving Confessional',hook:'A 1AM-only menu section labeled "No judgment here" \u2014 unlocks only after midnight, disappears by sunrise.'},
+];
+
+const STEALS=[
+{n:'01',co:'Swiggy',color:'#FC8019',insight:'People don\u2019t know what to order. Every scroll is decision fatigue dressed up as choice.',idea:'Order My Mood',choices:['Stress','Celebration','Heartbreak','Lazy Sunday'],result:'Swiggy recommends food based on the feeling, not the cuisine filter. The mood becomes the menu.'},
+{n:'02',co:'boAt',color:'#E31E24',insight:'Customers buy earphones once and vanish. There\u2019s no reason to open the app again until something breaks.',idea:'Sound of My City',choices:['Mumbai Rain','Delhi Traffic Hum','Goa Waves','Hostel Silence'],result:'A free ambient soundscape series, city-tagged, playable only through boAt gear. The app becomes a reason to return.'},
+{n:'03',co:'Zomato',color:'#E23744',insight:'Ordering the same thing every week is comfort \u2014 but the app treats it like a missed upsell opportunity.',idea:'Order on Autopilot',choices:['Same Time','Same Order','Surprise Me Instead','Skip This Week'],result:'One-tap repeat ordering with a built-in "break the loop" option \u2014 respects habit and curiosity equally.'},
+{n:'04',co:'Spotify',color:'#1DB954',insight:'People discover music through friends, not algorithms \u2014 but there\u2019s no way to actually *show* a friend what you\u2019re obsessed with right now.',idea:'Lend Me Your Ears',choices:['24-Hour Loan','My Top Obsession','This Made Me Cry','Don\u2019t Judge Me'],result:'Temporarily hand a friend your top track of the week, framed exactly how you want it received.'},
+{n:'05',co:'CRED',color:'#6C63FF',insight:'Bill payment is the most boring app interaction that exists. CRED gamified it once \u2014 but the gamification got old too.',idea:'Pay It Like a Heist',choices:['Stealth Mode (Auto-Pay)','Last Second Thrill','The Clean Getaway','Forgot, Oops'],result:'Frames bill payment as a personality quiz. Are you the planner, the risk-taker, or the chaos agent? Coins reflect the answer.'},
+{n:'06',co:'Cult.fit',color:'#FF3278',insight:'People don\u2019t skip workouts because they\u2019re lazy \u2014 they skip because the excuse in their head sounds reasonable to them.',idea:'Excuse Court',choices:['Too Tired','It\u2019s Raining','I\u2019ll Start Monday','Genuinely Injured'],result:'AI cross-examines your excuse like a tiny courtroom drama, then either lets you off or books your slot anyway.'},
+{n:'07',co:'Ola',color:'#000000',insight:'The ride itself is the entire product, but Ola treats the in-car minutes as dead time between pickup and drop.',idea:'Choose Your Driver\u2019s Mood',choices:['Talk to Me','Total Silence','Tell Me a Local Secret','Surprise Me'],result:'A pre-ride toggle drivers can see \u2014 turns an awkward guessing game into an upfront, respectful preference.'},
+{n:'08',co:'Netflix India',color:'#E50914',insight:'Family accounts mean four different people fighting over the algorithm, and nobody\u2019s actual taste ever fully shows.',idea:'Whose Turn Is It Anyway',choices:['Mood: Comfort Rewatch','Mood: Something New','Mood: Cry On Purpose','Mood: Background Noise'],result:'A literal turn-based queue per profile, with mood tags instead of genres \u2014 turns family conflict into a shared ritual.'},
+];
+
+const WHATIFS=[
+{q:'What if Netflix opened a restaurant?',brand:'Netflix',color:'#E50914',bg:'#1A0506',deco:'EATFLIX',
+pitch:'Not a theme restaurant with show posters on the wall \u2014 an actual fine-dining experience built on Netflix\u2019s real superpower: knowing exactly what you want before you do. <strong>The menu doesn\u2019t exist until you sit down.</strong> It\u2019s generated from your watch history.',
+proofs:[
+{ico:'\ud83c\udf7d\ufe0f',t:'The "For You" Menu',b:'Binged a Korean drama last week? Your menu opens on bibimbap. Marathon\u2019d a true crime series? The chef\u2019s special is called "The Last Meal" \u2014 dramatic plating included.'},
+{ico:'\ud83c\udfac',t:'Episode-Paced Courses',b:'Courses arrive like episodes \u2014 a "cold open" amuse-bouche, then the courses build tension, then a literal cliffhanger dessert that\u2019s "to be continued" next visit.'},
+{ico:'\u23f8\ufe0f',t:'Skip Intro, Skip Course',b:'A button on the table lets you skip a course you\u2019re not feeling \u2014 just like skipping an opening sequence. The kitchen adapts in real time.'},
+{ico:'\ud83d\udcca',t:'Are You Still Eating?',b:'After course 3, a server gently asks "Are you still eating?" \u2014 the same prompt that catches you at 3AM mid-binge. It\u2019s funny because it\u2019s true.'},
+],
+svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#1A0506"/><defs><radialGradient id="nfrg" cx="50%" cy="30%"><stop offset="0%" stop-color="#E50914" stop-opacity=".22"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#nfrg)"/><rect x="40" y="40" width="280" height="200" rx="6" fill="#0D0303" stroke="rgba(229,9,20,.3)" stroke-width="1"/><text x="180" y="72" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="3" font-weight="700">TONIGHT'S MENU</text><text x="180" y="100" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle" font-style="italic">Based on your week:</text><text x="180" y="124" font-family="Georgia,serif" font-size="11" fill="rgba(255,255,255,.6)" text-anchor="middle">"Squid Game" Season Finale</text><line x1="70" y1="140" x2="290" y2="140" stroke="rgba(229,9,20,.2)" stroke-width="1"/><text x="180" y="166" font-family="Georgia,serif" font-size="14" fill="#E50914" text-anchor="middle" font-weight="bold">Dalgona Dessert</text><text x="180" y="186" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.4)" text-anchor="middle">Crack it carefully. Stakes included.</text><text x="180" y="216" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.25)" text-anchor="middle">Episode 4 of 6 &middot; Skip Course?</text><rect x="380" y="40" width="280" height="200" rx="6" fill="#0D0303" stroke="rgba(229,9,20,.3)" stroke-width="1"/><text x="520" y="80" font-family="Georgia,serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">Are you</text><text x="520" y="110" font-family="Georgia,serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">still eating?</text><rect x="450" y="140" width="68" height="26" rx="4" fill="rgba(229,9,20,.18)" stroke="rgba(229,9,20,.4)" stroke-width="1"/><text x="484" y="157" font-family="sans-serif" font-size="8" fill="#E50914" text-anchor="middle" font-weight="700">YES, MORE</text><rect x="522" y="140" width="68" height="26" rx="4" fill="rgba(255,255,255,.06)"/><text x="556" y="157" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.45)" text-anchor="middle">CHECK PLEASE</text><text x="520" y="200" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.22)" text-anchor="middle">Course 4 of 6 starting in 8s...</text><text x="350" y="290" font-family="Georgia,serif" font-size="26" fill="rgba(255,255,255,.85)" text-anchor="middle" font-style="italic">N is for Napkin.</text><text x="350" y="320" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="2">EATFLIX &middot; A NETFLIX RESTAURANT CONCEPT</text></svg>`},
+
+{q:'What if Nike launched a dating app?',brand:'Nike',color:'#FF6B35',bg:'#0D0D0D',deco:'JUST SWIPE IT',
+pitch:'Not another app that matches you on photos and bios. Nike already knows your running pace, your gym hours, your competitive streak. <strong>Match Made dot Run</strong> pairs people by training compatibility \u2014 because a 5K pace mismatch ends more dates than personality ever does.',
+proofs:[
+{ico:'\ud83c\udfc3',t:'Pace-Based Matching',b:'Swipe based on actual running pace and workout intensity, pulled from Nike Run Club data. No more matching a marathoner with someone who "jogs sometimes."'},
+{ico:'\ud83d\udcaa',t:'The First Date Is a Workout',b:'No coffee-shop awkwardness. First dates default to a co-designed 30-minute session \u2014 you find out who someone really is in round 2 of burpees.'},
+{ico:'\ud83c\udfc6',t:'Just Do It (To Them)',b:'A bold "Just Do It" button replaces the standard like button. Brand-true, slightly unhinged, exactly the energy Nike\u2019s marketing already has.'},
+{ico:'\ud83d\udc5f',t:'Shared Shoe Drop Alerts',b:'Matched couples get notified together when a sneaker drop they\u2019ve both wishlisted goes live. Shared anticipation as a relationship milestone.'},
+],
+svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#0D0D0D"/><defs><radialGradient id="nkrg" cx="30%" cy="40%"><stop offset="0%" stop-color="#FF6B35" stop-opacity=".18"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#nkrg)"/><rect x="220" y="36" width="260" height="288" rx="20" fill="#161616" stroke="rgba(255,107,53,.3)" stroke-width="1.5"/><text x="350" y="70" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle" font-weight="700" letter-spacing="2">MATCH MADE.RUN</text><circle cx="350" cy="130" r="42" fill="rgba(255,107,53,.14)" stroke="rgba(255,107,53,.4)" stroke-width="2"/><text x="350" y="138" font-family="sans-serif" font-size="22" text-anchor="middle">\ud83c\udfc3</text><text x="350" y="200" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle" font-weight="bold">Aanya, 27</text><text x="350" y="220" font-family="sans-serif" font-size="8.5" fill="#FF6B35" text-anchor="middle" font-weight="700">5:40/km pace &middot; 92% match</text><text x="350" y="240" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.4)" text-anchor="middle">Marathon PB: 3:48 &middot; Loves hills</text><rect x="262" y="262" width="80" height="34" rx="17" fill="rgba(255,255,255,.06)"/><text x="302" y="283" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.5)" text-anchor="middle">PASS</text><rect x="358" y="262" width="80" height="34" rx="17" fill="#FF6B35"/><text x="398" y="283" font-family="sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="800">JUST DO IT</text><text x="350" y="334" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.2)" text-anchor="middle" letter-spacing="2">A NIKE DATING APP CONCEPT &middot; ESHAAN DUA</text></svg>`},
+
+{q:'What if Blinkit became a bank?',brand:'Blinkit',color:'#F8C200',bg:'#100D00',deco:'BLINKIT PAY',
+pitch:'Blinkit knows your spending habits down to the minute \u2014 better than any bank\u2019s risk model. <strong>Blinkit Bank</strong> isn\u2019t a loyalty wallet bolted onto an app. It\u2019s a real neobank built on the most honest financial data that exists: what you actually buy, at 11PM, when nobody\u2019s pretending.',
+proofs:[
+{ico:'\u26a1',t:'10-Minute Loans',b:'Same delivery-speed promise, applied to micro-loans. Need \u20b92,000 before salary day? Approved and disbursed faster than your dal makhani arrives.'},
+{ico:'\ud83d\udcca',t:'The Honest Spend Score',b:'A credit score built on real consumption patterns \u2014 consistent grocery spend signals more stability than any salary slip ever could.'},
+{ico:'\ud83c\udfe6',t:'Midnight Savings Round-Up',b:'Every 3AM impulse order rounds up to the nearest \u20b950 and auto-invests the difference. Guilt, productively redirected.'},
+{ico:'\ud83d\udcb3',t:'The Blinkit Card',b:'A debit card that glows like the app icon. Cashback isn\u2019t points \u2014 it\u2019s literally faster delivery slots on your next order.'},
+],
+svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#100D00"/><defs><radialGradient id="bkrg" cx="40%" cy="30%"><stop offset="0%" stop-color="#F8C200" stop-opacity=".16"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#bkrg)"/><rect x="50" y="60" width="290" height="180" rx="14" fill="#1A1500" stroke="rgba(248,194,0,.35)" stroke-width="1.5"/><text x="76" y="98" font-family="sans-serif" font-size="9" fill="rgba(248,194,0,.7)" font-weight="700" letter-spacing="2">BLINKIT BANK</text><text x="76" y="150" font-family="monospace" font-size="13" fill="rgba(255,255,255,.6)" letter-spacing="2">4291 \u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022 7710</text><text x="76" y="180" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.4)">ESHAAN DUA</text><text x="76" y="216" font-family="sans-serif" font-size="7" fill="#F8C200">10-min loans \u2022 instant cashback</text><rect x="380" y="60" width="270" height="240" rx="6" fill="#0D0A00"/><text x="515" y="92" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="2" font-weight="700">HONEST SPEND SCORE</text><text x="515" y="140" font-family="Georgia,serif" font-size="40" fill="#F8C200" text-anchor="middle" font-weight="bold">812</text><text x="515" y="162" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.4)" text-anchor="middle">Excellent &middot; based on real spend</text><rect x="400" y="186" width="230" height="8" rx="4" fill="rgba(255,255,255,.08)"/><rect x="400" y="186" width="190" height="8" rx="4" fill="#F8C200"/><text x="515" y="222" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.35)" text-anchor="middle">Loan eligibility: \u20b915,000 in 10 min</text><text x="350" y="332" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.18)" text-anchor="middle" letter-spacing="2">BLINKIT BANK CONCEPT &middot; ESHAAN DUA</text></svg>`},
+
+{q:'What if Starbucks sold memories instead of coffee?',brand:'Starbucks',color:'#00704A',bg:'#021410',deco:'BREWED MEMORIES',
+pitch:'Every Starbucks cup already has your name handwritten on it \u2014 the closest thing to a personal ritual a chain has ever built. <strong>What if the cup became the product, and the coffee was just the delivery mechanism?</strong> A loyalty system built on moments, not points.',
+proofs:[
+{ico:'\u2615',t:'The Memory Cup',b:'Every order auto-logs a tiny timestamp: where you were, who you were with (if you tag them), what was playing. A year later, that cup resurfaces as a memory, not a receipt.'},
+{ico:'\ud83d\udcdd',t:'Barista-Written Micro Notes',b:'Beyond the name \u2014 baristas get trained to add one observed detail. "Reading a thick book today" becomes part of your personal cup history.'},
+{ico:'\ud83c\udf9e\ufe0f',t:'The Anniversary Order',b:'On the date you first visited a specific store, app nudges: "One year ago, right here, you ordered this." Most people don\u2019t remember their own routines this precisely \u2014 Starbucks would.'},
+{ico:'\ud83c\udfa8',t:'Cup Art as Memory Index',b:'Limited seasonal cup designs become visual bookmarks for life chapters \u2014 "the red cup era when I got the job" becomes real, collectible, searchable.'},
+],
+svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#021410"/><defs><radialGradient id="sbrg" cx="50%" cy="35%"><stop offset="0%" stop-color="#00704A" stop-opacity=".22"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#sbrg)"/><rect x="250" y="40" width="200" height="260" rx="10" fill="#fff"/><circle cx="350" cy="90" r="26" fill="#00704A"/><text x="350" y="96" font-family="sans-serif" font-size="12" fill="white" text-anchor="middle">\u2615</text><line x1="270" y1="130" x2="430" y2="130" stroke="#E8E0D0" stroke-width="1"/><text x="290" y="158" font-family="'Comic Sans MS',cursive" font-size="12" fill="#021410">Eshaan</text><text x="290" y="178" font-family="sans-serif" font-size="7" fill="#888">Reading a thick book today</text><text x="290" y="198" font-family="sans-serif" font-size="7" fill="#888">Window seat, 4:12 PM</text><line x1="270" y1="212" x2="430" y2="212" stroke="#E8E0D0" stroke-width="1"/><text x="290" y="234" font-family="sans-serif" font-size="7" fill="#00704A" font-weight="700">MEMORY LOGGED:</text><text x="290" y="252" font-family="sans-serif" font-size="7" fill="#555">"One year ago today,</text><text x="290" y="266" font-family="sans-serif" font-size="7" fill="#555">right here, same order."</text><text x="350" y="332" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.2)" text-anchor="middle" letter-spacing="2">STARBUCKS MEMORY CUP CONCEPT &middot; ESHAAN DUA</text></svg>`},
+
+{q:'What if Spotify built a therapy app?',brand:'Spotify',color:'#1DB954',bg:'#040F08',deco:'SPOTIFY MIND',
+pitch:'Spotify already knows when you\u2019re sad before you do \u2014 the 2AM sad-song loop is a clearer mental health signal than most check-in apps collect. <strong>Spotify Mind</strong> doesn\u2019t replace therapy. It notices the pattern and gently opens the door to it.',
+proofs:[
+{ico:'\ud83c\udfb5',t:'The Pattern Detector',b:'Three weeks of repeat melancholy playlists at 2AM triggers a quiet, non-alarming check-in \u2014 never clinical, never pushy. "Heavy month on repeat. Want to talk to someone?"'},
+{ico:'\ud83e\udde0',t:'Mood-Matched Licensed Therapists',b:'Partners with licensed counsellors who build "you don\u2019t have to explain everything" intake sessions based on your actual listening mood history, with consent.'},
+{ico:'\ud83c\udf19',t:'The 3AM Playlist That Listens Back',b:'A specific late-night playlist mode that, after consistent use, asks one soft question instead of just playing the next song.'},
+{ico:'\ud83d\udd12',t:'Total Privacy by Design',b:'Nothing is shared, sold, or shown to anyone \u2014 the entire feature is opt-in, anonymized, and exists only to open one door, gently, once.'},
+],
+svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#040F08"/><defs><radialGradient id="spmrg" cx="50%" cy="40%"><stop offset="0%" stop-color="#1DB954" stop-opacity=".14"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#spmrg)"/><g opacity=".3"><rect x="60" y="240" width="10" height="40" rx="5" fill="#1DB954"/><rect x="78" y="210" width="10" height="70" rx="5" fill="#1DB954"/><rect x="96" y="180" width="10" height="100" rx="5" fill="#1DB954"/><rect x="114" y="150" width="10" height="130" rx="5" fill="#1DB954"/><rect x="132" y="190" width="10" height="90" rx="5" fill="#1DB954"/></g><rect x="280" y="60" width="280" height="220" rx="10" fill="#0A1B0E" stroke="rgba(29,185,84,.25)" stroke-width="1"/><text x="420" y="94" font-family="sans-serif" font-size="8" fill="#1DB954" text-anchor="middle" font-weight="700" letter-spacing="2">3:14 AM &middot; ON REPEAT, WEEK 3</text><text x="420" y="138" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle" font-style="italic">Heavy month on repeat.</text><text x="420" y="160" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle" font-style="italic">No rush. We\u2019re here</text><text x="420" y="182" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle" font-style="italic">if you want to talk.</text><rect x="350" y="210" width="140" height="32" rx="16" fill="rgba(29,185,84,.15)" stroke="#1DB954" stroke-width="1"/><text x="420" y="231" font-family="sans-serif" font-size="8.5" fill="#1DB954" text-anchor="middle" font-weight="700">Maybe later, keep playing</text><text x="350" y="332" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.18)" text-anchor="middle" letter-spacing="2">SPOTIFY MIND CONCEPT &middot; ESHAAN DUA</text></svg>`},
+
+{q:'What if CRED ran a members-only city?',brand:'CRED',color:'#6C63FF',bg:'#0E0C1F',deco:'CRED CITY',
+pitch:'CRED already gatekeeps based on financial trust. <strong>What if that trust unlocked a physical place</strong> \u2014 not a building, a rotating "CRED City" pop-up across India\u2019s metros: restaurants, events, even parking spots, accessible only by CRED score. Exclusivity, made tangible.',
+proofs:[
+{ico:'\ud83c\udfd9\ufe0f',t:'The Invisible District',b:'Partner restaurants and cafes have a hidden "CRED entrance" \u2014 no signage, app-only access, members walk past a queue that doesn\u2019t exist for them.'},
+{ico:'\ud83c\udd7f\ufe0f',t:'Score-Gated Parking',b:'Premium parking spots in dense metro areas unlock only for top-tier CRED scores. Trust, quite literally, gets you closer to the door.'},
+{ico:'\ud83c\udf9f\ufe0f',t:'Pop-Up Score Events',b:'Quarterly invite-only events in each city \u2014 the venue is revealed only 24 hours before, to members above a score threshold. FOMO, engineered honestly.'},
+{ico:'\ud83d\uddfd',t:'The City Changes Quarterly',b:'CRED City rotates between Mumbai, Bengaluru, Delhi, and Hyderabad each quarter \u2014 keeps the exclusivity fresh and gives every metro its turn at the spotlight.'},
+],
+svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#0E0C1F"/><defs><radialGradient id="ccrg2" cx="50%" cy="30%"><stop offset="0%" stop-color="#6C63FF" stop-opacity=".18"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#ccrg2)"/><g opacity=".5"><rect x="40" y="180" width="40" height="120" fill="#1E1A3A"/><rect x="90" y="140" width="40" height="160" fill="#1E1A3A"/><rect x="140" y="200" width="40" height="100" fill="#1E1A3A"/><rect x="190" y="100" width="40" height="200" fill="#1E1A3A"/><rect x="240" y="160" width="40" height="140" fill="#1E1A3A"/></g><rect x="320" y="70" width="320" height="210" rx="8" fill="#100D20" stroke="rgba(108,99,255,.3)" stroke-width="1.5"/><text x="480" y="106" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="3" font-weight="700">CRED CITY &middot; MUMBAI EDITION</text><text x="480" y="150" font-family="Georgia,serif" font-size="26" fill="white" text-anchor="middle" font-style="italic">There\u2019s a door</text><text x="480" y="180" font-family="Georgia,serif" font-size="26" fill="#6C63FF" text-anchor="middle" font-style="italic">only you can see.</text><text x="480" y="222" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle">Score 780+ unlocks this quarter\u2019s city.</text><text x="480" y="250" font-family="sans-serif" font-size="8" fill="#6C63FF" text-anchor="middle">Next reveal in 14 hours.</text><text x="350" y="332" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.16)" text-anchor="middle" letter-spacing="2">CRED CITY CONCEPT &middot; ESHAAN DUA</text></svg>`},
+];
+
+
+// ══════════ LAB TAB SWITCHING ══════════
+function lT(id,btn){
+  document.querySelectorAll('.lab-tab').forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.lab-panel').forEach(p=>p.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  if(id==='idea-wall'&&!window._iwInit){initIdeaWall();window._iwInit=true;}
+  if(id==='steal-idea'&&!window._stiInit){initSteal();window._stiInit=true;}
+  if(id==='what-if'&&!window._wifInit){initWhatIf();window._wifInit=true;}
+}
+
+// ══════════ IDEA WALL ══════════
+let iwActiveCat='all';
+function initIdeaWall(){
+  const cats=['all',...new Set(IDEAS.map(i=>i.cat))];
+  const catLabels={all:'All Ideas',commerce:'Commerce',travel:'Travel',media:'Media',social:'Social',fintech:'Fintech',fooddelivery:'Food Delivery',wellness:'Wellness',edtech:'EdTech',gaming:'Gaming',auto:'Auto',realestate:'Real Estate',insurance:'Insurance',beauty:'Beauty',sports:'Sports',logistics:'Logistics',b2b:'B2B',pets:'Pets',kids:'Kids',jobs:'Jobs',banking:'Banking',streaming:'Streaming',retail:'Retail',finance:'Finance',fashion:'Fashion',food:'Food'};
+  const tabsEl=document.getElementById('iwTabs');
+  tabsEl.innerHTML=cats.map(c=>`<button class="iw-tab${c==='all'?' on':''}" onclick="filterIW('${c}',this)">${catLabels[c]||c}</button>`).join('');
+  renderIWColumns(IDEAS);
+}
+function filterIW(cat,btn){
+  iwActiveCat=cat;
+  document.querySelectorAll('.iw-tab').forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');
+  const filtered=cat==='all'?IDEAS:IDEAS.filter(i=>i.cat===cat);
+  renderIWColumns(filtered.length?filtered:IDEAS);
+}
+function renderIWColumns(list){
+  const cardHTML=i=>`<div class="iw-card"><div class="iw-card-brand" style="color:var(--orange)">${i.brand}</div><div class="iw-card-idea">${i.idea}</div><div class="iw-card-hook">${i.hook}</div></div>`;
+  const c1=[],c2=[],c3=[];
+  list.forEach((item,idx)=>{(idx%3===0?c1:idx%3===1?c2:c3).push(item)});
+  // duplicate for seamless scroll loop
+  document.getElementById('iwCol1').innerHTML=[...c1,...c1].map(cardHTML).join('');
+  document.getElementById('iwCol2').innerHTML=[...c2,...c2].map(cardHTML).join('');
+  document.getElementById('iwCol3').innerHTML=[...c3,...c3].map(cardHTML).join('');
+}
+
+// ══════════ STEAL THIS IDEA ══════════
+function initSteal(){
+  const g=document.getElementById('stiGrid');
+  g.innerHTML=STEALS.map(s=>`
+  <div class="sti-card">
+    <div class="sti-stamp">Steal This</div>
+    <div class="sti-head" style="background:${s.color}">
+      <div class="sti-num">Steal This Idea &middot; #${s.n}</div>
+      <div class="sti-company">${s.co}</div>
+    </div>
+    <div class="sti-body">
+      <div class="sti-lbl">The Insight</div>
+      <div class="sti-insight">"${s.insight}"</div>
+      <div class="sti-lbl">The Idea</div>
+      <div class="sti-idea-name">${s.idea}</div>
+      <div class="sti-lbl">Choose</div>
+      <div class="sti-choices">${s.choices.map(c=>`<span class="sti-chip">${c}</span>`).join('')}</div>
+      <div class="sti-lbl">What Happens</div>
+      <div class="sti-result">${s.result}</div>
+    </div>
+  </div>`).join('');
+}
+
+// ══════════ WHAT IF LAB ══════════
+function initWhatIf(){
+  const s=document.getElementById('wifStack');
+  s.innerHTML=WHATIFS.map(w=>`
+  <div class="wif-card">
+    <div class="wif-hero" style="background:${w.bg}">
+      <div class="wif-deco" style="color:${w.color};font-size:90px;top:-10px;right:-10px;transform:rotate(-8deg)">${w.deco}</div>
+      <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${w.color};margin-bottom:14px;position:relative;z-index:2">What If &middot; ${w.brand}</div>
+      <h3 class="wif-q">${w.q}</h3>
+    </div>
+    <div class="wif-body">
+      <div>
+        <p class="wif-pitch">${w.pitch}</p>
+        <div class="wif-proofs">${w.proofs.map(p=>`<div class="wif-proof"><div class="wif-proof-ico">${p.ico}</div><div><div class="wif-proof-t">${p.t}</div><div class="wif-proof-b">${p.b}</div></div></div>`).join('')}</div>
+      </div>
+      <div class="wif-vis">${w.svg}</div>
+    </div>
+  </div>`).join('');
+}
+
+// Init idea wall by default since it's the first visible tab
+initIdeaWall();
+window._iwInit=true;
+
+</script></body></html>
