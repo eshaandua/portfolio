@@ -23,9 +23,9 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
 .nlinks a:hover{color:var(--ink)}
 .pg{display:none;opacity:0}.pg.on{display:block;animation:pgFadeIn .3s ease forwards}@keyframes pgFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 /* HERO */
-#hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;align-items:center;padding:80px 52px 60px;position:relative;overflow:hidden;background:linear-gradient(145deg,#FFF8F0 0%,#FFE8D6 40%,#FDF9F4 100%)}
+#hero{min-height:100vh;display:grid;grid-template-columns:48% 52%;align-items:center;padding:80px 52px 60px;gap:0;position:relative;overflow:hidden;background:linear-gradient(145deg,#FFF8F0 0%,#FFE8D6 40%,#FDF9F4 100%)}
 .hero-grain{position:absolute;inset:0;opacity:.035;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.hero-left{position:relative;z-index:2;padding-right:40px}
+.hero-left{position:relative;z-index:2;padding-right:20px}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(26,18,8,.5);margin-bottom:24px}
 .hpulse{width:7px;height:7px;background:var(--orange);border-radius:50%;animation:pulse 2s infinite;display:inline-block;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
@@ -43,12 +43,12 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
 .hst-val em{font-style:italic;color:var(--orange)}
 .hst-lbl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px}
 /* HERO RIGHT — abstract identity board */
-.hero-right{position:relative;z-index:2;height:560px}
-.hboard{position:relative;width:100%;height:100%}
+.hero-right{position:relative;z-index:2;height:480px}
+.hboard{position:relative;width:100%;height:100%;overflow:hidden}
 .hb-ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
-.hb-r1{width:380px;height:380px;border:1px solid rgba(255,107,53,.12)}
-.hb-r2{width:268px;height:268px;border:1px solid rgba(255,107,53,.22)}
-.hb-r3{width:156px;height:156px;border:1px solid rgba(255,107,53,.38);background:rgba(255,107,53,.05)}
+.hb-r1{width:320px;height:320px;border:1px solid rgba(255,107,53,.12)}
+.hb-r2{width:220px;height:220px;border:1px solid rgba(255,107,53,.22)}
+.hb-r3{width:128px;height:128px;border:1px solid rgba(255,107,53,.38);background:rgba(255,107,53,.05)}
 .hb-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;width:200px}
 .hb-initials{font-family:Fraunces,serif;font-size:4.5rem;font-weight:900;font-style:italic;color:var(--ink);line-height:1}
 .hb-role{font-family:Syne,sans-serif;font-size:.55rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
@@ -331,7 +331,7 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
     <p class="hero-tag">I don&rsquo;t sell ideas. <strong>I find the one move every brand is too comfortable to make</strong> &mdash; and then I build it, word by word, campaign by campaign.</p>
     <div class="hero-acts">
       <button class="btn-fill" onclick="sH('br-sec')">See My Work &darr;</button>
-      <button class="btn-line" onclick="smoothTo('about-pg')">About Me &rarr;</button>
+      <button class="btn-line" onclick="document.getElementById('ab-skills').scrollIntoView({behavior:'smooth',block:'start'})">About Me &rarr;</button>
     </div>
     <div class="hero-stats">
       <div><div class="hst-val">12<em>+</em></div><div class="hst-lbl">Brands Strategised</div></div>
@@ -348,11 +348,11 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
         <div class="hb-initials">E.D.</div>
         <div class="hb-role">Brand &amp; Strategy</div>
       </div>
-      <div class="hb-tag" style="top:12%;left:4%">OOH Concepts</div>
-      <div class="hb-tag" style="top:22%;right:2%">Brand Positioning</div>
-      <div class="hb-tag" style="bottom:28%;left:0">Consumer Insight</div>
-      <div class="hb-tag" style="bottom:16%;right:4%">Campaign Writing</div>
-      <div class="hb-tag" style="top:50%;right:-1%">D2C Strategy</div>
+      <div class="hb-tag" style="top:14%;left:8%">OOH Concepts</div>
+      <div class="hb-tag" style="top:18%;right:6%">Brand Positioning</div>
+      <div class="hb-tag" style="bottom:30%;left:8%">Consumer Insight</div>
+      <div class="hb-tag" style="bottom:22%;right:8%">Campaign Writing</div>
+      <div class="hb-tag" style="top:50%;right:5%">D2C Strategy</div>
       <div class="hb-dot" style="top:36%;left:18%"></div>
       <div class="hb-dot" style="bottom:40%;right:16%"></div>
       <div class="hb-dot" style="top:66%;left:10%"></div>
@@ -459,14 +459,7 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
 
 
 <div id="about-pg">
-<section class="ab-hero" style="grid-template-columns:1fr;max-width:760px">
-  <div class="ab-deco">Strategy</div>
-  <div>
-    <div class="ab-ey" style="color:rgba(26,18,8,.5)">Brand &amp; Marketing Strategist &middot; Delhi NCR</div>
-    <h1 class="ab-name" style="color:var(--ink)">Eshaan<br><em>Dua.</em></h1>
-    <p class="ab-desc" style="color:rgba(26,18,8,.6)">I find campaigns brands are too comfortable to run. I read the data no one else opens. I build the brief, the copy, and the case &mdash; then defend it in the room.</p>
-  </div>
-</section>
+
 <section id="ab-skills" class="ab-skills">
   <div class="ab-two">
     <div>
