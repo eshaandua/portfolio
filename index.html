@@ -8,7 +8,7 @@
 <style>
 :root{--cream:#FDF9F4;--white:#fff;--ink:#1A1208;--border:#EDE8DF;--muted:#8A8070;--orange:#FF6B35}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html,body{scroll-behavior:smooth}html{height:100%}body{min-height:100%}
 body{background:var(--cream);color:var(--ink);font-family:Inter,sans-serif;overflow-x:hidden;cursor:none}
 #cur{position:fixed;z-index:9999;pointer-events:none;width:10px;height:10px;background:var(--ink);border-radius:50%;transform:translate(-50%,-50%);transition:opacity .2s}
 #curR{position:fixed;z-index:9998;pointer-events:none;width:38px;height:38px;border:1.5px solid rgba(26,18,8,.2);border-radius:50%;transform:translate(-50%,-50%);transition:all .22s ease}
@@ -21,7 +21,7 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
 .nlinks{display:flex;gap:28px;list-style:none}
 .nlinks a{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .2s;cursor:pointer;text-decoration:none}
 .nlinks a:hover{color:var(--ink)}
-.pg{display:none}.pg.on{display:block}
+.pg{display:none;opacity:0}.pg.on{display:block;animation:pgFadeIn .3s ease forwards}@keyframes pgFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 /* HERO */
 #hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;align-items:center;padding:80px 52px 60px;position:relative;overflow:hidden;background:linear-gradient(145deg,#FFF8F0 0%,#FFE8D6 40%,#FDF9F4 100%)}
 .hero-grain{position:absolute;inset:0;opacity:.035;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -152,12 +152,12 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
 .chname{font-family:Syne,sans-serif;font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:6px}
 .chdesc{font-size:.78rem;color:var(--muted);line-height:1.65;font-weight:300}
 /* ABOUT PAGE */
-.ab-hero{min-height:100vh;background:linear-gradient(135deg,#1A1208 0%,#2E1D0A 50%,#1A1208 100%);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:80px 52px 52px;gap:64px;position:relative;overflow:hidden}
-.ab-deco{position:absolute;right:-30px;top:50%;transform:translateY(-50%) rotate(90deg);font-family:Fraunces,serif;font-size:clamp(80px,14vw,200px);font-weight:900;color:rgba(255,255,255,.025);pointer-events:none;white-space:nowrap}
-.ab-ey{font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(253,249,244,.38);margin-bottom:16px}
-.ab-name{font-family:Fraunces,serif;font-size:clamp(48px,8vw,104px);font-weight:900;letter-spacing:-.04em;line-height:.9;color:#FDF9F4;margin-bottom:22px}
+.ab-hero{min-height:60vh;background:linear-gradient(135deg,#FEF3E8 0%,#FAE0C4 45%,#F5D0A8 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:80px 52px 56px;position:relative;overflow:hidden}
+.ab-deco{position:absolute;right:-30px;top:50%;transform:translateY(-50%) rotate(90deg);font-family:Fraunces,serif;font-size:clamp(80px,14vw,200px);font-weight:900;color:rgba(26,18,8,.04);pointer-events:none;white-space:nowrap}
+.ab-ey{font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(26,18,8,.5);margin-bottom:16px}
+.ab-name{font-family:Fraunces,serif;font-size:clamp(48px,8vw,104px);font-weight:900;letter-spacing:-.04em;line-height:.9;color:#1A1208;margin-bottom:22px}
 .ab-name em{font-style:italic;color:var(--orange)}
-.ab-desc{font-size:1rem;color:rgba(253,249,244,.52);line-height:1.8;max-width:440px;font-weight:300;margin-bottom:36px}
+.ab-desc{font-size:1rem;color:rgba(26,18,8,.6);line-height:1.8;max-width:440px;font-weight:300;margin-bottom:36px}
 /* abstract art panel right */
 .ab-art{width:100%;max-width:440px;margin-left:auto;position:relative;height:480px}
 .aba-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,107,53,.07) 0%,rgba(255,107,53,.02) 100%);border:1px solid rgba(255,107,53,.14)}
@@ -317,8 +317,8 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
     <li><a onclick="sH('ap-sec')">Framework</a></li>
     <li><a onclick="sH('br-sec')">Work</a></li>
     <li><a onclick="sH('lab-sec')">The Lab</a></li>
-    <li><a onclick="sP('about-pg')">About</a></li>
-    <li><a onclick="sP('contact-pg')">Contact</a></li>
+    <li><a onclick="smoothTo('about-pg')">About</a></li>
+    <li><a onclick="smoothTo('contact-pg')">Contact</a></li>
   </ul>
 </nav>
 
@@ -331,7 +331,7 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
     <p class="hero-tag">I don&rsquo;t sell ideas. <strong>I find the one move every brand is too comfortable to make</strong> &mdash; and then I build it, word by word, campaign by campaign.</p>
     <div class="hero-acts">
       <button class="btn-fill" onclick="sH('br-sec')">See My Work &darr;</button>
-      <button class="btn-line" onclick="sP('about-pg')">About Me &rarr;</button>
+      <button class="btn-line" onclick="smoothTo('about-pg')">About Me &rarr;</button>
     </div>
     <div class="hero-stats">
       <div><div class="hst-val">12<em>+</em></div><div class="hst-lbl">Brands Strategised</div></div>
@@ -457,73 +457,14 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
   </div>
 </section>
 
-<section id="h-about">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
-    <div>
-      <div class="ey" style="color:rgba(253,249,244,.35)">About Me</div>
-      <h2 style="font-family:Fraunces,serif;font-size:clamp(32px,4.5vw,60px);font-weight:900;letter-spacing:-.04em;line-height:1;color:#FDF9F4;margin-bottom:22px">I think like a <em style="font-style:italic;color:var(--orange)">Strategist</em>.<br>I work like an Analyst.</h2>
-      <p style="font-size:.92rem;color:rgba(253,249,244,.5);line-height:1.82;font-weight:300;margin-bottom:32px">At Genpact, I spent 2+ years turning raw operational data into decisions that moved teams. Somewhere in that process I realised I was finding the story inside numbers &mdash; and that&rsquo;s exactly what brand strategy is.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07)">
-      <div style="background:var(--ink);padding:30px 22px;border:1px solid rgba(255,255,255,.05)"><div style="font-family:Fraunces,serif;font-size:2.4rem;font-weight:900;color:#FDF9F4">2<em style="font-style:italic;color:var(--orange)">+</em></div><div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,249,244,.3);margin-top:4px">Years in Analytics</div></div>
-      <div style="background:var(--ink);padding:30px 22px;border:1px solid rgba(255,255,255,.05)"><div style="font-family:Fraunces,serif;font-size:2.4rem;font-weight:900;color:#FDF9F4">16<em style="font-style:italic;color:var(--orange)">%</em></div><div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,249,244,.3);margin-top:4px">SLA Improvement</div></div>
-      <div style="background:var(--ink);padding:30px 22px;border:1px solid rgba(255,255,255,.05)"><div style="font-family:Fraunces,serif;font-size:2.4rem;font-weight:900;color:#FDF9F4">4<em style="font-style:italic;color:var(--orange)">&times;</em></div><div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,249,244,.3);margin-top:4px">Bronze Awards</div></div>
-      <div style="background:var(--ink);padding:30px 22px;border:1px solid rgba(255,255,255,.05)"><div style="font-family:Fraunces,serif;font-size:2.4rem;font-weight:900;color:#FDF9F4">12<em style="font-style:italic;color:var(--orange)">+</em></div><div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(253,249,244,.3);margin-top:4px">Brand Briefs Built</div></div>
-    </div>
-  </div>
-</section>
 
-<section id="h-contact" style="background:var(--orange)">
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px">
-    <div>
-      <div class="ey" style="color:rgba(255,255,255,.55)">Ready to talk?</div>
-      <h2 style="font-family:Fraunces,serif;font-size:clamp(44px,7.5vw,100px);font-weight:900;letter-spacing:-.05em;line-height:.9;color:var(--ink)">Let&rsquo;s build<br>something <em style="font-style:italic">bold.</em></h2>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;min-width:280px">
-      <a href="mailto:eshaandua10@gmail.com" class="clink" style="background:rgba(255,255,255,.22);backdrop-filter:none;border:none">
-        <span class="clico">&#x2709;</span><div><div class="cllbl">Email</div><div class="clval">eshaandua10@gmail.com</div></div><span class="clarr">&rarr;</span>
-      </a>
-      <a href="https://linkedin.com/in/eshaan-dua-835852202/" target="_blank" class="clink" style="background:rgba(255,255,255,.22);backdrop-filter:none;border:none">
-        <span class="clico">&#x1F517;</span><div><div class="cllbl">LinkedIn</div><div class="clval">linkedin.com/in/eshaan-dua</div></div><span class="clarr">&rarr;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer class="sfooter">
-  <span>&copy; 2026 Eshaan Dua &mdash; Brand &amp; Marketing Strategist</span>
-  <span>Spec work. Real thinking. Original ideas.</span>
-  <a href="mailto:eshaandua10@gmail.com" style="color:rgba(253,249,244,.28);text-decoration:none">eshaandua10@gmail.com</a>
-</footer>
-</div>
-
-<div id="brand-pg"></div>
-
-<div id="about-pg" class="pg">
-<section class="ab-hero">
+<div id="about-pg">
+<section class="ab-hero" style="grid-template-columns:1fr;max-width:760px">
   <div class="ab-deco">Strategy</div>
   <div>
-    <div class="ab-ey">Brand &amp; Marketing Strategist &middot; Delhi NCR</div>
-    <h1 class="ab-name">Eshaan<br><em>Dua.</em></h1>
-    <p class="ab-desc">I find campaigns brands are too comfortable to run. I read the data no one else opens. I build the brief, the copy, and the case &mdash; then defend it in the room.</p>
-    <button class="btn-fill" onclick="document.getElementById('ab-skills').scrollIntoView({behavior:'smooth',block:'start'})" style="display:inline-flex">Skills &amp; Story &darr;</button>
-  </div>
-  <div>
-    <div class="ab-art">
-      <div class="aba-bg"></div>
-      <div class="aba-grid"></div>
-      <div class="aba-ring aba-r1"></div>
-      <div class="aba-ring aba-r2"></div>
-      <div class="aba-ring aba-r3"></div>
-      <div class="aba-center">
-        <div class="aba-init">E.D.</div>
-        <div class="aba-sub">Brand Strategist</div>
-      </div>
-      <div class="aba-ft f1">OOH Concepts</div>
-      <div class="aba-ft f2">Brand Positioning</div>
-      <div class="aba-ft f3">Consumer Insight</div>
-      <div class="aba-ft f4">Campaign Writing</div>
-    </div>
+    <div class="ab-ey" style="color:rgba(26,18,8,.5)">Brand &amp; Marketing Strategist &middot; Delhi NCR</div>
+    <h1 class="ab-name" style="color:var(--ink)">Eshaan<br><em>Dua.</em></h1>
+    <p class="ab-desc" style="color:rgba(26,18,8,.6)">I find campaigns brands are too comfortable to run. I read the data no one else opens. I build the brief, the copy, and the case &mdash; then defend it in the room.</p>
   </div>
 </section>
 <section id="ab-skills" class="ab-skills">
@@ -541,7 +482,7 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
       <div class="skrow sr"><div class="sktop"><span class="skname">Strategic Thinking</span><span style="font-size:.7rem;color:var(--muted)">Sharp</span></div><div class="sktrack"><div class="skfill" style="width:90%"></div></div></div>
       <div class="skrow sr d1"><div class="sktop"><span class="skname">Brand Positioning</span><span style="font-size:.7rem;color:var(--muted)">Strong</span></div><div class="sktrack"><div class="skfill" style="width:85%"></div></div></div>
       <div class="skrow sr d2"><div class="sktop"><span class="skname">Campaign Concept Writing</span><span style="font-size:.7rem;color:var(--muted)">Sharp</span></div><div class="sktrack"><div class="skfill" style="width:82%"></div></div></div>
-      <div class="skrow sr d3"><div class="sktop"><span class="skname">Data Analysis &amp; Excel</span><span style="font-size:.7rem;color:var(--muted)">Expert</span></div><div class="sktrack"><div class="skfill" style="width:94%"></div></div></div>
+      <div class="skrow sr d3"><div class="sktop"><span class="skname">Data Analysis &amp; Excel</span><span style="font-size:.7rem;color:var(--muted)">Strong</span></div><div class="sktrack"><div class="skfill" style="width:82%"></div></div></div>
       <div class="skrow sr d4"><div class="sktop"><span class="skname">Consumer Insight</span><span style="font-size:.7rem;color:var(--muted)">Strong</span></div><div class="sktrack"><div class="skfill" style="width:80%"></div></div></div>
       <div class="crboxes sr">
         <div class="crbox"><div class="crval">2<em>+</em></div><div class="crdesc">Years in operations analytics at Genpact</div></div>
@@ -552,49 +493,59 @@ nav.stuck{background:rgba(253,249,244,.95);backdrop-filter:blur(16px);border-bot
     </div>
   </div>
 </section>
-<footer class="sfooter">
-  <span>&copy; 2026 Eshaan Dua</span>
-  <button onclick="gH()" style="background:none;border:none;color:rgba(253,249,244,.28);font-family:Syne,sans-serif;font-size:.65rem;letter-spacing:.06em;cursor:pointer">&larr; Back to Work</button>
-  <a href="mailto:eshaandua10@gmail.com" style="color:rgba(253,249,244,.28);text-decoration:none">eshaandua10@gmail.com</a>
-</footer>
+</section>
 </div>
 
-<div id="contact-pg" class="pg">
+<div id="contact-pg">
 <section class="ct-hero">
-  <div class="ct-deco">Bold.</div>
-  <div style="font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(26,18,8,.4);margin-bottom:18px;display:flex;align-items:center;gap:10px">Fair Warning<span style="width:18px;height:1px;background:currentColor"></span></div>
-  <h2 class="ct-big">This is not a<br>call to action.<br>It\u2019s a <em>call.</em></h2>
+  <div class="ct-deco">Hi.</div>
+  <div style="font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(26,18,8,.4);margin-bottom:18px;display:flex;align-items:center;gap:10px">You made it to the end<span style="width:18px;height:1px;background:currentColor"></span></div>
+  <h2 class="ct-big">Let&#x2019;s figure out<br>if I&#x2019;m the right<br>fit. <em>Together.</em></h2>
   <div class="ct-row">
     <div>
-      <p class="ct-sub">I spent this entire website convincing brands to take risks they\u2019re scared of. The least I can do is make my own contact page less boring than a "Get In Touch" form. <strong style="color:var(--ink);font-weight:600">No forms here. Just me, mildly over-caffeinated, waiting for your email.</strong></p>
-      <div class="ct-loc">&#x1F4CD; Delhi NCR &middot; Open to relocation &mdash; my insights travel better than my luggage</div>
+      <p class="ct-sub">I&#x2019;m at that exciting, slightly nerve-wracking stage where I&#x2019;m transitioning from analytics into brand strategy. So if you&#x2019;ve got a role, a brief, or just a brand problem you want to think out loud about &#x2014; <strong style="color:var(--ink);font-weight:600">I&#x2019;m genuinely all ears. No hard sell. Promise.</strong></p>
+      <div class="ct-loc">&#x1F4CD; Delhi NCR &middot; Open to relocation anywhere in India</div>
       <div style="margin-top:28px;padding:18px 22px;background:rgba(255,255,255,.4);border:1px dashed rgba(26,18,8,.25);max-width:420px">
-        <div style="font-family:Syne,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:6px">A Brief Brief on Briefs</div>
-        <p style="font-size:.82rem;color:rgba(26,18,8,.6);line-height:1.7;font-weight:300">If you send me a job description, I will read every line of it. If you send me a brand problem, I will probably reply with a campaign idea before I reply with "hello." Choose your opening message wisely.</p>
+        <div style="font-family:Syne,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:6px">What to expect when you email me</div>
+        <p style="font-size:.82rem;color:rgba(26,18,8,.6);line-height:1.7;font-weight:300">A real reply. Not a template. Probably some questions back at you &#x2014; because I&#x2019;d rather understand properly than sound impressive too quickly.</p>
       </div>
     </div>
     <div>
       <div class="clinks">
-        <a href="mailto:eshaandua10@gmail.com" class="clink"><span class="clico">&#x2709;</span><div><div class="cllbl">Email &mdash; Fastest Reply Channel</div><div class="clval">eshaandua10@gmail.com</div></div><span class="clarr">&rarr;</span></a>
-        <a href="https://linkedin.com/in/eshaan-dua-835852202/" target="_blank" class="clink"><span class="clico">&#x1F517;</span><div><div class="cllbl">LinkedIn &mdash; For the Professionally Curious</div><div class="clval">linkedin.com/in/eshaan-dua</div></div><span class="clarr">&rarr;</span></a>
-        <a href="tel:+919729413172" class="clink"><span class="clico">&#x1F4DE;</span><div><div class="cllbl">Phone &mdash; If It\u2019s Genuinely Urgent</div><div class="clval">+91 97294 13172</div></div><span class="clarr">&rarr;</span></a>
+        <a href="mailto:eshaandua10@gmail.com" class="clink"><span class="clico">&#x2709;</span><div><div class="cllbl">Email &mdash; Best way to reach me</div><div class="clval">eshaandua10@gmail.com</div></div><span class="clarr">&rarr;</span></a>
+        <a href="https://linkedin.com/in/eshaan-dua-835852202/" target="_blank" class="clink"><span class="clico">&#x1F517;</span><div><div class="cllbl">LinkedIn &mdash; Let&#x2019;s connect</div><div class="clval">linkedin.com/in/eshaan-dua</div></div><span class="clarr">&rarr;</span></a>
+        <a href="tel:+919729413172" class="clink"><span class="clico">&#x1F4DE;</span><div><div class="cllbl">Phone &mdash; If email feels too formal</div><div class="clval">+91 97294 13172</div></div><span class="clarr">&rarr;</span></a>
       </div>
       <div style="margin-top:18px;display:flex;align-items:center;gap:10px;font-size:.74rem;color:rgba(26,18,8,.4);font-weight:500">
         <span style="width:7px;height:7px;background:#22C55E;border-radius:50%;display:inline-block;animation:pulse 2s infinite"></span>
-        Currently accepting briefs. Reply time: faster than most Q-commerce apps.
+        Open to opportunities &mdash; full-time, freelance, or just a good conversation.
       </div>
     </div>
   </div>
-  <div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(26,18,8,.12);display:flex;gap:32px;flex-wrap:wrap">
-    <div style="font-size:.78rem;color:rgba(26,18,8,.45);font-style:italic">P.S. &mdash; I promise my actual replies have fewer puns than this page. Maybe.</div>
+  <div style="margin-top:48px;padding-top:24px;border-top:1px solid rgba(26,18,8,.12)">
+    <div style="font-size:.78rem;color:rgba(26,18,8,.45);font-style:italic">P.S. &mdash; Everything on this website is spec work I built to show how I think. None of it is borrowed. All of it is me figuring out what I&#x2019;m capable of.</div>
   </div>
 </section>
 <footer class="sfooter">
   <span>&copy; 2026 Eshaan Dua</span>
-  <button onclick="gH()" style="background:none;border:none;color:rgba(253,249,244,.28);font-family:Syne,sans-serif;font-size:.65rem;letter-spacing:.06em;cursor:pointer">&larr; Back to Work</button>
+  <button onclick="gH()" style="background:none;border:none;color:rgba(253,249,244,.28);font-family:Syne,sans-serif;font-size:.65rem;letter-spacing:.06em;cursor:pointer">&#x2190; Back to Work</button>
   <a href="mailto:eshaandua10@gmail.com" style="color:rgba(253,249,244,.28);text-decoration:none">eshaandua10@gmail.com</a>
 </footer>
 </div>
+</section>
+
+<footer class="sfooter">
+  <span>&copy; 2026 Eshaan Dua &mdash; Brand &amp; Marketing Strategist</span>
+  <span>Spec work. Real thinking. Original ideas.</span>
+  <a href="mailto:eshaandua10@gmail.com" style="color:rgba(253,249,244,.28);text-decoration:none">eshaandua10@gmail.com</a>
+</footer>
+</div>
+
+<div id="brand-pg"></div>
+
+
+
+
 <script>
 const CE=document.getElementById('cur'),CR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
@@ -604,9 +555,40 @@ document.addEventListener('mouseover',e=>{if(e.target.closest('a,button,.bc,.dua
 window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('stuck',scrollY>50));
 const TW=['Campaign Strategy','Brand Positioning','Consumer Insight','Moment Marketing','OOH Concepts','Copywriting','D2C India','Cultural Strategy','Brand Architecture','Trend Spotting'];
 document.getElementById('ticker').innerHTML=[...TW,...TW,...TW].map(w=>`<span class="titem">${w}<span class="tdot"></span></span>`).join('');
-function sP(id){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');document.getElementById('brand-pg').style.display='none';window.scrollTo(0,0);iR();}
-function gH(){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));document.getElementById('home-pg').classList.add('on');document.getElementById('brand-pg').style.display='none';window.scrollTo(0,0);}
+function sP(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  var el=document.getElementById(id);
+  el.classList.add('on');
+  document.getElementById('brand-pg').style.display='none';
+  document.body.scrollTop=0;
+  document.documentElement.scrollTop=0;
+  window.scrollTo({top:0,left:0,behavior:'instant'});
+  setTimeout(function(){
+    document.body.scrollTop=0;
+    document.documentElement.scrollTop=0;
+    iR();
+  },50);
+}
+function gH(){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.getElementById('home-pg').classList.add('on');
+  document.getElementById('brand-pg').style.display='none';
+  document.body.scrollTop=0;
+  document.documentElement.scrollTop=0;
+  window.scrollTo({top:0,left:0,behavior:'instant'});
+}
 function sH(id){gH();setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})},120);}
+function smoothTo(id){
+  // about-pg and contact-pg are now inline - just scroll to them
+  const el=document.getElementById(id);
+  if(el){
+    // Make sure home page is showing (not brand page)
+    document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+    document.getElementById('home-pg').classList.add('on');
+    document.getElementById('brand-pg').style.display='none';
+    setTimeout(()=>{el.scrollIntoView({behavior:'smooth',block:'start'})},80);
+  }
+}
 function iR(){setTimeout(()=>{const o=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.05});document.querySelectorAll('.sr').forEach(el=>{el.classList.remove('in');o.observe(el);const r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)el.classList.add('in');})},80);}
 function fB(cat,btn){document.querySelectorAll('.btab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('.bc').forEach(c=>{if(cat==='all'||c.dataset.cat===cat)c.classList.add('show');else c.classList.remove('show')});}
 const BRANDS=[
@@ -1134,23 +1116,23 @@ iR();
 const IDEAS=[
 {cat:'commerce',brand:'Blinkit',idea:'Rainy Day Mode',hook:'App turns moody-blue when it rains. Soup, candles, and umbrellas float to the top automatically.'},
 {cat:'commerce',brand:'Zepto',idea:'The 19-Minute Confession',hook:'A countdown timer that doubles as a "what are you really craving" mood check before checkout.'},
-{cat:'commerce',brand:'Nykaa',idea:'Beauty Journey Tracker',hook:'Your skin\u2019s timeline, not your cart\u2019s. See how your routine actually changed your face over a year.'},
+{cat:'commerce',brand:'Nykaa',idea:'Beauty Journey Tracker',hook:'Your skin’s timeline, not your cart’s. See how your routine actually changed your face over a year.'},
 {cat:'commerce',brand:'Meesho',idea:'Dukaan Anniversary Reminder',hook:'The app remembers your first sale date and throws you a tiny confetti moment every year.'},
 {cat:'commerce',brand:'Amazon India',idea:'Return Reason Poetry',hook:'Turns the most common return reasons into a darkly funny annual report nobody asked for, everybody reads.'},
 {cat:'commerce',brand:'Flipkart',idea:'Big Billion Day Time Capsule',hook:'Buy something on sale day, get a message a year later: "Still using it?"'},
 {cat:'commerce',brand:'Swiggy Instamart',idea:'The Forgot-Something Nudge',hook:'AI notices your cart is missing the one thing you always buy with milk, and asks before you forget.'},
 {cat:'commerce',brand:'BigBasket',idea:'Recipe Reverse-Engineer',hook:'Upload a photo of a dish you ate at a restaurant. It builds your grocery list to recreate it.'},
-{cat:'travel',brand:'Airbnb',idea:'Neighborhood Mentor',hook:'Every listing comes with a 2-minute video from a local: "Here\u2019s where I\u2019d actually eat, not what Google says."'},
-{cat:'travel',brand:'Uber',idea:'Loyalty Passport',hook:'A literal stamped passport (digital) for every city you\u2019ve been driven through. Frequent flyers, but for backseats.'},
-{cat:'travel',brand:'MakeMyTrip',idea:'Regret-Proof Booking',hook:'Shows you the weather, festival calendar, and crowd index for your dates \u2014 before you regret booking in monsoon.'},
+{cat:'travel',brand:'Airbnb',idea:'Neighborhood Mentor',hook:'Every listing comes with a 2-minute video from a local: "Here’s where I’d actually eat, not what Google says."'},
+{cat:'travel',brand:'Uber',idea:'Loyalty Passport',hook:'A literal stamped passport (digital) for every city you’ve been driven through. Frequent flyers, but for backseats.'},
+{cat:'travel',brand:'MakeMyTrip',idea:'Regret-Proof Booking',hook:'Shows you the weather, festival calendar, and crowd index for your dates — before you regret booking in monsoon.'},
 {cat:'travel',brand:'IRCTC',idea:'Waitlist Therapy',hook:'While you wait for WL34 to confirm, the app tells you jokes about Indian Railways. Healing through humor.'},
-{cat:'travel',brand:'Ola',idea:'Mood Playlist Match',hook:'Driver\u2019s radio auto-syncs to a playlist matching your last 3 ride moods. Stressed Monday gets lo-fi, not item songs.'},
-{cat:'travel',brand:'Goibibo',idea:'The Honest Hotel Filter',hook:'A filter called "What Will Actually Disappoint You" \u2014 sourced from real complaint patterns, not star ratings.'},
+{cat:'travel',brand:'Ola',idea:'Mood Playlist Match',hook:'Driver’s radio auto-syncs to a playlist matching your last 3 ride moods. Stressed Monday gets lo-fi, not item songs.'},
+{cat:'travel',brand:'Goibibo',idea:'The Honest Hotel Filter',hook:'A filter called "What Will Actually Disappoint You" — sourced from real complaint patterns, not star ratings.'},
 {cat:'travel',brand:'RedBus',idea:'Sleeper Seat Roulette',hook:'Random seat-mate compatibility quiz before booking. Because nobody wants the talker at 2AM.'},
-{cat:'media',brand:'Netflix',idea:'Family Leaderboard',hook:'See who in your household actually finishes shows vs. who just claims they\u2019ve "seen it." Petty, public, perfect.'},
+{cat:'media',brand:'Netflix',idea:'Family Leaderboard',hook:'See who in your household actually finishes shows vs. who just claims they’ve "seen it." Petty, public, perfect.'},
 {cat:'media',brand:'Spotify',idea:'Career Rewind for Songs',hook:'"This song was your #1 the week you got that job offer." Music as a memory timestamp, not just a playlist.'},
-{cat:'media',brand:'Disney+ Hotstar',idea:'Match Day Mood Mode',hook:'During IPL, app turns into a stadium UI \u2014 crowd noise, scoreboard skin, the works. You\u2019re not watching, you\u2019re there.'},
-{cat:'media',brand:'JioCinema',idea:'Regional Rabbit Hole',hook:'One button: "Surprise me in a language I don\u2019t speak." Curated subtitled gems from regional cinema, randomly.'},
+{cat:'media',brand:'Disney+ Hotstar',idea:'Match Day Mood Mode',hook:'During IPL, app turns into a stadium UI — crowd noise, scoreboard skin, the works. You’re not watching, you’re there.'},
+{cat:'media',brand:'JioCinema',idea:'Regional Rabbit Hole',hook:'One button: "Surprise me in a language I don’t speak." Curated subtitled gems from regional cinema, randomly.'},
 {cat:'media',brand:'YouTube',idea:'The Unfinished Tab',hook:'A shame-free shelf for videos you opened, paused at 0:43, and never returned to. No judgment, just a gentle nudge.'},
 {cat:'media',brand:'Audible',idea:'Commute Companion Mode',hook:'Books auto-chapter to your average commute length so you finish a "chapter" exactly as you reach your stop.'},
 {cat:'social',brand:'LinkedIn',idea:'Career Rewind',hook:'Your "Spotify Wrapped" but for your job. "You sent 340 connection requests this year. 12 said yes back."'},
@@ -1158,153 +1140,153 @@ const IDEAS=[
 {cat:'social',brand:'Twitter / X',idea:'The Almost-Tweet Archive',hook:'Saves every tweet you typed and deleted before posting. Your private museum of restraint.'},
 {cat:'social',brand:'WhatsApp',idea:'Read Receipt Honesty Mode',hook:'Opt-in feature: shows "seen, thinking about how to reply" status. Brutal. Honest. Weirdly comforting.'},
 {cat:'social',brand:'Snapchat',idea:'Streak Funeral',hook:'When a streak finally breaks, the app holds a tiny, theatrical funeral animation for it. Closure, Gen Z style.'},
-{cat:'fintech',brand:'CRED',idea:'Bill Payment Confetti',hook:'Already covered \u2014 but imagine if the confetti color matched how close you cut it to the due date.'},
-{cat:'fintech',brand:'PhonePe',idea:'Split Bill Diplomacy',hook:'AI mediates group bill splits with passive-aggressive friends. "Rahul has owed you \u20b9340 for 11 months."'},
+{cat:'fintech',brand:'CRED',idea:'Bill Payment Confetti',hook:'Already covered — but imagine if the confetti color matched how close you cut it to the due date.'},
+{cat:'fintech',brand:'PhonePe',idea:'Split Bill Diplomacy',hook:'AI mediates group bill splits with passive-aggressive friends. "Rahul has owed you ₹340 for 11 months."'},
 {cat:'fintech',brand:'Paytm',idea:'QR Code Memory Lane',hook:'Scan history becomes a visual map: every chai stall, every shop, every "where even was this" QR you scanned this year.'},
-{cat:'fintech',brand:'Groww',idea:'Regret Index',hook:'Shows you, gently, what your money would be worth if you hadn\u2019t sold that one stock in panic. Educational pain.'},
-{cat:'fintech',brand:'Jupiter',idea:'Salary Day Honesty Report',hook:'On salary day, shows exactly how many days until it\u2019s "gone" based on your last 3 months of spending. No sugarcoating.'},
-{cat:'fintech',brand:'Razorpay',idea:'Small Business Pulse',hook:'A public, anonymized live ticker of "India is buying X right now" \u2014 powered by merchant transaction patterns.'},
-{cat:'fooddelivery',brand:'Zomato',idea:'Already covered in full strategy',hook:'See the dedicated brand page \u2014 the Confessions campaign lives there.'},
-{cat:'fooddelivery',brand:'Swiggy',idea:'Already covered below',hook:'See "Steal This Idea #01" \u2014 Order My Mood.'},
+{cat:'fintech',brand:'Groww',idea:'Regret Index',hook:'Shows you, gently, what your money would be worth if you hadn’t sold that one stock in panic. Educational pain.'},
+{cat:'fintech',brand:'Jupiter',idea:'Salary Day Honesty Report',hook:'On salary day, shows exactly how many days until it’s "gone" based on your last 3 months of spending. No sugarcoating.'},
+{cat:'fintech',brand:'Razorpay',idea:'Small Business Pulse',hook:'A public, anonymized live ticker of "India is buying X right now" — powered by merchant transaction patterns.'},
+{cat:'fooddelivery',brand:'Zomato',idea:'Already covered in full strategy',hook:'See the dedicated brand page — the Confessions campaign lives there.'},
+{cat:'fooddelivery',brand:'Swiggy',idea:'Already covered below',hook:'See "Steal This Idea #01" — Order My Mood.'},
 {cat:'fooddelivery',brand:'EatSure',idea:'Cloud Kitchen Confession Wall',hook:'Shows you which "different" restaurant brands are secretly cooked in the same kitchen. Radical honesty as marketing.'},
 {cat:'fooddelivery',brand:'Dunzo',idea:'The Forgot List',hook:'Learns your most commonly forgotten last-minute item (charger, condom, candle) and asks if you need it again.'},
-{cat:'wellness',brand:'Cult.fit',idea:'Excuse Generator Roast',hook:'When you skip a workout, app generates an increasingly sarcastic excuse on your behalf. You can\u2019t even lie convincingly.'},
-{cat:'wellness',brand:'HealthifyMe',idea:'Cheat Day Honesty Score',hook:'Doesn\u2019t shame cheat meals \u2014 just rates your "commitment to the bit" on a 10-point scale. Oddly motivating.'},
-{cat:'wellness',brand:'Practo',idea:'Symptom Honesty Translator',hook:'Translates "I think I\u2019m dying" into what you\u2019re actually describing, before you Google yourself into a panic.'},
+{cat:'wellness',brand:'Cult.fit',idea:'Excuse Generator Roast',hook:'When you skip a workout, app generates an increasingly sarcastic excuse on your behalf. You can’t even lie convincingly.'},
+{cat:'wellness',brand:'HealthifyMe',idea:'Cheat Day Honesty Score',hook:'Doesn’t shame cheat meals — just rates your "commitment to the bit" on a 10-point scale. Oddly motivating.'},
+{cat:'wellness',brand:'Practo',idea:'Symptom Honesty Translator',hook:'Translates "I think I’m dying" into what you’re actually describing, before you Google yourself into a panic.'},
 {cat:'wellness',brand:'PharmEasy',idea:'Medicine Cabinet Memory',hook:'Reminds you, kindly, that the cough syrup from 2022 is judging you from the back of the shelf.'},
-{cat:'edtech',brand:'BYJU\u2019S',idea:'Parent Reality Check',hook:'A monthly honest report to parents: "Your child watched 40 mins. 38 were spent skipping intros." No spin.'},
-{cat:'edtech',brand:'Unacademy',idea:'Doubt Confidence Meter',hook:'Before asking a doubt, rate how dumb you think the question is. Spoiler: it\u2019s never as dumb as you think.'},
+{cat:'edtech',brand:'BYJU’S',idea:'Parent Reality Check',hook:'A monthly honest report to parents: "Your child watched 40 mins. 38 were spent skipping intros." No spin.'},
+{cat:'edtech',brand:'Unacademy',idea:'Doubt Confidence Meter',hook:'Before asking a doubt, rate how dumb you think the question is. Spoiler: it’s never as dumb as you think.'},
 {cat:'edtech',brand:'upGrad',idea:'Career Pivot Buddy Match',hook:'Matches you with a stranger making the exact same career switch, at the exact same week of the course.'},
-{cat:'edtech',brand:'Vedantu',idea:'Exam Eve Honesty Mode',hook:'Night before the exam, app stops teaching and just sends one message: "You\u2019ve done enough. Sleep."'},
-{cat:'gaming',brand:'Dream11',idea:'The Captain\u2019s Curse',hook:'Tracks how often your captaincy picks flop and publicly (privately) roasts your "gut feeling" decisions.'},
-{cat:'gaming',brand:'MPL',idea:'Skill Honesty Badge',hook:'A badge that says "Actually Good At This" vs "Just Likes Playing" \u2014 based on real performance, not ego.'},
+{cat:'edtech',brand:'Vedantu',idea:'Exam Eve Honesty Mode',hook:'Night before the exam, app stops teaching and just sends one message: "You’ve done enough. Sleep."'},
+{cat:'gaming',brand:'Dream11',idea:'The Captain’s Curse',hook:'Tracks how often your captaincy picks flop and publicly (privately) roasts your "gut feeling" decisions.'},
+{cat:'gaming',brand:'MPL',idea:'Skill Honesty Badge',hook:'A badge that says "Actually Good At This" vs "Just Likes Playing" — based on real performance, not ego.'},
 {cat:'gaming',brand:'WinZO',idea:'Local Legend Map',hook:'See the top players within 2km of you. Turns online gaming into a hyperlocal bragging map.'},
 {cat:'auto',brand:'Ola Electric',idea:'Range Anxiety Therapist',hook:'Calm, almost meditative UI that talks you through "you have enough charge" instead of a scary red bar.'},
 {cat:'auto',brand:'Rapido',idea:'Helmet Hair Honesty',hook:'A tiny mirror-camera feature that shows you your helmet hair before you walk into office. Self-awareness as a service.'},
 {cat:'auto',brand:'Zoomcar',idea:'Road Trip Mood Board',hook:'Before a long booking, app generates a custom road trip playlist + snack stop map based on your route.'},
 {cat:'realestate',brand:'NoBroker',idea:'Landlord Honesty Score',hook:'Anonymous, verified tenant reviews of landlords. The review system flips for once.'},
 {cat:'realestate',brand:'99acres',idea:'Neighborhood Noise Map',hook:'Crowdsourced "how loud is this area actually" data layered onto listings. Because brochures lie about "peaceful."'},
-{cat:'realestate',brand:'Magicbricks',idea:'Commute Reality Check',hook:'Shows your actual commute time during real rush hour, not Google Maps\u2019 optimistic Sunday-morning estimate.'},
+{cat:'realestate',brand:'Magicbricks',idea:'Commute Reality Check',hook:'Shows your actual commute time during real rush hour, not Google Maps’ optimistic Sunday-morning estimate.'},
 {cat:'insurance',brand:'Acko',idea:'Claim Confidence Meter',hook:'Before filing a claim, shows your real odds of approval based on similar past claims. Removes the guessing anxiety.'},
 {cat:'insurance',brand:'PolicyBazaar',idea:'Jargon Decoder Mode',hook:'Highlight any insurance term, get a one-line human translation. "Sub-limit" finally makes sense.'},
-{cat:'insurance',brand:'Digit Insurance',idea:'Honest Premium Breakdown',hook:'Shows exactly what you\u2019re paying for, visually, like a receipt \u2014 not a PDF nobody reads.'},
+{cat:'insurance',brand:'Digit Insurance',idea:'Honest Premium Breakdown',hook:'Shows exactly what you’re paying for, visually, like a receipt — not a PDF nobody reads.'},
 {cat:'beauty',brand:'Sugar Cosmetics',idea:'Shade Match Honesty',hook:'AI tells you the shade you want vs. the shade that actually matches. Saves the return-shipping guilt.'},
-{cat:'beauty',brand:'Mamaearth',idea:'Already covered in full strategy',hook:'See the dedicated brand page \u2014 the transparency campaign lives there.'},
-{cat:'beauty',brand:'Plum',idea:'Skin Diary Weather Sync',hook:'Correlates your skin\u2019s bad days with pollution index and humidity. Turns "my skin is acting up" into actual data.'},
-{cat:'beauty',brand:'MyGlamm',idea:'Makeup Occasion Translator',hook:'Type the event, get the exact look pre-built \u2014 "cousin\u2019s sangeet, 40°C, outdoor" gets a humidity-proof routine.'},
+{cat:'beauty',brand:'Mamaearth',idea:'Already covered in full strategy',hook:'See the dedicated brand page — the transparency campaign lives there.'},
+{cat:'beauty',brand:'Plum',idea:'Skin Diary Weather Sync',hook:'Correlates your skin’s bad days with pollution index and humidity. Turns "my skin is acting up" into actual data.'},
+{cat:'beauty',brand:'MyGlamm',idea:'Makeup Occasion Translator',hook:'Type the event, get the exact look pre-built — "cousin’s sangeet, 40°C, outdoor" gets a humidity-proof routine.'},
 {cat:'sports',brand:'Decathlon',idea:'Sport Compatibility Quiz',hook:'Five questions, one honest answer: the sport your personality actually suits, not the one Instagram made look cool.'},
 {cat:'sports',brand:'JioSaavn x Cricket',idea:'Wicket Soundtrack',hook:'Every wicket gets a 3-second song stinger voted on by fans in real time. Cricket gets a soundtrack.'},
 {cat:'logistics',brand:'Delhivery',idea:'Honest ETA Mode',hook:'Replaces "arriving today" with real probability: "73% chance today, 100% chance by Thursday." Trust through honesty.'},
-{cat:'logistics',brand:'Shiprocket',idea:'Small Seller Spotlight',hook:'Random daily feature of one small seller\u2019s shipping journey \u2014 turns logistics into a founder story platform.'},
-{cat:'b2b',brand:'Freshworks',idea:'Support Ticket Empathy Score',hook:'Rates how human a support reply felt, not just how fast it was sent. Speed isn\u2019t always care.'},
+{cat:'logistics',brand:'Shiprocket',idea:'Small Seller Spotlight',hook:'Random daily feature of one small seller’s shipping journey — turns logistics into a founder story platform.'},
+{cat:'b2b',brand:'Freshworks',idea:'Support Ticket Empathy Score',hook:'Rates how human a support reply felt, not just how fast it was sent. Speed isn’t always care.'},
 {cat:'b2b',brand:'Zoho',idea:'Tool Overload Detector',hook:'Notices when a business is paying for 4 tools that do the same thing and quietly suggests consolidation.'},
-{cat:'pets',brand:'Supertails',idea:'Pet Mood Translator',hook:'Upload a photo of your dog\u2019s face, get a (fictional, hilarious) translated thought bubble. Pure dopamine marketing.'},
+{cat:'pets',brand:'Supertails',idea:'Pet Mood Translator',hook:'Upload a photo of your dog’s face, get a (fictional, hilarious) translated thought bubble. Pure dopamine marketing.'},
 {cat:'pets',brand:'Heads Up For Tails',idea:'Vet Visit Honesty Prep',hook:'Pre-vet-visit checklist that asks the awkward questions you forget mid-appointment: "Has the limp gotten worse?"'},
-{cat:'kids',brand:'FirstCry',idea:'Growth Spurt Predictor',hook:'Predicts when your kid will outgrow current clothes based on growth charts \u2014 stops the surprise too-small day.'},
-{cat:'kids',brand:'Hamleys',idea:'Boredom Threshold Tracker',hook:'Tracks how many days a new toy survives before "I\u2019m bored" sets in. Brutally honest, weirdly useful for parents.'},
+{cat:'kids',brand:'FirstCry',idea:'Growth Spurt Predictor',hook:'Predicts when your kid will outgrow current clothes based on growth charts — stops the surprise too-small day.'},
+{cat:'kids',brand:'Hamleys',idea:'Boredom Threshold Tracker',hook:'Tracks how many days a new toy survives before "I’m bored" sets in. Brutally honest, weirdly useful for parents.'},
 {cat:'jobs',brand:'Naukri.com',idea:'Resume Honesty Pass',hook:'Flags every overused buzzword ("synergy," "go-getter") before you submit. A tough-love editor, built in.'},
 {cat:'jobs',brand:'Internshala',idea:'First Job Time Capsule',hook:'Locks a message you write on day 1 of your first internship, delivers it back on day 1 of your first full-time job.'},
-{cat:'banking',brand:'HDFC Bank',idea:'Spending Confession Booth',hook:'A private, judgment-free monthly summary: "You spent \u20b94,200 on late-night food. We won\u2019t tell anyone."'},
-{cat:'banking',brand:'Kotak 811',idea:'Goal Jar Visualizer',hook:'Savings goals shown as a literal filling jar animation \u2014 makes abstract numbers feel tangible and addictive.'},
-{cat:'streaming',brand:'Amazon Prime Video',idea:'Genre Mood Ring',hook:'Homepage changes color based on what genre you\u2019ve been bingeing \u2014 a visual diary of your emotional state.'},
+{cat:'banking',brand:'HDFC Bank',idea:'Spending Confession Booth',hook:'A private, judgment-free monthly summary: "You spent ₹4,200 on late-night food. We won’t tell anyone."'},
+{cat:'banking',brand:'Kotak 811',idea:'Goal Jar Visualizer',hook:'Savings goals shown as a literal filling jar animation — makes abstract numbers feel tangible and addictive.'},
+{cat:'streaming',brand:'Amazon Prime Video',idea:'Genre Mood Ring',hook:'Homepage changes color based on what genre you’ve been bingeing — a visual diary of your emotional state.'},
 {cat:'streaming',brand:'SonyLIV',idea:'Cricket Widow Mode',hook:'During match season, auto-curates content for the non-cricket-watching partner in the house. Peace, restored.'},
-{cat:'retail',brand:'Reliance Trends',idea:'Wardrobe Gap Finder',hook:'Analyzes your purchase history and tells you the one category you\u2019re missing \u2014 not upselling, just honest gaps.'},
+{cat:'retail',brand:'Reliance Trends',idea:'Wardrobe Gap Finder',hook:'Analyzes your purchase history and tells you the one category you’re missing — not upselling, just honest gaps.'},
 {cat:'retail',brand:'Lenskart',idea:'Face Memory Match',hook:'Remembers which frame shape got the most compliments in your try-on photos history, suggests similar ones first.'},
-{cat:'travel',brand:'Vistara',idea:'Window Seat Storyteller',hook:'GPS-synced audio that tells you what city, river, or mountain you\u2019re flying over right now. In-flight wonder, automated.'},
-{cat:'travel',brand:'IndiGo',idea:'Delay Honesty Index',hook:'Shows real historical on-time performance for your specific route before you book \u2014 not just the airline average.'},
+{cat:'travel',brand:'Vistara',idea:'Window Seat Storyteller',hook:'GPS-synced audio that tells you what city, river, or mountain you’re flying over right now. In-flight wonder, automated.'},
+{cat:'travel',brand:'IndiGo',idea:'Delay Honesty Index',hook:'Shows real historical on-time performance for your specific route before you book — not just the airline average.'},
 {cat:'commerce',brand:'Croma',idea:'Upgrade Worthiness Score',hook:'Before you buy the new phone, an honest score: "Your current one is still fine. Save the money."'},
-{cat:'commerce',brand:'Tata CLiQ',idea:'Outfit Repeat Tracker',hook:'Quietly tracks how often you actually rewear items vs. let them sit \u2014 turns shopping into self-awareness.'},
-{cat:'media',brand:'Times of India',idea:'Mood-Filtered News',hook:'A toggle: "Show me the news that won\u2019t ruin my morning." Curated calm news days, opt-in.'},
+{cat:'commerce',brand:'Tata CLiQ',idea:'Outfit Repeat Tracker',hook:'Quietly tracks how often you actually rewear items vs. let them sit — turns shopping into self-awareness.'},
+{cat:'media',brand:'Times of India',idea:'Mood-Filtered News',hook:'A toggle: "Show me the news that won’t ruin my morning." Curated calm news days, opt-in.'},
 {cat:'media',brand:'ESPN Cricinfo',idea:'Heartbreak Replay Warning',hook:'Before replaying a match your team lost, app warns: "Are you sure? This one still hurts."'},
-{cat:'finance',brand:'Zerodha',idea:'FOMO Cooldown Timer',hook:'When you try to buy a trending stock, a 60-second mandatory cooldown with the stock\u2019s last 5 crash patterns shown.'},
-{cat:'finance',brand:'INDmoney',idea:'Net Worth Honesty Snapshot',hook:'A blunt monthly line: "You\u2019re richer than last month. Mostly because you didn\u2019t shop." No fluff, just truth.'},
+{cat:'finance',brand:'Zerodha',idea:'FOMO Cooldown Timer',hook:'When you try to buy a trending stock, a 60-second mandatory cooldown with the stock’s last 5 crash patterns shown.'},
+{cat:'finance',brand:'INDmoney',idea:'Net Worth Honesty Snapshot',hook:'A blunt monthly line: "You’re richer than last month. Mostly because you didn’t shop." No fluff, just truth.'},
 {cat:'fashion',brand:'Myntra',idea:'Trend Expiry Date',hook:'Every trending item gets an honest "this look has about 6 weeks left" countdown. Saves regret purchases.'},
-{cat:'fashion',brand:'Ajio',idea:'Closet Twin Finder',hook:'Matches you with a stranger who has near-identical taste, shows what they bought that you haven\u2019t yet.'},
-{cat:'food',brand:'Licious',idea:'Recipe Rescue Mode',hook:'Bought meat with no plan? Snap a photo of what\u2019s in your fridge, get a same-day recipe built around it.'},
+{cat:'fashion',brand:'Ajio',idea:'Closet Twin Finder',hook:'Matches you with a stranger who has near-identical taste, shows what they bought that you haven’t yet.'},
+{cat:'food',brand:'Licious',idea:'Recipe Rescue Mode',hook:'Bought meat with no plan? Snap a photo of what’s in your fridge, get a same-day recipe built around it.'},
 {cat:'food',brand:'Country Delight',idea:'Doorstep Diary',hook:'A quiet yearly recap: "342 mornings, one bottle of milk, zero days you forgot to cancel." Oddly poetic.'},
-{cat:'travel',brand:'Booking.com',idea:'Honest Photo Filter',hook:'A toggle that shows listing photos exactly as guests submitted them \u2014 unedited, unfiltered, real angles only.'},
-{cat:'social',brand:'BeReal (India)',idea:'Festival Real Mode',hook:'During festivals, one mandatory unfiltered photo at the actual chaotic moment \u2014 not the posed family photo.'},
-{cat:'commerce',brand:'Urban Company',idea:'Trust Streak Badge',hook:'Shows professionals a visible "12 jobs, zero cancellations" streak \u2014 turns reliability into a public flex.'},
-{cat:'commerce',brand:'Pepperfry',idea:'Room Mood Matcher',hook:'Upload a photo of your room, get furniture suggestions that match the existing light and color \u2014 not generic catalogues.'},
-{cat:'wellness',brand:'1mg',idea:'Prescription Memory Bank',hook:'Auto-builds a private timeline of every prescription you\u2019ve had, so you stop repeating your history at every new clinic.'},
-{cat:'travel',brand:'Trivago',idea:'Price Drop Apology',hook:'If the price drops after you book, app sends a small, genuine "sorry, here\u2019s a coupon" instead of staying silent.'},
-{cat:'auto',brand:'CarDekho',idea:'Resale Regret Predictor',hook:'Before you buy, shows the honest 3-year resale value curve \u2014 not just the showroom shine.'},
-{cat:'media',brand:'Gaana',idea:'Breakup Playlist Detox',hook:'Detects repeated sad-song loops over days and gently offers an opt-in "let\u2019s switch gears" playlist.'},
+{cat:'travel',brand:'Booking.com',idea:'Honest Photo Filter',hook:'A toggle that shows listing photos exactly as guests submitted them — unedited, unfiltered, real angles only.'},
+{cat:'social',brand:'BeReal (India)',idea:'Festival Real Mode',hook:'During festivals, one mandatory unfiltered photo at the actual chaotic moment — not the posed family photo.'},
+{cat:'commerce',brand:'Urban Company',idea:'Trust Streak Badge',hook:'Shows professionals a visible "12 jobs, zero cancellations" streak — turns reliability into a public flex.'},
+{cat:'commerce',brand:'Pepperfry',idea:'Room Mood Matcher',hook:'Upload a photo of your room, get furniture suggestions that match the existing light and color — not generic catalogues.'},
+{cat:'wellness',brand:'1mg',idea:'Prescription Memory Bank',hook:'Auto-builds a private timeline of every prescription you’ve had, so you stop repeating your history at every new clinic.'},
+{cat:'travel',brand:'Trivago',idea:'Price Drop Apology',hook:'If the price drops after you book, app sends a small, genuine "sorry, here’s a coupon" instead of staying silent.'},
+{cat:'auto',brand:'CarDekho',idea:'Resale Regret Predictor',hook:'Before you buy, shows the honest 3-year resale value curve — not just the showroom shine.'},
+{cat:'media',brand:'Gaana',idea:'Breakup Playlist Detox',hook:'Detects repeated sad-song loops over days and gently offers an opt-in "let’s switch gears" playlist.'},
 {cat:'commerce',brand:'Bewakoof',idea:'Inside Joke Merch Generator',hook:'Type a phrase only your friend group understands, get an instant mockup of it on a t-shirt. Inside jokes, made wearable.'},
-{cat:'food',brand:'Faasos',idea:'Midnight Craving Confessional',hook:'A 1AM-only menu section labeled "No judgment here" \u2014 unlocks only after midnight, disappears by sunrise.'},
+{cat:'food',brand:'Faasos',idea:'Midnight Craving Confessional',hook:'A 1AM-only menu section labeled "No judgment here" — unlocks only after midnight, disappears by sunrise.'},
 ];
 
 const STEALS=[
-{n:'01',co:'Swiggy',color:'#FC8019',insight:'People don\u2019t know what to order. Every scroll is decision fatigue dressed up as choice.',idea:'Order My Mood',choices:['Stress','Celebration','Heartbreak','Lazy Sunday'],result:'Swiggy recommends food based on the feeling, not the cuisine filter. The mood becomes the menu.'},
-{n:'02',co:'boAt',color:'#E31E24',insight:'Customers buy earphones once and vanish. There\u2019s no reason to open the app again until something breaks.',idea:'Sound of My City',choices:['Mumbai Rain','Delhi Traffic Hum','Goa Waves','Hostel Silence'],result:'A free ambient soundscape series, city-tagged, playable only through boAt gear. The app becomes a reason to return.'},
-{n:'03',co:'Zomato',color:'#E23744',insight:'Ordering the same thing every week is comfort \u2014 but the app treats it like a missed upsell opportunity.',idea:'Order on Autopilot',choices:['Same Time','Same Order','Surprise Me Instead','Skip This Week'],result:'One-tap repeat ordering with a built-in "break the loop" option \u2014 respects habit and curiosity equally.'},
-{n:'04',co:'Spotify',color:'#1DB954',insight:'People discover music through friends, not algorithms \u2014 but there\u2019s no way to actually *show* a friend what you\u2019re obsessed with right now.',idea:'Lend Me Your Ears',choices:['24-Hour Loan','My Top Obsession','This Made Me Cry','Don\u2019t Judge Me'],result:'Temporarily hand a friend your top track of the week, framed exactly how you want it received.'},
-{n:'05',co:'CRED',color:'#6C63FF',insight:'Bill payment is the most boring app interaction that exists. CRED gamified it once \u2014 but the gamification got old too.',idea:'Pay It Like a Heist',choices:['Stealth Mode (Auto-Pay)','Last Second Thrill','The Clean Getaway','Forgot, Oops'],result:'Frames bill payment as a personality quiz. Are you the planner, the risk-taker, or the chaos agent? Coins reflect the answer.'},
-{n:'06',co:'Cult.fit',color:'#FF3278',insight:'People don\u2019t skip workouts because they\u2019re lazy \u2014 they skip because the excuse in their head sounds reasonable to them.',idea:'Excuse Court',choices:['Too Tired','It\u2019s Raining','I\u2019ll Start Monday','Genuinely Injured'],result:'AI cross-examines your excuse like a tiny courtroom drama, then either lets you off or books your slot anyway.'},
-{n:'07',co:'Ola',color:'#000000',insight:'The ride itself is the entire product, but Ola treats the in-car minutes as dead time between pickup and drop.',idea:'Choose Your Driver\u2019s Mood',choices:['Talk to Me','Total Silence','Tell Me a Local Secret','Surprise Me'],result:'A pre-ride toggle drivers can see \u2014 turns an awkward guessing game into an upfront, respectful preference.'},
-{n:'08',co:'Netflix India',color:'#E50914',insight:'Family accounts mean four different people fighting over the algorithm, and nobody\u2019s actual taste ever fully shows.',idea:'Whose Turn Is It Anyway',choices:['Mood: Comfort Rewatch','Mood: Something New','Mood: Cry On Purpose','Mood: Background Noise'],result:'A literal turn-based queue per profile, with mood tags instead of genres \u2014 turns family conflict into a shared ritual.'},
+{n:'01',co:'Swiggy',color:'#FC8019',insight:'People don’t know what to order. Every scroll is decision fatigue dressed up as choice.',idea:'Order My Mood',choices:['Stress','Celebration','Heartbreak','Lazy Sunday'],result:'Swiggy recommends food based on the feeling, not the cuisine filter. The mood becomes the menu.'},
+{n:'02',co:'boAt',color:'#E31E24',insight:'Customers buy earphones once and vanish. There’s no reason to open the app again until something breaks.',idea:'Sound of My City',choices:['Mumbai Rain','Delhi Traffic Hum','Goa Waves','Hostel Silence'],result:'A free ambient soundscape series, city-tagged, playable only through boAt gear. The app becomes a reason to return.'},
+{n:'03',co:'Zomato',color:'#E23744',insight:'Ordering the same thing every week is comfort — but the app treats it like a missed upsell opportunity.',idea:'Order on Autopilot',choices:['Same Time','Same Order','Surprise Me Instead','Skip This Week'],result:'One-tap repeat ordering with a built-in "break the loop" option — respects habit and curiosity equally.'},
+{n:'04',co:'Spotify',color:'#1DB954',insight:'People discover music through friends, not algorithms — but there’s no way to actually *show* a friend what you’re obsessed with right now.',idea:'Lend Me Your Ears',choices:['24-Hour Loan','My Top Obsession','This Made Me Cry','Don’t Judge Me'],result:'Temporarily hand a friend your top track of the week, framed exactly how you want it received.'},
+{n:'05',co:'CRED',color:'#6C63FF',insight:'Bill payment is the most boring app interaction that exists. CRED gamified it once — but the gamification got old too.',idea:'Pay It Like a Heist',choices:['Stealth Mode (Auto-Pay)','Last Second Thrill','The Clean Getaway','Forgot, Oops'],result:'Frames bill payment as a personality quiz. Are you the planner, the risk-taker, or the chaos agent? Coins reflect the answer.'},
+{n:'06',co:'Cult.fit',color:'#FF3278',insight:'People don’t skip workouts because they’re lazy — they skip because the excuse in their head sounds reasonable to them.',idea:'Excuse Court',choices:['Too Tired','It’s Raining','I’ll Start Monday','Genuinely Injured'],result:'AI cross-examines your excuse like a tiny courtroom drama, then either lets you off or books your slot anyway.'},
+{n:'07',co:'Ola',color:'#000000',insight:'The ride itself is the entire product, but Ola treats the in-car minutes as dead time between pickup and drop.',idea:'Choose Your Driver’s Mood',choices:['Talk to Me','Total Silence','Tell Me a Local Secret','Surprise Me'],result:'A pre-ride toggle drivers can see — turns an awkward guessing game into an upfront, respectful preference.'},
+{n:'08',co:'Netflix India',color:'#E50914',insight:'Family accounts mean four different people fighting over the algorithm, and nobody’s actual taste ever fully shows.',idea:'Whose Turn Is It Anyway',choices:['Mood: Comfort Rewatch','Mood: Something New','Mood: Cry On Purpose','Mood: Background Noise'],result:'A literal turn-based queue per profile, with mood tags instead of genres — turns family conflict into a shared ritual.'},
 ];
 
 const WHATIFS=[
 {q:'What if Netflix opened a restaurant?',brand:'Netflix',color:'#E50914',bg:'#1A0506',deco:'EATFLIX',
-pitch:'Not a theme restaurant with show posters on the wall \u2014 an actual fine-dining experience built on Netflix\u2019s real superpower: knowing exactly what you want before you do. <strong>The menu doesn\u2019t exist until you sit down.</strong> It\u2019s generated from your watch history.',
+pitch:'Not a theme restaurant with show posters on the wall — an actual fine-dining experience built on Netflix’s real superpower: knowing exactly what you want before you do. <strong>The menu doesn’t exist until you sit down.</strong> It’s generated from your watch history.',
 proofs:[
-{ico:'\ud83c\udf7d\ufe0f',t:'The "For You" Menu',b:'Binged a Korean drama last week? Your menu opens on bibimbap. Marathon\u2019d a true crime series? The chef\u2019s special is called "The Last Meal" \u2014 dramatic plating included.'},
-{ico:'\ud83c\udfac',t:'Episode-Paced Courses',b:'Courses arrive like episodes \u2014 a "cold open" amuse-bouche, then the courses build tension, then a literal cliffhanger dessert that\u2019s "to be continued" next visit.'},
-{ico:'\u23f8\ufe0f',t:'Skip Intro, Skip Course',b:'A button on the table lets you skip a course you\u2019re not feeling \u2014 just like skipping an opening sequence. The kitchen adapts in real time.'},
-{ico:'\ud83d\udcca',t:'Are You Still Eating?',b:'After course 3, a server gently asks "Are you still eating?" \u2014 the same prompt that catches you at 3AM mid-binge. It\u2019s funny because it\u2019s true.'},
+{ico:'\ud83c\udf7d\ufe0f',t:'The "For You" Menu',b:'Binged a Korean drama last week? Your menu opens on bibimbap. Marathon’d a true crime series? The chef’s special is called "The Last Meal" — dramatic plating included.'},
+{ico:'\ud83c\udfac',t:'Episode-Paced Courses',b:'Courses arrive like episodes — a "cold open" amuse-bouche, then the courses build tension, then a literal cliffhanger dessert that’s "to be continued" next visit.'},
+{ico:'\u23f8\ufe0f',t:'Skip Intro, Skip Course',b:'A button on the table lets you skip a course you’re not feeling — just like skipping an opening sequence. The kitchen adapts in real time.'},
+{ico:'\ud83d\udcca',t:'Are You Still Eating?',b:'After course 3, a server gently asks "Are you still eating?" — the same prompt that catches you at 3AM mid-binge. It’s funny because it’s true.'},
 ],
 svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#1A0506"/><defs><radialGradient id="nfrg" cx="50%" cy="30%"><stop offset="0%" stop-color="#E50914" stop-opacity=".22"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#nfrg)"/><rect x="40" y="40" width="280" height="200" rx="6" fill="#0D0303" stroke="rgba(229,9,20,.3)" stroke-width="1"/><text x="180" y="72" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="3" font-weight="700">TONIGHT'S MENU</text><text x="180" y="100" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle" font-style="italic">Based on your week:</text><text x="180" y="124" font-family="Georgia,serif" font-size="11" fill="rgba(255,255,255,.6)" text-anchor="middle">"Squid Game" Season Finale</text><line x1="70" y1="140" x2="290" y2="140" stroke="rgba(229,9,20,.2)" stroke-width="1"/><text x="180" y="166" font-family="Georgia,serif" font-size="14" fill="#E50914" text-anchor="middle" font-weight="bold">Dalgona Dessert</text><text x="180" y="186" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.4)" text-anchor="middle">Crack it carefully. Stakes included.</text><text x="180" y="216" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.25)" text-anchor="middle">Episode 4 of 6 &middot; Skip Course?</text><rect x="380" y="40" width="280" height="200" rx="6" fill="#0D0303" stroke="rgba(229,9,20,.3)" stroke-width="1"/><text x="520" y="80" font-family="Georgia,serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">Are you</text><text x="520" y="110" font-family="Georgia,serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">still eating?</text><rect x="450" y="140" width="68" height="26" rx="4" fill="rgba(229,9,20,.18)" stroke="rgba(229,9,20,.4)" stroke-width="1"/><text x="484" y="157" font-family="sans-serif" font-size="8" fill="#E50914" text-anchor="middle" font-weight="700">YES, MORE</text><rect x="522" y="140" width="68" height="26" rx="4" fill="rgba(255,255,255,.06)"/><text x="556" y="157" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.45)" text-anchor="middle">CHECK PLEASE</text><text x="520" y="200" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.22)" text-anchor="middle">Course 4 of 6 starting in 8s...</text><text x="350" y="290" font-family="Georgia,serif" font-size="26" fill="rgba(255,255,255,.85)" text-anchor="middle" font-style="italic">N is for Napkin.</text><text x="350" y="320" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="2">EATFLIX &middot; A NETFLIX RESTAURANT CONCEPT</text></svg>`},
 
 {q:'What if Nike launched a dating app?',brand:'Nike',color:'#FF6B35',bg:'#0D0D0D',deco:'JUST SWIPE IT',
-pitch:'Not another app that matches you on photos and bios. Nike already knows your running pace, your gym hours, your competitive streak. <strong>Match Made dot Run</strong> pairs people by training compatibility \u2014 because a 5K pace mismatch ends more dates than personality ever does.',
+pitch:'Not another app that matches you on photos and bios. Nike already knows your running pace, your gym hours, your competitive streak. <strong>Match Made dot Run</strong> pairs people by training compatibility — because a 5K pace mismatch ends more dates than personality ever does.',
 proofs:[
 {ico:'\ud83c\udfc3',t:'Pace-Based Matching',b:'Swipe based on actual running pace and workout intensity, pulled from Nike Run Club data. No more matching a marathoner with someone who "jogs sometimes."'},
-{ico:'\ud83d\udcaa',t:'The First Date Is a Workout',b:'No coffee-shop awkwardness. First dates default to a co-designed 30-minute session \u2014 you find out who someone really is in round 2 of burpees.'},
-{ico:'\ud83c\udfc6',t:'Just Do It (To Them)',b:'A bold "Just Do It" button replaces the standard like button. Brand-true, slightly unhinged, exactly the energy Nike\u2019s marketing already has.'},
-{ico:'\ud83d\udc5f',t:'Shared Shoe Drop Alerts',b:'Matched couples get notified together when a sneaker drop they\u2019ve both wishlisted goes live. Shared anticipation as a relationship milestone.'},
+{ico:'\ud83d\udcaa',t:'The First Date Is a Workout',b:'No coffee-shop awkwardness. First dates default to a co-designed 30-minute session — you find out who someone really is in round 2 of burpees.'},
+{ico:'\ud83c\udfc6',t:'Just Do It (To Them)',b:'A bold "Just Do It" button replaces the standard like button. Brand-true, slightly unhinged, exactly the energy Nike’s marketing already has.'},
+{ico:'\ud83d\udc5f',t:'Shared Shoe Drop Alerts',b:'Matched couples get notified together when a sneaker drop they’ve both wishlisted goes live. Shared anticipation as a relationship milestone.'},
 ],
 svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#0D0D0D"/><defs><radialGradient id="nkrg" cx="30%" cy="40%"><stop offset="0%" stop-color="#FF6B35" stop-opacity=".18"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#nkrg)"/><rect x="220" y="36" width="260" height="288" rx="20" fill="#161616" stroke="rgba(255,107,53,.3)" stroke-width="1.5"/><text x="350" y="70" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle" font-weight="700" letter-spacing="2">MATCH MADE.RUN</text><circle cx="350" cy="130" r="42" fill="rgba(255,107,53,.14)" stroke="rgba(255,107,53,.4)" stroke-width="2"/><text x="350" y="138" font-family="sans-serif" font-size="22" text-anchor="middle">\ud83c\udfc3</text><text x="350" y="200" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle" font-weight="bold">Aanya, 27</text><text x="350" y="220" font-family="sans-serif" font-size="8.5" fill="#FF6B35" text-anchor="middle" font-weight="700">5:40/km pace &middot; 92% match</text><text x="350" y="240" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.4)" text-anchor="middle">Marathon PB: 3:48 &middot; Loves hills</text><rect x="262" y="262" width="80" height="34" rx="17" fill="rgba(255,255,255,.06)"/><text x="302" y="283" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.5)" text-anchor="middle">PASS</text><rect x="358" y="262" width="80" height="34" rx="17" fill="#FF6B35"/><text x="398" y="283" font-family="sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="800">JUST DO IT</text><text x="350" y="334" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.2)" text-anchor="middle" letter-spacing="2">A NIKE DATING APP CONCEPT &middot; ESHAAN DUA</text></svg>`},
 
 {q:'What if Blinkit became a bank?',brand:'Blinkit',color:'#F8C200',bg:'#100D00',deco:'BLINKIT PAY',
-pitch:'Blinkit knows your spending habits down to the minute \u2014 better than any bank\u2019s risk model. <strong>Blinkit Bank</strong> isn\u2019t a loyalty wallet bolted onto an app. It\u2019s a real neobank built on the most honest financial data that exists: what you actually buy, at 11PM, when nobody\u2019s pretending.',
+pitch:'Blinkit knows your spending habits down to the minute — better than any bank’s risk model. <strong>Blinkit Bank</strong> isn’t a loyalty wallet bolted onto an app. It’s a real neobank built on the most honest financial data that exists: what you actually buy, at 11PM, when nobody’s pretending.',
 proofs:[
-{ico:'\u26a1',t:'10-Minute Loans',b:'Same delivery-speed promise, applied to micro-loans. Need \u20b92,000 before salary day? Approved and disbursed faster than your dal makhani arrives.'},
-{ico:'\ud83d\udcca',t:'The Honest Spend Score',b:'A credit score built on real consumption patterns \u2014 consistent grocery spend signals more stability than any salary slip ever could.'},
-{ico:'\ud83c\udfe6',t:'Midnight Savings Round-Up',b:'Every 3AM impulse order rounds up to the nearest \u20b950 and auto-invests the difference. Guilt, productively redirected.'},
-{ico:'\ud83d\udcb3',t:'The Blinkit Card',b:'A debit card that glows like the app icon. Cashback isn\u2019t points \u2014 it\u2019s literally faster delivery slots on your next order.'},
+{ico:'\u26a1',t:'10-Minute Loans',b:'Same delivery-speed promise, applied to micro-loans. Need ₹2,000 before salary day? Approved and disbursed faster than your dal makhani arrives.'},
+{ico:'\ud83d\udcca',t:'The Honest Spend Score',b:'A credit score built on real consumption patterns — consistent grocery spend signals more stability than any salary slip ever could.'},
+{ico:'\ud83c\udfe6',t:'Midnight Savings Round-Up',b:'Every 3AM impulse order rounds up to the nearest ₹50 and auto-invests the difference. Guilt, productively redirected.'},
+{ico:'\ud83d\udcb3',t:'The Blinkit Card',b:'A debit card that glows like the app icon. Cashback isn’t points — it’s literally faster delivery slots on your next order.'},
 ],
-svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#100D00"/><defs><radialGradient id="bkrg" cx="40%" cy="30%"><stop offset="0%" stop-color="#F8C200" stop-opacity=".16"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#bkrg)"/><rect x="50" y="60" width="290" height="180" rx="14" fill="#1A1500" stroke="rgba(248,194,0,.35)" stroke-width="1.5"/><text x="76" y="98" font-family="sans-serif" font-size="9" fill="rgba(248,194,0,.7)" font-weight="700" letter-spacing="2">BLINKIT BANK</text><text x="76" y="150" font-family="monospace" font-size="13" fill="rgba(255,255,255,.6)" letter-spacing="2">4291 \u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022 7710</text><text x="76" y="180" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.4)">ESHAAN DUA</text><text x="76" y="216" font-family="sans-serif" font-size="7" fill="#F8C200">10-min loans \u2022 instant cashback</text><rect x="380" y="60" width="270" height="240" rx="6" fill="#0D0A00"/><text x="515" y="92" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="2" font-weight="700">HONEST SPEND SCORE</text><text x="515" y="140" font-family="Georgia,serif" font-size="40" fill="#F8C200" text-anchor="middle" font-weight="bold">812</text><text x="515" y="162" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.4)" text-anchor="middle">Excellent &middot; based on real spend</text><rect x="400" y="186" width="230" height="8" rx="4" fill="rgba(255,255,255,.08)"/><rect x="400" y="186" width="190" height="8" rx="4" fill="#F8C200"/><text x="515" y="222" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.35)" text-anchor="middle">Loan eligibility: \u20b915,000 in 10 min</text><text x="350" y="332" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.18)" text-anchor="middle" letter-spacing="2">BLINKIT BANK CONCEPT &middot; ESHAAN DUA</text></svg>`},
+svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#100D00"/><defs><radialGradient id="bkrg" cx="40%" cy="30%"><stop offset="0%" stop-color="#F8C200" stop-opacity=".16"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#bkrg)"/><rect x="50" y="60" width="290" height="180" rx="14" fill="#1A1500" stroke="rgba(248,194,0,.35)" stroke-width="1.5"/><text x="76" y="98" font-family="sans-serif" font-size="9" fill="rgba(248,194,0,.7)" font-weight="700" letter-spacing="2">BLINKIT BANK</text><text x="76" y="150" font-family="monospace" font-size="13" fill="rgba(255,255,255,.6)" letter-spacing="2">4291 •••• •••• 7710</text><text x="76" y="180" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.4)">ESHAAN DUA</text><text x="76" y="216" font-family="sans-serif" font-size="7" fill="#F8C200">10-min loans • instant cashback</text><rect x="380" y="60" width="270" height="240" rx="6" fill="#0D0A00"/><text x="515" y="92" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="2" font-weight="700">HONEST SPEND SCORE</text><text x="515" y="140" font-family="Georgia,serif" font-size="40" fill="#F8C200" text-anchor="middle" font-weight="bold">812</text><text x="515" y="162" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.4)" text-anchor="middle">Excellent &middot; based on real spend</text><rect x="400" y="186" width="230" height="8" rx="4" fill="rgba(255,255,255,.08)"/><rect x="400" y="186" width="190" height="8" rx="4" fill="#F8C200"/><text x="515" y="222" font-family="sans-serif" font-size="7.5" fill="rgba(255,255,255,.35)" text-anchor="middle">Loan eligibility: ₹15,000 in 10 min</text><text x="350" y="332" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.18)" text-anchor="middle" letter-spacing="2">BLINKIT BANK CONCEPT &middot; ESHAAN DUA</text></svg>`},
 
 {q:'What if Starbucks sold memories instead of coffee?',brand:'Starbucks',color:'#00704A',bg:'#021410',deco:'BREWED MEMORIES',
-pitch:'Every Starbucks cup already has your name handwritten on it \u2014 the closest thing to a personal ritual a chain has ever built. <strong>What if the cup became the product, and the coffee was just the delivery mechanism?</strong> A loyalty system built on moments, not points.',
+pitch:'Every Starbucks cup already has your name handwritten on it — the closest thing to a personal ritual a chain has ever built. <strong>What if the cup became the product, and the coffee was just the delivery mechanism?</strong> A loyalty system built on moments, not points.',
 proofs:[
 {ico:'\u2615',t:'The Memory Cup',b:'Every order auto-logs a tiny timestamp: where you were, who you were with (if you tag them), what was playing. A year later, that cup resurfaces as a memory, not a receipt.'},
-{ico:'\ud83d\udcdd',t:'Barista-Written Micro Notes',b:'Beyond the name \u2014 baristas get trained to add one observed detail. "Reading a thick book today" becomes part of your personal cup history.'},
-{ico:'\ud83c\udf9e\ufe0f',t:'The Anniversary Order',b:'On the date you first visited a specific store, app nudges: "One year ago, right here, you ordered this." Most people don\u2019t remember their own routines this precisely \u2014 Starbucks would.'},
-{ico:'\ud83c\udfa8',t:'Cup Art as Memory Index',b:'Limited seasonal cup designs become visual bookmarks for life chapters \u2014 "the red cup era when I got the job" becomes real, collectible, searchable.'},
+{ico:'\ud83d\udcdd',t:'Barista-Written Micro Notes',b:'Beyond the name — baristas get trained to add one observed detail. "Reading a thick book today" becomes part of your personal cup history.'},
+{ico:'\ud83c\udf9e\ufe0f',t:'The Anniversary Order',b:'On the date you first visited a specific store, app nudges: "One year ago, right here, you ordered this." Most people don’t remember their own routines this precisely — Starbucks would.'},
+{ico:'\ud83c\udfa8',t:'Cup Art as Memory Index',b:'Limited seasonal cup designs become visual bookmarks for life chapters — "the red cup era when I got the job" becomes real, collectible, searchable.'},
 ],
 svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#021410"/><defs><radialGradient id="sbrg" cx="50%" cy="35%"><stop offset="0%" stop-color="#00704A" stop-opacity=".22"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#sbrg)"/><rect x="250" y="40" width="200" height="260" rx="10" fill="#fff"/><circle cx="350" cy="90" r="26" fill="#00704A"/><text x="350" y="96" font-family="sans-serif" font-size="12" fill="white" text-anchor="middle">\u2615</text><line x1="270" y1="130" x2="430" y2="130" stroke="#E8E0D0" stroke-width="1"/><text x="290" y="158" font-family="'Comic Sans MS',cursive" font-size="12" fill="#021410">Eshaan</text><text x="290" y="178" font-family="sans-serif" font-size="7" fill="#888">Reading a thick book today</text><text x="290" y="198" font-family="sans-serif" font-size="7" fill="#888">Window seat, 4:12 PM</text><line x1="270" y1="212" x2="430" y2="212" stroke="#E8E0D0" stroke-width="1"/><text x="290" y="234" font-family="sans-serif" font-size="7" fill="#00704A" font-weight="700">MEMORY LOGGED:</text><text x="290" y="252" font-family="sans-serif" font-size="7" fill="#555">"One year ago today,</text><text x="290" y="266" font-family="sans-serif" font-size="7" fill="#555">right here, same order."</text><text x="350" y="332" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.2)" text-anchor="middle" letter-spacing="2">STARBUCKS MEMORY CUP CONCEPT &middot; ESHAAN DUA</text></svg>`},
 
 {q:'What if Spotify built a therapy app?',brand:'Spotify',color:'#1DB954',bg:'#040F08',deco:'SPOTIFY MIND',
-pitch:'Spotify already knows when you\u2019re sad before you do \u2014 the 2AM sad-song loop is a clearer mental health signal than most check-in apps collect. <strong>Spotify Mind</strong> doesn\u2019t replace therapy. It notices the pattern and gently opens the door to it.',
+pitch:'Spotify already knows when you’re sad before you do — the 2AM sad-song loop is a clearer mental health signal than most check-in apps collect. <strong>Spotify Mind</strong> doesn’t replace therapy. It notices the pattern and gently opens the door to it.',
 proofs:[
-{ico:'\ud83c\udfb5',t:'The Pattern Detector',b:'Three weeks of repeat melancholy playlists at 2AM triggers a quiet, non-alarming check-in \u2014 never clinical, never pushy. "Heavy month on repeat. Want to talk to someone?"'},
-{ico:'\ud83e\udde0',t:'Mood-Matched Licensed Therapists',b:'Partners with licensed counsellors who build "you don\u2019t have to explain everything" intake sessions based on your actual listening mood history, with consent.'},
+{ico:'\ud83c\udfb5',t:'The Pattern Detector',b:'Three weeks of repeat melancholy playlists at 2AM triggers a quiet, non-alarming check-in — never clinical, never pushy. "Heavy month on repeat. Want to talk to someone?"'},
+{ico:'\ud83e\udde0',t:'Mood-Matched Licensed Therapists',b:'Partners with licensed counsellors who build "you don’t have to explain everything" intake sessions based on your actual listening mood history, with consent.'},
 {ico:'\ud83c\udf19',t:'The 3AM Playlist That Listens Back',b:'A specific late-night playlist mode that, after consistent use, asks one soft question instead of just playing the next song.'},
-{ico:'\ud83d\udd12',t:'Total Privacy by Design',b:'Nothing is shared, sold, or shown to anyone \u2014 the entire feature is opt-in, anonymized, and exists only to open one door, gently, once.'},
+{ico:'\ud83d\udd12',t:'Total Privacy by Design',b:'Nothing is shared, sold, or shown to anyone — the entire feature is opt-in, anonymized, and exists only to open one door, gently, once.'},
 ],
-svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#040F08"/><defs><radialGradient id="spmrg" cx="50%" cy="40%"><stop offset="0%" stop-color="#1DB954" stop-opacity=".14"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#spmrg)"/><g opacity=".3"><rect x="60" y="240" width="10" height="40" rx="5" fill="#1DB954"/><rect x="78" y="210" width="10" height="70" rx="5" fill="#1DB954"/><rect x="96" y="180" width="10" height="100" rx="5" fill="#1DB954"/><rect x="114" y="150" width="10" height="130" rx="5" fill="#1DB954"/><rect x="132" y="190" width="10" height="90" rx="5" fill="#1DB954"/></g><rect x="280" y="60" width="280" height="220" rx="10" fill="#0A1B0E" stroke="rgba(29,185,84,.25)" stroke-width="1"/><text x="420" y="94" font-family="sans-serif" font-size="8" fill="#1DB954" text-anchor="middle" font-weight="700" letter-spacing="2">3:14 AM &middot; ON REPEAT, WEEK 3</text><text x="420" y="138" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle" font-style="italic">Heavy month on repeat.</text><text x="420" y="160" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle" font-style="italic">No rush. We\u2019re here</text><text x="420" y="182" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle" font-style="italic">if you want to talk.</text><rect x="350" y="210" width="140" height="32" rx="16" fill="rgba(29,185,84,.15)" stroke="#1DB954" stroke-width="1"/><text x="420" y="231" font-family="sans-serif" font-size="8.5" fill="#1DB954" text-anchor="middle" font-weight="700">Maybe later, keep playing</text><text x="350" y="332" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.18)" text-anchor="middle" letter-spacing="2">SPOTIFY MIND CONCEPT &middot; ESHAAN DUA</text></svg>`},
+svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#040F08"/><defs><radialGradient id="spmrg" cx="50%" cy="40%"><stop offset="0%" stop-color="#1DB954" stop-opacity=".14"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#spmrg)"/><g opacity=".3"><rect x="60" y="240" width="10" height="40" rx="5" fill="#1DB954"/><rect x="78" y="210" width="10" height="70" rx="5" fill="#1DB954"/><rect x="96" y="180" width="10" height="100" rx="5" fill="#1DB954"/><rect x="114" y="150" width="10" height="130" rx="5" fill="#1DB954"/><rect x="132" y="190" width="10" height="90" rx="5" fill="#1DB954"/></g><rect x="280" y="60" width="280" height="220" rx="10" fill="#0A1B0E" stroke="rgba(29,185,84,.25)" stroke-width="1"/><text x="420" y="94" font-family="sans-serif" font-size="8" fill="#1DB954" text-anchor="middle" font-weight="700" letter-spacing="2">3:14 AM &middot; ON REPEAT, WEEK 3</text><text x="420" y="138" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle" font-style="italic">Heavy month on repeat.</text><text x="420" y="160" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle" font-style="italic">No rush. We’re here</text><text x="420" y="182" font-family="Georgia,serif" font-size="15" fill="white" text-anchor="middle" font-style="italic">if you want to talk.</text><rect x="350" y="210" width="140" height="32" rx="16" fill="rgba(29,185,84,.15)" stroke="#1DB954" stroke-width="1"/><text x="420" y="231" font-family="sans-serif" font-size="8.5" fill="#1DB954" text-anchor="middle" font-weight="700">Maybe later, keep playing</text><text x="350" y="332" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.18)" text-anchor="middle" letter-spacing="2">SPOTIFY MIND CONCEPT &middot; ESHAAN DUA</text></svg>`},
 
 {q:'What if CRED ran a members-only city?',brand:'CRED',color:'#6C63FF',bg:'#0E0C1F',deco:'CRED CITY',
-pitch:'CRED already gatekeeps based on financial trust. <strong>What if that trust unlocked a physical place</strong> \u2014 not a building, a rotating "CRED City" pop-up across India\u2019s metros: restaurants, events, even parking spots, accessible only by CRED score. Exclusivity, made tangible.',
+pitch:'CRED already gatekeeps based on financial trust. <strong>What if that trust unlocked a physical place</strong> — not a building, a rotating "CRED City" pop-up across India’s metros: restaurants, events, even parking spots, accessible only by CRED score. Exclusivity, made tangible.',
 proofs:[
-{ico:'\ud83c\udfd9\ufe0f',t:'The Invisible District',b:'Partner restaurants and cafes have a hidden "CRED entrance" \u2014 no signage, app-only access, members walk past a queue that doesn\u2019t exist for them.'},
+{ico:'\ud83c\udfd9\ufe0f',t:'The Invisible District',b:'Partner restaurants and cafes have a hidden "CRED entrance" — no signage, app-only access, members walk past a queue that doesn’t exist for them.'},
 {ico:'\ud83c\udd7f\ufe0f',t:'Score-Gated Parking',b:'Premium parking spots in dense metro areas unlock only for top-tier CRED scores. Trust, quite literally, gets you closer to the door.'},
-{ico:'\ud83c\udf9f\ufe0f',t:'Pop-Up Score Events',b:'Quarterly invite-only events in each city \u2014 the venue is revealed only 24 hours before, to members above a score threshold. FOMO, engineered honestly.'},
-{ico:'\ud83d\uddfd',t:'The City Changes Quarterly',b:'CRED City rotates between Mumbai, Bengaluru, Delhi, and Hyderabad each quarter \u2014 keeps the exclusivity fresh and gives every metro its turn at the spotlight.'},
+{ico:'\ud83c\udf9f\ufe0f',t:'Pop-Up Score Events',b:'Quarterly invite-only events in each city — the venue is revealed only 24 hours before, to members above a score threshold. FOMO, engineered honestly.'},
+{ico:'\ud83d\uddfd',t:'The City Changes Quarterly',b:'CRED City rotates between Mumbai, Bengaluru, Delhi, and Hyderabad each quarter — keeps the exclusivity fresh and gives every metro its turn at the spotlight.'},
 ],
-svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#0E0C1F"/><defs><radialGradient id="ccrg2" cx="50%" cy="30%"><stop offset="0%" stop-color="#6C63FF" stop-opacity=".18"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#ccrg2)"/><g opacity=".5"><rect x="40" y="180" width="40" height="120" fill="#1E1A3A"/><rect x="90" y="140" width="40" height="160" fill="#1E1A3A"/><rect x="140" y="200" width="40" height="100" fill="#1E1A3A"/><rect x="190" y="100" width="40" height="200" fill="#1E1A3A"/><rect x="240" y="160" width="40" height="140" fill="#1E1A3A"/></g><rect x="320" y="70" width="320" height="210" rx="8" fill="#100D20" stroke="rgba(108,99,255,.3)" stroke-width="1.5"/><text x="480" y="106" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="3" font-weight="700">CRED CITY &middot; MUMBAI EDITION</text><text x="480" y="150" font-family="Georgia,serif" font-size="26" fill="white" text-anchor="middle" font-style="italic">There\u2019s a door</text><text x="480" y="180" font-family="Georgia,serif" font-size="26" fill="#6C63FF" text-anchor="middle" font-style="italic">only you can see.</text><text x="480" y="222" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle">Score 780+ unlocks this quarter\u2019s city.</text><text x="480" y="250" font-family="sans-serif" font-size="8" fill="#6C63FF" text-anchor="middle">Next reveal in 14 hours.</text><text x="350" y="332" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.16)" text-anchor="middle" letter-spacing="2">CRED CITY CONCEPT &middot; ESHAAN DUA</text></svg>`},
+svg:`<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg"><rect width="700" height="360" fill="#0E0C1F"/><defs><radialGradient id="ccrg2" cx="50%" cy="30%"><stop offset="0%" stop-color="#6C63FF" stop-opacity=".18"/><stop offset="100%" stop-color="#000" stop-opacity="1"/></radialGradient></defs><rect width="700" height="360" fill="url(#ccrg2)"/><g opacity=".5"><rect x="40" y="180" width="40" height="120" fill="#1E1A3A"/><rect x="90" y="140" width="40" height="160" fill="#1E1A3A"/><rect x="140" y="200" width="40" height="100" fill="#1E1A3A"/><rect x="190" y="100" width="40" height="200" fill="#1E1A3A"/><rect x="240" y="160" width="40" height="140" fill="#1E1A3A"/></g><rect x="320" y="70" width="320" height="210" rx="8" fill="#100D20" stroke="rgba(108,99,255,.3)" stroke-width="1.5"/><text x="480" y="106" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="3" font-weight="700">CRED CITY &middot; MUMBAI EDITION</text><text x="480" y="150" font-family="Georgia,serif" font-size="26" fill="white" text-anchor="middle" font-style="italic">There’s a door</text><text x="480" y="180" font-family="Georgia,serif" font-size="26" fill="#6C63FF" text-anchor="middle" font-style="italic">only you can see.</text><text x="480" y="222" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.4)" text-anchor="middle">Score 780+ unlocks this quarter’s city.</text><text x="480" y="250" font-family="sans-serif" font-size="8" fill="#6C63FF" text-anchor="middle">Next reveal in 14 hours.</text><text x="350" y="332" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,.16)" text-anchor="middle" letter-spacing="2">CRED CITY CONCEPT &middot; ESHAAN DUA</text></svg>`},
 ];
 
 
